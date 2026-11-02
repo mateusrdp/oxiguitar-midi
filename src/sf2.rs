@@ -382,18 +382,12 @@ mod tests {
 
     #[test]
     fn the_contract_suites_test_set_is_this_one() {
-        // `OXIGUITAR_BLESS=1 cargo test -p oxiguitar-soundfont-plugin` writes it.
-        let path = concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/../../crates/oxiguitar-plugin-test/src/test-sine.sf2"
-        );
-        let made = test_set();
-        if std::env::var_os("OXIGUITAR_BLESS").is_some() {
-            std::fs::write(path, &made).unwrap();
-        }
+        // The SDK's test set (`oxiguitar_plugin_test::TEST_SET`) is written
+        // by this plugin's writer; a new SDK tag with another set means
+        // this writer changed in OxiGuitar's repository.
         assert!(
-            std::fs::read(path).is_ok_and(|kept| kept == made),
-            "{path} is out of date: run with OXIGUITAR_BLESS=1"
+            oxiguitar_plugin_test::TEST_SET == test_set(),
+            "the SDK's test set differs from the one this plugin writes"
         );
     }
 }
