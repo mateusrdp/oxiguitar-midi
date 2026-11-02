@@ -1,4 +1,4 @@
-# Listening packs, by hand: every reference song (fixtures/reference/*.gp)
+# Listening packs, by hand: every reference song (OxiGuitar's fixtures/reference/*.gp)
 # played into a WAV file by `oxiguitar-cli play --wav`, through our
 # SoundFont plugin, once with each General MIDI set Debian and Ubuntu
 # package: FluidR3 (fluid-soundfont-gm) and MuseScore General
@@ -32,15 +32,27 @@ jobs:
     name: Render the reference songs
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends libasound2-dev libpipewire-0.3-dev libclang-dev \
             fluid-soundfont-gm musescore-general-soundfont
-      - run: cargo build --release --locked -p oxiguitar-cli
-      - run: scripts/build-plugins.sh
+      # The command line, the Guitar Pro plugins and the reference songs
+      # come from OxiGuitar v0.11.0 (the tag this plugin is built for); the
+      # MIDI plugin under test is this repository's own. (Once
+      # oxiguitar-guitarpro has a release, the plugins can be its zip.)
+      - name: OxiGuitar's command line and Guitar Pro plugins (v0.11.0)
+        run: |
+          git clone --depth 1 --branch v0.11.0 https://github.com/mateusrdp/oxiguitar .oxiguitar
+          cd .oxiguitar
+          cargo build --release --locked -p oxiguitar-cli
+          for p in gp3 gp4 gp5 gpx gp; do scripts/build-plugins.sh --only "$p"; done
+      - name: This repository's MIDI plugin
+        run: |
+          ./build-oxp.sh
+          cp dist/midi-*-linux-x86_64.oxp .oxiguitar/target/lib/oxiguitar/plugins/midi.oxp
       - name: Render
         run: |
           set -euo pipefail
@@ -55,9 +67,9 @@ jobs:
             mkdir -p "$home/soundfonts" "listening/$name"
             # The user's folder plays before the system's: this set alone.
             ln -s "$set_file" "$home/soundfonts/"
-            for song in fixtures/reference/*.gp; do
+            for song in .oxiguitar/fixtures/reference/*.gp; do
               out="listening/$name/$(basename "$song" .gp).wav"
-              OXIGUITAR_HOME="$home" target/release/oxiguitar-cli play "$song" --wav "$out" 2>&1 \
+              OXIGUITAR_HOME="$home" .oxiguitar/target/release/oxiguitar-cli play "$song" --wav "$out" 2>&1 \
                 | grep -v 'basic sound set' || true
               test -s "$out"
             done
@@ -68,12 +80,12 @@ jobs:
             } > "listening/$name/README.txt"
             echo "::notice title=$name::$(ls listening/$name/*.wav | wc -l) songs, $(du -sh listening/$name | cut -f1)"
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-fluidr3
           path: listening/fluidr3
           retention-days: 14
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-musescore-general
           path: listening/musescore-general
@@ -83,15 +95,27 @@ jobs:
     name: Render the reference songs with FreePats' guitars
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends libasound2-dev libpipewire-0.3-dev libclang-dev \
             fluid-soundfont-gm p7zip-full
-      - run: cargo build --release --locked -p oxiguitar-cli
-      - run: scripts/build-plugins.sh
+      # The command line, the Guitar Pro plugins and the reference songs
+      # come from OxiGuitar v0.11.0 (the tag this plugin is built for); the
+      # MIDI plugin under test is this repository's own. (Once
+      # oxiguitar-guitarpro has a release, the plugins can be its zip.)
+      - name: OxiGuitar's command line and Guitar Pro plugins (v0.11.0)
+        run: |
+          git clone --depth 1 --branch v0.11.0 https://github.com/mateusrdp/oxiguitar .oxiguitar
+          cd .oxiguitar
+          cargo build --release --locked -p oxiguitar-cli
+          for p in gp3 gp4 gp5 gpx gp; do scripts/build-plugins.sh --only "$p"; done
+      - name: This repository's MIDI plugin
+        run: |
+          ./build-oxp.sh
+          cp dist/midi-*-linux-x86_64.oxp .oxiguitar/target/lib/oxiguitar/plugins/midi.oxp
       - name: Fetch the banks
         run: |
           set -euo pipefail
@@ -120,9 +144,9 @@ jobs:
             # FluidR3 for the rest.
             printf '{"oxiguitar.midi":{"electric-guitars":"%s","acoustic-guitars":"%s","basses":"%s","drums":"%s","other":"%s"}}\n' \
               "$mine" "$mine" "$fluid" "$fluid" "$fluid" > "$home/settings.json"
-            for song in fixtures/reference/*.gp; do
+            for song in .oxiguitar/fixtures/reference/*.gp; do
               out="listening/freepats-$b/$(basename "$song" .gp).wav"
-              OXIGUITAR_HOME="$home" target/release/oxiguitar-cli play "$song" --wav "$out"
+              OXIGUITAR_HOME="$home" .oxiguitar/target/release/oxiguitar-cli play "$song" --wav "$out"
               test -s "$out"
             done
             {
@@ -135,17 +159,17 @@ jobs:
             } > "listening/freepats-$b/README.txt"
             echo "::notice title=freepats-$b::$(ls listening/freepats-$b/*.wav | wc -l) songs, $(du -sh listening/freepats-$b | cut -f1)"
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-freepats-clean
           path: listening/freepats-clean
           retention-days: 14
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-freepats-jazz
           path: listening/freepats-jazz
           retention-days: 14
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-freepats-direct
           path: listening/freepats-direct
@@ -209,15 +233,27 @@ jobs:
             program: DrumGizmo/MuldjordKit/Stereo/DrumGizmo MuldjordKit.sfz
             roles: drums
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends libasound2-dev libpipewire-0.3-dev libclang-dev \
             fluid-soundfont-gm p7zip-full
-      - run: cargo build --release --locked -p oxiguitar-cli
-      - run: scripts/build-plugins.sh
+      # The command line, the Guitar Pro plugins and the reference songs
+      # come from OxiGuitar v0.11.0 (the tag this plugin is built for); the
+      # MIDI plugin under test is this repository's own. (Once
+      # oxiguitar-guitarpro has a release, the plugins can be its zip.)
+      - name: OxiGuitar's command line and Guitar Pro plugins (v0.11.0)
+        run: |
+          git clone --depth 1 --branch v0.11.0 https://github.com/mateusrdp/oxiguitar .oxiguitar
+          cd .oxiguitar
+          cargo build --release --locked -p oxiguitar-cli
+          for p in gp3 gp4 gp5 gpx gp; do scripts/build-plugins.sh --only "$p"; done
+      - name: This repository's MIDI plugin
+        run: |
+          ./build-oxp.sh
+          cp dist/midi-*-linux-x86_64.oxp .oxiguitar/target/lib/oxiguitar/plugins/midi.oxp
       - name: Fetch the set
         env:
           REPO: ${{ matrix.repo }}
@@ -266,9 +302,9 @@ jobs:
           cat "$home/settings.json"
           out="listening/sfz-${{ matrix.name }}"
           mkdir -p "$out"
-          for song in fixtures/reference/*.gp; do
+          for song in .oxiguitar/fixtures/reference/*.gp; do
             wav="$out/$(basename "$song" .gp).wav"
-            OXIGUITAR_HOME="$home" target/release/oxiguitar-cli play "$song" --wav "$wav" 2>&1 | tee -a "$out/log.txt"
+            OXIGUITAR_HOME="$home" .oxiguitar/target/release/oxiguitar-cli play "$song" --wav "$wav" 2>&1 | tee -a "$out/log.txt"
             test -s "$wav"
           done
           {
@@ -282,7 +318,7 @@ jobs:
             echo "log.txt has what the plugin said, such as missing samples."
           } > "$out/README.txt"
           echo "::notice title=${{ matrix.name }}::$(ls "$out"/*.wav | wc -l) songs, $(du -sh "$out" | cut -f1)"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-sfz-${{ matrix.name }}
           path: listening/sfz-${{ matrix.name }}

@@ -1,0 +1,28 @@
+# Tells the package repositories, the Homebrew tap and winget when the
+# maintainer publishes a release (#165). The work is oxiguitar's reusable
+# workflow plugin-publish.yml: it checks the release holds every file and
+# sum, then sends the event. It needs the secrets PACKAGES_TOKEN and
+# WINGET_TOKEN; without them nothing is sent and the run says so.
+name: Publish
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: The release's tag, such as v1.0.0
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    uses: mateusrdp/oxiguitar/.github/workflows/plugin-publish.yml@v0.11.0
+    with:
+      name: midi
+      tag: ${{ inputs.tag }}
+      winget-id: mateusrdp.OxiGuitar.MIDI
+      tools-ref: v0.11.0
+    secrets: inherit
