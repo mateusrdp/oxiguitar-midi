@@ -202,7 +202,7 @@ pub(crate) mod tests {
             wav_file(48_000, 2, 24, &[1, 2], None),
         )
         .unwrap();
-        let fixtures = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../fixtures/sfz");
+        let fixtures = Path::new(env!("CARGO_MANIFEST_DIR")).join("fixtures/sfz");
         std::fs::copy(fixtures.join("sine-24.flac"), dir.join("Samples/c.flac")).unwrap();
         std::fs::write(
             dir.join("Programs/kit.sfz"),
