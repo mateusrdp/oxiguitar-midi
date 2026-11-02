@@ -32,7 +32,7 @@ jobs:
     name: Render the reference songs
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
@@ -95,7 +95,7 @@ jobs:
     name: Render the reference songs with FreePats' guitars
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
@@ -233,7 +233,7 @@ jobs:
             program: DrumGizmo/MuldjordKit/Stereo/DrumGizmo MuldjordKit.sfz
             roles: drums
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
