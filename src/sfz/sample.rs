@@ -437,7 +437,7 @@ pub(crate) mod tests {
     /// The FLAC and Ogg fixtures: a 440 Hz sine, 0.1 s at 44.1 kHz, made
     /// with ffmpeg (`fixtures/sfz/README.md`).
     fn fixture(name: &str) -> Vec<u8> {
-        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../fixtures/sfz");
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("fixtures/sfz");
         std::fs::read(root.join(name)).unwrap()
     }
 
