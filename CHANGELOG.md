@@ -6,7 +6,7 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-## [1.0.0] - Unreleased
+## [0.1.0] - 2026-11-02
 
 First release in a repository of its own (mateusrdp/oxiguitar#165). The
 plugin is the one of OxiGuitar 0.11.0, with its history: id
