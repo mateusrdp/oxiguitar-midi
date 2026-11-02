@@ -80,12 +80,12 @@ jobs:
             } > "listening/$name/README.txt"
             echo "::notice title=$name::$(ls listening/$name/*.wav | wc -l) songs, $(du -sh listening/$name | cut -f1)"
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-fluidr3
           path: listening/fluidr3
           retention-days: 14
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-musescore-general
           path: listening/musescore-general
@@ -159,17 +159,17 @@ jobs:
             } > "listening/freepats-$b/README.txt"
             echo "::notice title=freepats-$b::$(ls listening/freepats-$b/*.wav | wc -l) songs, $(du -sh listening/freepats-$b | cut -f1)"
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-freepats-clean
           path: listening/freepats-clean
           retention-days: 14
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-freepats-jazz
           path: listening/freepats-jazz
           retention-days: 14
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-freepats-direct
           path: listening/freepats-direct
@@ -318,7 +318,7 @@ jobs:
             echo "log.txt has what the plugin said, such as missing samples."
           } > "$out/README.txt"
           echo "::notice title=${{ matrix.name }}::$(ls "$out"/*.wav | wc -l) songs, $(du -sh "$out" | cut -f1)"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: listening-sfz-${{ matrix.name }}
           path: listening/sfz-${{ matrix.name }}
