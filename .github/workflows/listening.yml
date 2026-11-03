@@ -142,8 +142,8 @@ jobs:
             mine="$(readlink -f "$home/soundfonts/$(basename "$sf2")")"
             # The plugin's settings window's picks: this bank for guitars,
             # FluidR3 for the rest.
-            printf '{"oxiguitar.midi":{"electric-guitars":"%s","acoustic-guitars":"%s","basses":"%s","drums":"%s","other":"%s"}}\n' \
-              "$mine" "$mine" "$fluid" "$fluid" "$fluid" > "$home/settings.json"
+            printf '{"oxiguitar.midi":{"clean-guitars":"%s","overdriven-guitars":"%s","distorted-guitars":"%s","acoustic-guitars":"%s","basses":"%s","drums":"%s","other":"%s"}}\n' \
+              "$mine" "$mine" "$mine" "$mine" "$fluid" "$fluid" "$fluid" > "$home/settings.json"
             for song in .oxiguitar/fixtures/reference/*.gp; do
               out="listening/freepats-$b/$(basename "$song" .gp).wav"
               OXIGUITAR_HOME="$home" .oxiguitar/target/release/oxiguitar-cli play "$song" --wav "$out"
@@ -191,17 +191,17 @@ jobs:
             title: "Karoryfer's Black and Green Guitars, green (CC0), its key-switched program"
             repo: sfzinstruments/karoryfer.black-and-green-guitars
             program: Programs/01-green_keyswitch.sfz
-            roles: electric-guitars acoustic-guitars
+            roles: clean-guitars overdriven-guitars distorted-guitars acoustic-guitars
           - name: bg-black
             title: "Karoryfer's Black and Green Guitars, black (CC0), its key-switched program"
             repo: sfzinstruments/karoryfer.black-and-green-guitars
             program: Programs/02-black_keyswitch.sfz
-            roles: electric-guitars acoustic-guitars
+            roles: clean-guitars overdriven-guitars distorted-guitars acoustic-guitars
           - name: freepats-clean-sfz
             title: "FreePats' clean electric guitar (CC0) as SFZ with FLAC samples: the same recordings as the SoundFont 2 bank Mateus approved, through the SFZ sampler"
             archive: https://github.com/freepats/electric-guitar-FSBS-clean/releases/download/2026-08-07/EGuitarFSBS-clean-SFZ+FLAC-20260807.7z
             program: '*.sfz'
-            roles: electric-guitars acoustic-guitars
+            roles: clean-guitars overdriven-guitars distorted-guitars acoustic-guitars
           - name: bb-basses
             title: "Karoryfer's Black and Blue Basses (CC0), dark black, its key-switched program"
             repo: sfzinstruments/karoryfer.black-and-blue-basses
@@ -291,7 +291,7 @@ jobs:
           pick="$(readlink -f "$program")"
           fluid="$(readlink -f /usr/share/sounds/sf2/FluidR3_GM.sf2)"
           picks=""
-          for role in electric-guitars acoustic-guitars basses drums other; do
+          for role in clean-guitars overdriven-guitars distorted-guitars acoustic-guitars basses drums other; do
             if [[ " $ROLES " == *" $role "* ]]; then
               picks+="\"$role\":\"$pick\","
             else

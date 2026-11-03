@@ -8,7 +8,7 @@
 //! ```json
 //! {
 //!   "name": "Black and Green Guitars (Karoryfer)",
-//!   "role": "electric-guitars",
+//!   "role": "clean-guitars",
 //!   "licence": "CC0",
 //!   "credit": "Karoryfer Samples",
 //!   "source": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars"
@@ -39,9 +39,9 @@ const MAX_BYTES: u64 = 64 * 1024;
 pub(crate) struct Info {
     /// What to call the set.
     pub(crate) name: Option<String>,
-    /// The kind of track it is for, which the settings window suggests it
-    /// for.
-    pub(crate) role: Option<Role>,
+    /// The kinds of track it is for: one role, or the three electric ones
+    /// for `electric-guitars`, the key before #152.
+    pub(crate) roles: Vec<Role>,
     /// Its licence, as its authors name it ("CC0", "CC BY 4.0").
     pub(crate) licence: Option<String>,
     /// Who made it, to be credited.
@@ -65,7 +65,7 @@ impl Info {
         };
         let info = Info {
             name: string("name"),
-            role: string("role").and_then(|r| Role::from_key(&r)),
+            roles: string("role").map_or_else(Vec::new, |r| Role::of_key(&r)),
             // Both spellings, as the installer's author may use either.
             licence: string("licence").or_else(|| string("license")),
             credit: string("credit"),
@@ -103,7 +103,7 @@ mod tests {
     #[test]
     fn the_file_is_read_leniently() {
         let info = Info::parse(
-            r#"{"name": " Black and Green Guitars (Karoryfer) ", "role": "electric-guitars",
+            r#"{"name": " Black and Green Guitars (Karoryfer) ", "role": "distorted-guitars",
                 "license": "CC0", "credit": "Karoryfer Samples", "extra": [1, 2]}"#,
         )
         .unwrap();
@@ -111,7 +111,17 @@ mod tests {
             info.name.as_deref(),
             Some("Black and Green Guitars (Karoryfer)")
         );
-        assert_eq!(info.role, Some(Role::ElectricGuitars));
+        assert_eq!(info.roles, [Role::DistortedGuitars]);
+        // The key before #152 stands for the three electric rows.
+        let old = Info::parse(r#"{"role": "electric-guitars"}"#).unwrap();
+        assert_eq!(
+            old.roles,
+            [
+                Role::CleanGuitars,
+                Role::OverdrivenGuitars,
+                Role::DistortedGuitars
+            ]
+        );
         assert_eq!(info.licence.as_deref(), Some("CC0"));
         assert_eq!(info.credit.as_deref(), Some("Karoryfer Samples"));
         assert_eq!(info.source, None);
@@ -120,7 +130,7 @@ mod tests {
         assert_eq!(both.licence.as_deref(), Some("CC BY 4.0"));
         // An unknown role, a wrong type, or nothing: ignored.
         let odd = Info::parse(r#"{"name": "X", "role": "tubas", "credit": 5}"#).unwrap();
-        assert_eq!((odd.role, odd.credit), (None, None));
+        assert_eq!((odd.roles, odd.credit), (Vec::new(), None));
         for text in ["", "[]", "{", "{}", r#"{"name": "  "}"#, r#"{"name": 5}"#] {
             assert_eq!(Info::parse(text), None, "{text:?}");
         }

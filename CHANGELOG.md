@@ -6,6 +6,10 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- The settings window's "Electric guitars" row is three: Clean guitars (General MIDI programs 26 jazz, 27 clean, 28 muted, 31 harmonics), Overdriven guitars (29) and Distorted guitars (30), so clean and distorted guitars in one song get sets of their own (mateusrdp/oxiguitar#152). The one electric pick of before (`electric-guitars` in settings.json) still holds for all three until each has its own; `oxiguitar-set.json`'s `role` takes `clean-guitars`, `overdriven-guitars` and `distorted-guitars`, and `electric-guitars` there stands for all three.
+
 ## [0.1.0] - 2026-11-02
 
 First release in a repository of its own (mateusrdp/oxiguitar#165). The
