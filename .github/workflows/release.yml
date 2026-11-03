@@ -28,13 +28,13 @@ concurrency:
 
 jobs:
   release:
-    uses: mateusrdp/oxiguitar/.github/workflows/plugin-release.yml@v0.11.0
+    uses: mateusrdp/oxiguitar/.github/workflows/plugin-release.yml@v0.12.1
     with:
       name: midi
       title: "MIDI (SoundFont, SFZ)"
       description: "Plays scores with SoundFont, DLS and SFZ sound sets."
       # ci.yml has run the tests on six systems.
       test: false
-      tools-ref: v0.11.0
+      tools-ref: v0.12.1
     permissions:
       contents: write
