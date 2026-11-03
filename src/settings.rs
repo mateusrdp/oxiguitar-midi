@@ -78,7 +78,7 @@ impl Role {
         }
     }
 
-    fn title(self) -> &'static str {
+    pub(crate) fn title(self) -> &'static str {
         match self {
             Role::CleanGuitars => "Clean guitars",
             Role::OverdrivenGuitars => "Overdriven guitars",
@@ -232,7 +232,7 @@ impl Window {
 
     /// Every set found, the General MIDI ones first, then the SFZ
     /// instruments that play on their own.
-    fn found(&self) -> Vec<Found> {
+    pub(crate) fn found(&self) -> Vec<Found> {
         let found = crate::playable(&self.host);
         let (sfz, mut sets): (Vec<Found>, Vec<Found>) =
             found.into_iter().partition(|f| f.kind == Kind::Sfz);
@@ -279,7 +279,7 @@ impl Window {
         instrument
     }
 
-    fn label(&self, f: &Found) -> String {
+    pub(crate) fn label(&self, f: &Found) -> String {
         if f.kind == Kind::Sfz {
             sfz_label(f, crate::user_folder(&self.host).as_deref())
         } else {

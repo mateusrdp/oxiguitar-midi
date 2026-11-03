@@ -12,5 +12,8 @@
   ],
   "replaces": ["oxiguitar.soundfont"],
   "settings_window": true,
+  "track_sections": [
+    { "id": "sound", "title": "Sound" }
+  ],
   "folders": ["soundfonts"]
 }
