@@ -8,6 +8,7 @@ follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- The advice that only basic sounds are installed, and the settings window, point to the sound-set installer (oxiguitar-bettersounds-soundfonts; `oxiguitar-install-sounds` on Linux), the manual's Better sounds page opening there.
 - The settings window's "Electric guitars" row is three: Clean guitars (General MIDI programs 26 jazz, 27 clean, 28 muted, 31 harmonics), Overdriven guitars (29) and Distorted guitars (30), so clean and distorted guitars in one song get sets of their own (mateusrdp/oxiguitar#152). The one electric pick of before (`electric-guitars` in settings.json) still holds for all three until each has its own; `oxiguitar-set.json`'s `role` takes `clean-guitars`, `overdriven-guitars` and `distorted-guitars`, and `electric-guitars` there stands for all three.
 
 ### Added

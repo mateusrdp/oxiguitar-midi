@@ -309,7 +309,9 @@ fn better_sounds(found: &[Found]) -> Vec<Row> {
             line("Only your system's basic General MIDI set plays now."),
             line("Free recorded SFZ sets sound far better."),
             Row {
-                widgets: vec![link("Better sounds: which to get, and how to pick them")],
+                widgets: vec![link(
+                    "Better sounds: the sound-set installer, and how to pick sets",
+                )],
             },
         ]
     } else {
