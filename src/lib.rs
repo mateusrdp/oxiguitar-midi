@@ -32,6 +32,7 @@ use std::time::SystemTime;
 use oxiguitar_plugin::audio::Prepare;
 use oxiguitar_plugin::{
     Advice, Error, ErrorKind, Host, Instrument, Level, Link, Plugin, Renderer, SharedFolder, Tab,
+    TrackSection,
 };
 use rustysynth::SoundFont;
 
@@ -44,6 +45,7 @@ pub(crate) mod settings;
 pub(crate) mod sf2;
 pub(crate) mod sf3;
 pub(crate) mod sfz;
+pub(crate) mod track;
 
 /// The instrument's id in the manifest.
 pub const INSTRUMENT: &str = "soundfont";
@@ -81,6 +83,8 @@ pub struct MidiPlugin {
     loaded_sfz: Mutex<Vec<LoadedSfz>>,
     samples: sfz::Samples,
     window: settings::Window,
+    /// The sets tracks picked that weren't here, each said once.
+    missing: Mutex<Vec<PathBuf>>,
 }
 
 impl std::fmt::Debug for MidiPlugin {
@@ -143,6 +147,28 @@ fn unplayable(path: &Path, e: impl std::fmt::Display) -> Error {
 }
 
 impl MidiPlugin {
+    /// A track picked a set that isn't here (a song from another
+    /// computer): it plays as Automatic, and the footer says so once.
+    fn say_missing(&self, settings: &str, track: &str) {
+        let track::Pick::Set(path) = track::Pick::of_text(settings) else {
+            return;
+        };
+        let Ok(mut said) = self.missing.lock() else {
+            return;
+        };
+        if said.contains(&path) {
+            return;
+        }
+        self.host.notify(
+            Level::Warning,
+            format!(
+                "{track}: its sound set {} isn't here; it plays the set its instrument's row picks",
+                path.display()
+            ),
+        );
+        said.push(path);
+    }
+
     /// The SFZ instrument `found` with its samples, loaded, or taken from
     /// those already loaded. Samples it can't read are said in the footer.
     fn load_sfz(&self, found: &sets::Found) -> Result<Arc<sfz::Loaded>, Error> {
@@ -296,6 +322,7 @@ impl Plugin for MidiPlugin {
             loaded: Mutex::default(),
             loaded_sfz: Mutex::default(),
             samples: sfz::Samples::default(),
+            missing: Mutex::default(),
         })
     }
 
@@ -305,6 +332,10 @@ impl Plugin for MidiPlugin {
 
     fn settings_window(&self) -> Option<&dyn Tab> {
         Some(&self.window)
+    }
+
+    fn track_section(&self, id: &str) -> Option<&dyn TrackSection> {
+        (id == track::SECTION).then_some(&self.window as &dyn TrackSection)
     }
 }
 
@@ -326,7 +357,16 @@ impl Instrument for MidiPlugin {
         let mut sounds = Vec::with_capacity(prepare.tracks.len());
         let mut said: Vec<&std::path::Path> = Vec::new();
         for t in &prepare.tracks {
-            let pick = settings::chosen(&picks, settings::Role::of(t), &found);
+            // The track's own pick (its section "Sound"), else its row.
+            let (pick, missing) = track::set_for(
+                &track::Pick::of_text(&t.settings),
+                settings::Role::of(t),
+                &found,
+                |role| settings::chosen(&picks, role, &found),
+            );
+            if missing {
+                self.say_missing(&t.settings, &t.info.name);
+            }
             // The pick, then every General MIDI set in order, until one
             // loads.
             let mut first_error = None;
