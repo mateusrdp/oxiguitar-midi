@@ -190,9 +190,12 @@ pub(crate) fn chosen<'a>(
 /// `found` is best first: the user's before the installed ones, those before
 /// the system's, then the larger before the smaller.
 pub(crate) fn automatic(role: Role, found: &[Found]) -> Option<&Found> {
+    let named = |f: &&Found| f.info.as_ref().is_some_and(|i| i.roles.contains(&role));
+    // A set with several patches plays only its recommended one unpicked.
     found
         .iter()
-        .find(|f| f.info.as_ref().is_some_and(|i| i.roles.contains(&role)))
+        .find(|f| named(f) && f.info.as_ref().is_some_and(|i| i.plays_unpicked(&f.path)))
+        .or_else(|| found.iter().find(named))
         .or_else(|| found.iter().find(|f| f.kind != Kind::Sfz))
 }
 
@@ -230,6 +233,9 @@ fn label(f: &Found) -> String {
     let Some(info) = f.info.as_ref() else {
         return format!("{file} ({whose}, {size} MB)");
     };
+    if let Some(short) = info.short_label(&f.path) {
+        return short;
+    }
     let mut label = match &info.name {
         Some(name) => format!("{name}: {file}"),
         None => file,
@@ -316,7 +322,10 @@ impl Window {
     }
 
     pub(crate) fn label(&self, f: &Found) -> String {
-        if f.kind == Kind::Sfz {
+        let short = f.info.as_ref().and_then(|i| i.short_label(&f.path));
+        if let Some(short) = short {
+            short
+        } else if f.kind == Kind::Sfz {
             sfz_label(f, crate::user_folder(&self.host).as_deref())
         } else {
             label(f)
@@ -370,7 +379,8 @@ impl Tab for Window {
         let labels: Vec<String> = found.iter().map(|f| self.label(f)).collect();
         let mut rows = better_sounds(&found);
         for role in Role::ALL {
-            let plays = automatic(role, &found).map_or_else(|| "none found".to_owned(), label);
+            let plays =
+                automatic(role, &found).map_or_else(|| "none found".to_owned(), |f| self.label(f));
             let mut options = vec![format!("Automatic: {plays}")];
             options.extend(labels.iter().cloned());
             let picked = role
@@ -719,9 +729,37 @@ mod tests {
         set.info = crate::info::Info::parse(
             r#"{"name": "Black and Green Guitars", "licence": "CC0", "credit": "Karoryfer"}"#,
         );
-        assert_eq!(
-            label(&set),
-            "Black and Green Guitars: a.sf2 (installed, 1 MB, CC0, by Karoryfer)"
+        // Short: the source and the patch, nothing else.
+        assert_eq!(label(&set), "Black and Green Guitars: a");
+        set.info = crate::info::Info::parse(
+            r#"{"name": "FreePats", "role": "clean-guitars", "licence": "CC0 1.0",
+                "credit": "FreePats (Electric Guitar FSBS, clean)"}"#,
         );
+        assert_eq!(label(&set), "FreePats: Electric Guitar FSBS (clean)");
+    }
+
+    #[test]
+    fn only_the_recommended_patch_plays_unpicked() {
+        let info = crate::info::Info::parse(
+            r#"{"name": "Karoryfer", "role": "basses", "credit": "Karoryfer (Black and Blue Basses, plucked)",
+                "recommended": "Programs/Bass.sfz",
+                "patches": {"Programs/Bass.sfz": "plucked", "Programs/01-dark.sfz": "dark"}}"#,
+        )
+        .map(|i| crate::info::Info {
+            dir: Some(PathBuf::from("/sets/bass")),
+            ..i
+        });
+        let mut dark = found("bass/Programs/01-dark.sfz", Origin::Installed);
+        dark.info = info.clone();
+        let mut plucked = found("bass/Programs/Bass.sfz", Origin::Installed);
+        plucked.info = info;
+        assert_eq!(label(&dark), "Karoryfer: Black and Blue Basses (dark)");
+        assert_eq!(
+            label(&plucked),
+            "Karoryfer: Black and Blue Basses (plucked)"
+        );
+        let both = [dark, plucked];
+        let plays = automatic(Role::Basses, &both).unwrap();
+        assert!(plays.path.ends_with("Bass.sfz"));
     }
 }
