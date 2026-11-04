@@ -9,6 +9,7 @@ follows [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - **Better sounds are used as soon as they are installed.** A row of the settings window with no pick (and a track whose Sound is Automatic) now plays the best set whose `oxiguitar-set.json` names that row's role, as the sound-set installer's sets do: the clean, overdriven and distorted guitar sets, the bass and the drums play where nobody picked them. A set that names no role still plays only where picked, and a row nobody has a set for plays the best General MIDI set, as before. Each row's first entry now says what it plays ("Automatic: ..."). A pick still wins.
+- **Acoustic guitars are two rows: Nylon-string guitars (General MIDI program 24) and Steel-string guitars (25).** Before, one row served both, so a recorded steel guitar played a nylon-string part. A pick made for Acoustic guitars (`acoustic-guitars` in the settings) still holds for both rows until each has its own, and a set whose `oxiguitar-set.json` says `"role": "acoustic-guitars"` stands for both; the new keys are `nylon-guitars` and `steel-guitars`. The track's Sound list has a "Like nylon-string guitars" and a "Like steel-string guitars" entry in place of "Like acoustic guitars" (a song saved with the old entry plays that track as Automatic).
 
 ## [0.2.0] - 2026-11-04
 
