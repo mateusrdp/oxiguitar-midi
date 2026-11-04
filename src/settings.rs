@@ -144,8 +144,7 @@ impl Role {
 }
 
 /// The set `settings` picks for `role` among `found`, if it picks one that
-/// is still there; else the best General MIDI set (an SFZ instrument plays
-/// only where picked: Mateus, 26 Oct 2026).
+/// is still there; else [`automatic`].
 pub(crate) fn chosen<'a>(
     settings: &Map<String, Value>,
     role: Role,
@@ -157,6 +156,20 @@ pub(crate) fn chosen<'a>(
                 .iter()
                 .find(|f| f.path.as_os_str() == std::ffi::OsStr::new(p))
         })
+        .or_else(|| automatic(role, found))
+}
+
+/// What `role` plays where nothing is picked: the best set whose
+/// `oxiguitar-set.json` names the role (the sound-set installer's sets do),
+/// so better sounds are used as soon as they are installed; else the best
+/// General MIDI set. An SFZ instrument that doesn't name its role plays only
+/// where picked (Mateus, 26 Oct 2026; 4 Nov 2026 for the sets that do).
+/// `found` is best first: the user's before the installed ones, those before
+/// the system's, then the larger before the smaller.
+pub(crate) fn automatic(role: Role, found: &[Found]) -> Option<&Found> {
+    found
+        .iter()
+        .find(|f| f.info.as_ref().is_some_and(|i| i.roles.contains(&role)))
         .or_else(|| found.iter().find(|f| f.kind != Kind::Sfz))
 }
 
@@ -331,14 +344,11 @@ impl Tab for Window {
     fn content(&self) -> TabContent {
         let settings = self.host.settings().unwrap_or_default();
         let found = self.found();
-        let best = found
-            .iter()
-            .find(|f| f.kind != Kind::Sfz)
-            .map_or_else(|| "none found".to_owned(), label);
         let labels: Vec<String> = found.iter().map(|f| self.label(f)).collect();
         let mut rows = better_sounds(&found);
         for role in Role::ALL {
-            let mut options = vec![format!("The best found: {best}")];
+            let plays = automatic(role, &found).map_or_else(|| "none found".to_owned(), label);
+            let mut options = vec![format!("Automatic: {plays}")];
             options.extend(labels.iter().cloned());
             let picked = role
                 .pick(&settings)
@@ -518,6 +528,32 @@ mod tests {
         s.insert("drums".into(), "/sets/gone.sf2".into());
         assert_eq!(chosen(&s, Role::Drums, &sets).unwrap().path, sets[0].path);
         assert!(chosen(&s, Role::Drums, &[]).is_none());
+    }
+
+    #[test]
+    fn sets_that_name_a_role_play_it_without_a_pick() {
+        let mut clean = found("clean/guitar.sfz", Origin::Installed);
+        clean.kind = Kind::Sfz;
+        clean.info = crate::info::Info::parse(r#"{"role": "clean-guitars"}"#);
+        let mut distorted = found("dist/guitar.sfz", Origin::Installed);
+        distorted.kind = Kind::Sfz;
+        distorted.info = crate::info::Info::parse(r#"{"role": "distorted-guitars"}"#);
+        let mut bare = found("bare/guitar.sfz", Origin::User);
+        bare.kind = Kind::Sfz;
+        let sets = [bare, found("best.sf2", Origin::User), clean, distorted];
+        let mut s = Map::new();
+        let path = |s: &Map<String, Value>, r| chosen(s, r, &sets).unwrap().path.clone();
+        // Each row plays the set made for it; an SFZ set that names no role
+        // is not used; the rows nobody made a set for play the best GM set.
+        assert_eq!(path(&s, Role::CleanGuitars), sets[2].path);
+        assert_eq!(path(&s, Role::DistortedGuitars), sets[3].path);
+        assert_eq!(path(&s, Role::OverdrivenGuitars), sets[1].path);
+        assert_eq!(path(&s, Role::Drums), sets[1].path);
+        // A pick still wins, and so does falling back when the pick is gone.
+        s.insert("clean-guitars".into(), "/sets/best.sf2".into());
+        assert_eq!(path(&s, Role::CleanGuitars), sets[1].path);
+        s.insert("clean-guitars".into(), "/sets/gone.sf2".into());
+        assert_eq!(path(&s, Role::CleanGuitars), sets[2].path);
     }
 
     #[test]
