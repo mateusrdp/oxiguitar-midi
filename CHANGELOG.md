@@ -6,6 +6,8 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-04
+
 ### Changed
 
 - **Better sounds are used as soon as they are installed.** A row of the settings window with no pick (and a track whose Sound is Automatic) now plays the best set whose `oxiguitar-set.json` names that row's role, as the sound-set installer's sets do: the clean, overdriven and distorted guitar sets, the bass and the drums play where nobody picked them. A set that names no role still plays only where picked, and a row nobody has a set for plays the best General MIDI set, as before. Each row's first entry now says what it plays ("Automatic: ..."). A pick still wins.
