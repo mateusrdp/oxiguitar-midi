@@ -233,9 +233,9 @@ mod tests {
         let (a, b) = (Path::new("/sets/a.sf2"), Path::new("/sets/b.sfz"));
         let labels = ["A".to_owned(), "B".to_owned()];
         let (options, picked) = choices(&Pick::Automatic, &[a, b], &labels);
-        assert_eq!(options.len(), 1 + 7 + 2);
+        assert_eq!(options.len(), 1 + 8 + 2);
         assert_eq!(options[1], "Like clean guitars");
-        assert_eq!(options[7], "Like everything else");
+        assert_eq!(options[8], "Like everything else");
         assert_eq!(picked, 0);
         let (_, picked) = choices(&Pick::Role(Role::DistortedGuitars), &[a, b], &labels);
         assert_eq!(
@@ -243,8 +243,8 @@ mod tests {
             Some(Pick::Role(Role::DistortedGuitars))
         );
         let (_, picked) = choices(&Pick::Set(b.into()), &[a, b], &labels);
-        assert_eq!(picked, 9);
-        assert_eq!(chosen(9, &[a, b]), Some(Pick::Set(b.into())));
+        assert_eq!(picked, 10);
+        assert_eq!(chosen(10, &[a, b]), Some(Pick::Set(b.into())));
         // A set that isn't here is shown, picked, and choosing it again
         // changes nothing.
         let gone = Pick::Set("/elsewhere/kit.sfz".into());
