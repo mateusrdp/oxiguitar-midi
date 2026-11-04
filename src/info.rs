@@ -15,6 +15,15 @@
 //! }
 //! ```
 //!
+//! A set that holds several instruments (patches) may also say which one
+//! plays where nothing is picked and what to call each, by path from the
+//! set's folder; the installer writes these when asked to install them all:
+//!
+//! ```json
+//! { "recommended": "Programs/Bass.sfz",
+//!   "patches": { "Programs/Bass.sfz": "plucked", "Programs/01-dark.sfz": "dark" } }
+//! ```
+//!
 //! Every key is optional and unknown keys are left alone. The file sits in
 //! the set's folder, at any depth below the `soundfonts` folder (so every
 //! instrument of an SFZ set, in its `Programs` folder, finds its set's);
@@ -22,7 +31,8 @@
 //! Nothing here is fetched: the file is read, and the `source` shown as
 //! text, never opened.
 
-use std::path::Path;
+use std::collections::BTreeMap;
+use std::path::{Path, PathBuf};
 
 use oxiguitar_plugin::serde_json::{self, Value};
 
@@ -48,6 +58,13 @@ pub(crate) struct Info {
     pub(crate) credit: Option<String>,
     /// Where it comes from, as text.
     pub(crate) source: Option<String>,
+    /// The patch that plays where nothing is picked, by path from the set's
+    /// folder; every other patch plays only where picked.
+    pub(crate) recommended: Option<String>,
+    /// What to call each patch, by path from the set's folder.
+    pub(crate) patches: BTreeMap<String, String>,
+    /// The set's folder, where the file was found (not in the file).
+    pub(crate) dir: Option<PathBuf>,
 }
 
 impl Info {
@@ -70,9 +87,73 @@ impl Info {
             licence: string("licence").or_else(|| string("license")),
             credit: string("credit"),
             source: string("source"),
+            recommended: string("recommended"),
+            patches: map
+                .get("patches")
+                .and_then(Value::as_object)
+                .map(|o| {
+                    o.iter()
+                        .take(1000)
+                        .filter_map(|(k, v)| {
+                            let name = v.as_str()?.trim().chars().take(200).collect::<String>();
+                            (!name.is_empty()).then(|| (k.clone(), name))
+                        })
+                        .collect()
+                })
+                .unwrap_or_default(),
+            dir: None,
         };
         (info != Info::default()).then_some(info)
     }
+
+    /// The path of `file` from the set's folder.
+    fn relative<'a>(&self, file: &'a Path) -> Option<&'a Path> {
+        file.strip_prefix(self.dir.as_deref()?).ok()
+    }
+
+    /// Whether `file`, a patch of this set, plays where nothing is picked:
+    /// the recommended one, or any when the set names none.
+    pub(crate) fn plays_unpicked(&self, file: &Path) -> bool {
+        match (&self.recommended, self.relative(file)) {
+            (Some(rec), Some(rel)) => rel == Path::new(rec),
+            _ => true,
+        }
+    }
+
+    /// How the settings window names `file`, a patch of this set: the
+    /// source and the patch, "FreePats: Electric Guitar FSBS (clean)". The
+    /// source is the set's name, the patch's product and variant come from
+    /// the innermost parentheses of its credit ("FreePats (Electric Guitar
+    /// FSBS, clean)"), the variant overridden by the name `patches` gives
+    /// the file. `None` when the set gives nothing to build that from.
+    pub(crate) fn short_label(&self, file: &Path) -> Option<String> {
+        let name = self.name.as_deref()?;
+        let (product, variant) =
+            self.credit
+                .as_deref()
+                .and_then(innermost)
+                .map_or((None, None), |inner| match inner.split_once(',') {
+                    Some((p, v)) => (Some(p.trim()), Some(v.trim())),
+                    None => (Some(inner.trim()), None),
+                });
+        let named = self
+            .relative(file)
+            .and_then(|rel| self.patches.get(rel.to_str()?))
+            .map(String::as_str);
+        let stem = file.file_stem()?.to_string_lossy();
+        let product = product.filter(|p| !p.is_empty()).unwrap_or(&stem);
+        Some(match named.or(variant).filter(|v| !v.is_empty()) {
+            Some(variant) => format!("{name}: {product} ({variant})"),
+            None => format!("{name}: {product}"),
+        })
+    }
+}
+
+/// The text of the last innermost pair of parentheses in `text`, if any.
+fn innermost(text: &str) -> Option<&str> {
+    let close = text.rfind(')')?;
+    let open = text[..close].rfind('(')?;
+    Some(&text[open + 1..close])
 }
 
 /// The info of the set at `set`, a file found under `root` (the folder the
@@ -89,7 +170,10 @@ pub(crate) fn of(set: &Path, root: &Path) -> Option<Info> {
         {
             // A file that can't be read as info ends the search: it is the
             // nearest, and the folder above it is another set's.
-            return Info::parse(&text);
+            return Info::parse(&text).map(|info| Info {
+                dir: Some(dir.to_path_buf()),
+                ..info
+            });
         }
         dir = dir.parent()?;
     }
@@ -134,6 +218,39 @@ mod tests {
         for text in ["", "[]", "{", "{}", r#"{"name": "  "}"#, r#"{"name": 5}"#] {
             assert_eq!(Info::parse(text), None, "{text:?}");
         }
+    }
+
+    #[test]
+    fn patches_are_named_and_one_is_recommended() {
+        let text = r#"{"name": "Karoryfer", "credit": "Karoryfer (Black and Blue Basses, plucked)",
+            "recommended": "Programs/Bass.sfz", "patches": {"Programs/01-dark.sfz": "dark", "x": 5}}"#;
+        let info = Info {
+            dir: Some(PathBuf::from("/sf/bass")),
+            ..Info::parse(text).unwrap()
+        };
+        assert_eq!(info.patches.len(), 1);
+        let dark = Path::new("/sf/bass/Programs/01-dark.sfz");
+        let plucked = Path::new("/sf/bass/Programs/Bass.sfz");
+        assert!(info.plays_unpicked(plucked) && !info.plays_unpicked(dark));
+        assert_eq!(
+            info.short_label(dark).as_deref(),
+            Some("Karoryfer: Black and Blue Basses (dark)")
+        );
+        // The credit's own variant is the one the file is not named for.
+        assert_eq!(
+            info.short_label(plucked).as_deref(),
+            Some("Karoryfer: Black and Blue Basses (plucked)")
+        );
+        // No name, nothing to build from; no parentheses, the file's name.
+        assert_eq!(
+            Info::parse(r#"{"role": "basses"}"#)
+                .unwrap()
+                .short_label(plucked),
+            None
+        );
+        let plain = Info::parse(r#"{"name": "Mine", "credit": "Me"}"#).unwrap();
+        assert_eq!(plain.short_label(plucked).as_deref(), Some("Mine: Bass"));
+        assert!(plain.plays_unpicked(plucked));
     }
 
     #[test]
