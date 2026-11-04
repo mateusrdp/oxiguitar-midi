@@ -6,6 +6,8 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-04
+
 ### Changed
 
 - The advice that only basic sounds are installed, and the settings window, point to the sound-set installer (oxiguitar-bettersounds-soundfonts; `oxiguitar-install-sounds` on Linux), the manual's Better sounds page opening there.
