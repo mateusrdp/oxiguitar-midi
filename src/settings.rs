@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 Mateus Rocha de Paula and the OxiGuitar contributors
 
-//! The plugin's settings window: a set for electric guitars, acoustic
-//! guitars, basses, drums and everything else, for every file (Mateus, 21
-//! Oct 2026; Guitars split in two on 26 Oct 2026, since an SFZ guitar is one
-//! or the other), kept in the plugin's own settings as each set's path.
+//! The plugin's settings window: a set for clean, overdriven and distorted
+//! electric guitars, acoustic guitars, basses, drums and everything else,
+//! for every file (Mateus, 21 Oct 2026; Guitars split in two on 26 Oct 2026,
+//! since an SFZ guitar is one or the other; electric guitars split in three
+//! on 3 Nov 2026, #152, as General MIDI names them), kept in the plugin's
+//! own settings as each set's path.
 //! Until the user picks, the best General MIDI set found plays; an SFZ
 //! instrument plays only where picked.
 
@@ -21,7 +23,9 @@ use crate::sets::{self, Found, Kind, Origin};
 /// The kinds of track the window picks a set for.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub(crate) enum Role {
-    ElectricGuitars,
+    CleanGuitars,
+    OverdrivenGuitars,
+    DistortedGuitars,
     AcousticGuitars,
     Basses,
     Drums,
@@ -31,9 +35,15 @@ pub(crate) enum Role {
 /// The key 0.9's settings kept one pick for both kinds of guitar under.
 const GUITARS: &str = "guitars";
 
+/// The key the settings kept one pick for every electric guitar under,
+/// until the three electric rows (#152).
+pub(crate) const ELECTRIC_GUITARS: &str = "electric-guitars";
+
 impl Role {
-    pub(crate) const ALL: [Role; 5] = [
-        Role::ElectricGuitars,
+    pub(crate) const ALL: [Role; 7] = [
+        Role::CleanGuitars,
+        Role::OverdrivenGuitars,
+        Role::DistortedGuitars,
         Role::AcousticGuitars,
         Role::Basses,
         Role::Drums,
@@ -43,7 +53,9 @@ impl Role {
     /// Its key in the settings and its widget's id.
     pub(crate) fn key(self) -> &'static str {
         match self {
-            Role::ElectricGuitars => "electric-guitars",
+            Role::CleanGuitars => "clean-guitars",
+            Role::OverdrivenGuitars => "overdriven-guitars",
+            Role::DistortedGuitars => "distorted-guitars",
             Role::AcousticGuitars => "acoustic-guitars",
             Role::Basses => "basses",
             Role::Drums => "drums",
@@ -56,9 +68,21 @@ impl Role {
         Role::ALL.into_iter().find(|r| r.key() == key)
     }
 
-    fn title(self) -> &'static str {
+    /// The roles a set's `oxiguitar-set.json` key names: one, or the three
+    /// electric ones for the key before #152, `electric-guitars`.
+    pub(crate) fn of_key(key: &str) -> Vec<Role> {
+        if key == ELECTRIC_GUITARS {
+            Role::ALL.into_iter().filter(|r| r.electric()).collect()
+        } else {
+            Role::from_key(key).into_iter().collect()
+        }
+    }
+
+    pub(crate) fn title(self) -> &'static str {
         match self {
-            Role::ElectricGuitars => "Electric guitars",
+            Role::CleanGuitars => "Clean guitars",
+            Role::OverdrivenGuitars => "Overdriven guitars",
+            Role::DistortedGuitars => "Distorted guitars",
             Role::AcousticGuitars => "Acoustic guitars",
             Role::Basses => "Basses",
             Role::Drums => "Drums",
@@ -67,12 +91,20 @@ impl Role {
     }
 
     fn guitar(self) -> bool {
-        matches!(self, Role::ElectricGuitars | Role::AcousticGuitars)
+        self.electric() || self == Role::AcousticGuitars
+    }
+
+    fn electric(self) -> bool {
+        matches!(
+            self,
+            Role::CleanGuitars | Role::OverdrivenGuitars | Role::DistortedGuitars
+        )
     }
 
     /// The role of a track: drum kits; basses by their General MIDI
     /// program (32 to 39: acoustic, electric, fretless, slap and synth);
-    /// guitars, acoustic (24 and 25) or electric (26 to 31); then the rest,
+    /// guitars, acoustic (24 and 25), overdriven (29), distorted (30) or
+    /// clean (26 jazz, 27 clean, 28 muted, 31 harmonics); then the rest,
     /// the other fretted instruments (banjo, sitar…) among them, so they
     /// keep their General MIDI sounds whatever the guitars play.
     pub(crate) fn of(track: &PreparedTrack) -> Role {
@@ -85,17 +117,27 @@ impl Role {
             Role::AcousticGuitars
         } else if track.info.class == InstrumentClass::Fretted && (26..=31).contains(&track.program)
         {
-            Role::ElectricGuitars
+            match track.program {
+                29 => Role::OverdrivenGuitars,
+                30 => Role::DistortedGuitars,
+                _ => Role::CleanGuitars,
+            }
         } else {
             Role::Other
         }
     }
 
-    /// What `settings` picks for this role: its own key, or for guitars
-    /// 0.9's one pick for both.
+    /// What `settings` picks for this role: its own key; for electric
+    /// guitars, the one pick they shared before #152; for guitars, 0.9's
+    /// one pick for both kinds.
     fn pick(self, settings: &Map<String, Value>) -> Option<&str> {
         settings
             .get(self.key())
+            .or_else(|| {
+                self.electric()
+                    .then(|| settings.get(ELECTRIC_GUITARS))
+                    .flatten()
+            })
             .or_else(|| self.guitar().then(|| settings.get(GUITARS)).flatten())
             .and_then(Value::as_str)
     }
@@ -190,7 +232,7 @@ impl Window {
 
     /// Every set found, the General MIDI ones first, then the SFZ
     /// instruments that play on their own.
-    fn found(&self) -> Vec<Found> {
+    pub(crate) fn found(&self) -> Vec<Found> {
         let found = crate::playable(&self.host);
         let (sfz, mut sets): (Vec<Found>, Vec<Found>) =
             found.into_iter().partition(|f| f.kind == Kind::Sfz);
@@ -237,7 +279,7 @@ impl Window {
         instrument
     }
 
-    fn label(&self, f: &Found) -> String {
+    pub(crate) fn label(&self, f: &Found) -> String {
         if f.kind == Kind::Sfz {
             sfz_label(f, crate::user_folder(&self.host).as_deref())
         } else {
@@ -267,7 +309,9 @@ fn better_sounds(found: &[Found]) -> Vec<Row> {
             line("Only your system's basic General MIDI set plays now."),
             line("Free recorded SFZ sets sound far better."),
             Row {
-                widgets: vec![link("Better sounds: which to get, and how to pick them")],
+                widgets: vec![link(
+                    "Better sounds: the sound-set installer, and how to pick sets",
+                )],
             },
         ]
     } else {
@@ -348,13 +392,20 @@ impl Tab for Window {
         };
         let found = self.found();
         let mut settings = self.host.settings()?;
-        // 0.9's one pick for guitars goes to both guitar roles, so picking
-        // one leaves the other as it was.
-        if role.guitar()
-            && let Some(old) = settings.remove(GUITARS)
-        {
-            for r in [Role::ElectricGuitars, Role::AcousticGuitars] {
-                settings.entry(r.key()).or_insert_with(|| old.clone());
+        // The older shared picks go to every row they stood for, so
+        // picking one row leaves the others as they were: the electric one
+        // (before #152) to the three electric rows, then 0.9's one for
+        // guitars to every guitar row still without a pick.
+        if role.guitar() {
+            if let Some(old) = settings.remove(ELECTRIC_GUITARS) {
+                for r in Role::ALL.into_iter().filter(|r| r.electric()) {
+                    settings.entry(r.key()).or_insert_with(|| old.clone());
+                }
+            }
+            if let Some(old) = settings.remove(GUITARS) {
+                for r in Role::ALL.into_iter().filter(|r| r.guitar()) {
+                    settings.entry(r.key()).or_insert_with(|| old.clone());
+                }
             }
         }
         match (i as usize).checked_sub(1).and_then(|i| found.get(i)) {
@@ -400,10 +451,18 @@ mod tests {
     }
 
     #[test]
-    fn tracks_fall_into_the_five_roles() {
+    fn tracks_fall_into_the_seven_roles() {
+        let electric = |p| Role::of(&track(p, false, InstrumentClass::Fretted));
         assert_eq!(
-            Role::of(&track(29, false, InstrumentClass::Fretted)),
-            Role::ElectricGuitars
+            [26, 27, 28, 29, 30, 31].map(electric),
+            [
+                Role::CleanGuitars,
+                Role::CleanGuitars,
+                Role::CleanGuitars,
+                Role::OverdrivenGuitars,
+                Role::DistortedGuitars,
+                Role::CleanGuitars
+            ]
         );
         assert_eq!(
             Role::of(&track(25, false, InstrumentClass::Fretted)),
@@ -469,12 +528,12 @@ mod tests {
         let mut s = Map::new();
         // An SFZ instrument is never the best found.
         assert_eq!(
-            chosen(&s, Role::ElectricGuitars, &sets).unwrap().path,
+            chosen(&s, Role::DistortedGuitars, &sets).unwrap().path,
             sets[1].path
         );
         s.insert("guitars".into(), "/sets/kit/guitar.sfz".into());
         assert_eq!(
-            chosen(&s, Role::ElectricGuitars, &sets).unwrap().path,
+            chosen(&s, Role::DistortedGuitars, &sets).unwrap().path,
             sets[0].path
         );
         assert_eq!(
@@ -488,8 +547,40 @@ mod tests {
             sets[1].path
         );
         assert_eq!(
-            chosen(&s, Role::ElectricGuitars, &sets).unwrap().path,
+            chosen(&s, Role::DistortedGuitars, &sets).unwrap().path,
             sets[0].path
+        );
+    }
+
+    /// #152: the one electric pick of before stands for the three electric
+    /// rows until each has its own, and picking one row keeps it for the
+    /// other two.
+    #[test]
+    fn the_old_electric_pick_holds_for_the_three_electric_rows() {
+        let sets = [found("a.sf2", Origin::User), found("b.sf2", Origin::User)];
+        let mut s = Map::new();
+        s.insert(ELECTRIC_GUITARS.into(), "/sets/b.sf2".into());
+        s.insert(GUITARS.into(), "/sets/a.sf2".into());
+        for r in [
+            Role::CleanGuitars,
+            Role::OverdrivenGuitars,
+            Role::DistortedGuitars,
+        ] {
+            assert_eq!(chosen(&s, r, &sets).unwrap().path, sets[1].path, "{r:?}");
+        }
+        assert_eq!(
+            chosen(&s, Role::AcousticGuitars, &sets).unwrap().path,
+            sets[0].path,
+            "0.9's pick still holds for acoustic guitars"
+        );
+        s.insert("distorted-guitars".into(), "/sets/a.sf2".into());
+        assert_eq!(
+            chosen(&s, Role::DistortedGuitars, &sets).unwrap().path,
+            sets[0].path
+        );
+        assert_eq!(
+            chosen(&s, Role::CleanGuitars, &sets).unwrap().path,
+            sets[1].path
         );
     }
 
