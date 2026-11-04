@@ -6,6 +6,16 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-11-04
+
+### Changed
+
+- **Sets with an `oxiguitar-set.json` are listed by a short name**: the source and the patch, such as `FreePats: Electric Guitar FSBS (clean)`, instead of `FreePats: Clean Guitar.sfz (installed, 1 MB, CC0 1.0, by FreePats (Electric Guitar FSBS, clean))`. The source is the file's `name`; the product and variant are the innermost parentheses of its `credit`, split at the first comma. The "Automatic:" row of each kind of track uses the same name.
+
+### Added
+
+- `oxiguitar-set.json` may name a `recommended` patch and give each patch of the set a name in `patches` (by path from the set's folder). A set with several patches plays only its recommended one where nothing is picked, and the others are listed by their names to pick; the sound-set installer writes both when asked to install every patch (oxiguitar-bettersounds-soundfonts after 0.1.2).
+
 ## [0.2.1] - 2026-11-04
 
 ### Changed
