@@ -53,9 +53,10 @@ pub const INSTRUMENT: &str = "soundfont";
 /// The advice's id when only the system's sets play.
 pub const ADVICE_NO_SOUND_SETS: &str = "no-sound-sets";
 
-/// The manual's page on getting better sets, which the `no-sound-sets`
-/// advice links to.
-pub const BETTER_SOUNDS: &str = "https://mateusrdp.github.io/oxiguitar/better-sounds.html";
+/// The manual's page on getting better sets, at the sound-set installer,
+/// which the `no-sound-sets` advice and the settings window link to.
+pub const BETTER_SOUNDS: &str =
+    "https://mateusrdp.github.io/oxiguitar/better-sounds.html#the-sound-set-installer";
 
 /// A set loaded once and kept while it is in use, so opening another file
 /// doesn't load it again.
@@ -292,12 +293,13 @@ impl MidiPlugin {
             title: "Only basic sounds are installed".into(),
             text: "OxiGuitar is playing with your system's basic sound set. \
                    Free recorded sets for guitars, basses and drums sound far \
-                   better: install one, and pick it in Tools, Plugins, MIDI \
-                   settings. OxiGuitar downloads nothing itself; the page \
-                   below says which sets to get and where to put them."
+                   better. The sound-set installer fetches the ones we \
+                   recommend, after asking you (on Linux: oxiguitar-install-sounds); \
+                   then pick them in Tools, Plugins, MIDI settings. OxiGuitar \
+                   itself downloads nothing; the page below says how."
                 .into(),
             links: vec![Link {
-                text: "Better sounds".into(),
+                text: "Better sounds: the sound-set installer".into(),
                 url: BETTER_SOUNDS.into(),
             }],
         };
