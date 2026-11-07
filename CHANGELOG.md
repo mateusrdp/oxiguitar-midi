@@ -6,6 +6,12 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-11-07
+
+### Changed
+
+- **The settings window filters dropdown options by role**: each row (Clean guitars, Overdriven guitars, Distorted guitars, Nylon-string guitars, Steel-string guitars, Basses, Drums, Everything else) shows only sound sets relevant to that role. Sets that declare multiple roles appear in every matching row. Sets without role declarations (General MIDI fallbacks) appear in all rows.
+
 ## [0.2.2] - 2026-11-04
 
 ### Changed
