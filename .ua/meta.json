@@ -1,0 +1,9 @@
+{
+  "gitCommitHash": "304d1f3c06c6867ab45688b8cb8b4d1af30f3e23",
+  "analyzedAt": "2026-11-08T00:00:00.000Z",
+  "version": "1.0.0",
+  "nodeCount": 224,
+  "edgeCount": 332,
+  "layerCount": 10,
+  "tourStepCount": 12
+}

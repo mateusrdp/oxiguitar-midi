@@ -1,0 +1,5880 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "oxiguitar-midi",
+    "languages": [
+      "flac",
+      "json",
+      "markdown",
+      "ogg",
+      "rust",
+      "shell",
+      "toml",
+      "yaml"
+    ],
+    "frameworks": [],
+    "description": "The OxiGuitar MIDI plugin: plays every track with a SoundFont, DLS or SFZ sound set, the user's or the system's. It provides a custom SFZ synthesizer (256 voices) and uses rustysynth for SoundFont synthesis.",
+    "analyzedAt": "2026-11-07T17:54:51.961Z",
+    "gitCommitHash": "304d1f3c06c6867ab45688b8cb8b4d1af30f3e23"
+  },
+  "nodes": [
+    {
+      "id": "file:src/play.rs",
+      "type": "file",
+      "name": "play.rs",
+      "filePath": "src/play.rs",
+      "summary": "Main playback engine that runs the MIDI player, manages sound generation, and handles vibrato for the SFZ sampler.",
+      "tags": [
+        "entry-point",
+        "playback",
+        "audio-engine",
+        "midi",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/play.rs:vibrato_of",
+      "type": "function",
+      "name": "vibrato_of",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        92,
+        100
+      ],
+      "summary": "Handles vibrato of logic within play.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:new",
+      "type": "function",
+      "name": "new",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        484,
+        523
+      ],
+      "summary": "Handles new logic within play.rs.",
+      "tags": [
+        "constructor"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/play.rs:stop",
+      "type": "function",
+      "name": "stop",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        211,
+        226
+      ],
+      "summary": "Handles stop logic within play.rs.",
+      "tags": [
+        "cleanup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:set_program",
+      "type": "function",
+      "name": "set_program",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        228,
+        240
+      ],
+      "summary": "Handles set program logic within play.rs.",
+      "tags": [
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:send_bend",
+      "type": "function",
+      "name": "send_bend",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        242,
+        256
+      ],
+      "summary": "Handles send bend logic within play.rs.",
+      "tags": [
+        "cleanup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:send_expression",
+      "type": "function",
+      "name": "send_expression",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        258,
+        271
+      ],
+      "summary": "Handles send expression logic within play.rs.",
+      "tags": [
+        "cleanup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:program_for",
+      "type": "function",
+      "name": "program_for",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        283,
+        302
+      ],
+      "summary": "Handles program for logic within play.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        306,
+        311
+      ],
+      "summary": "Handles run logic within play.rs.",
+      "tags": [
+        "playback"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:expression",
+      "type": "function",
+      "name": "expression",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        316,
+        329
+      ],
+      "summary": "Handles expression logic within play.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:asked",
+      "type": "function",
+      "name": "asked",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        360,
+        372
+      ],
+      "summary": "Handles asked logic within play.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:sampler_note_on",
+      "type": "function",
+      "name": "sampler_note_on",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        379,
+        431
+      ],
+      "summary": "Handles sampler note on logic within play.rs.",
+      "tags": [
+        "midi-events"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/play.rs:note_on",
+      "type": "function",
+      "name": "note_on",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        525,
+        618
+      ],
+      "summary": "Handles note on logic within play.rs.",
+      "tags": [
+        "midi-events"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/play.rs:end",
+      "type": "function",
+      "name": "end",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        622,
+        641
+      ],
+      "summary": "Handles end logic within play.rs.",
+      "tags": [
+        "cleanup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/play.rs:note_off",
+      "type": "function",
+      "name": "note_off",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        643,
+        671
+      ],
+      "summary": "Handles note off logic within play.rs.",
+      "tags": [
+        "midi-events"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/play.rs:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        686,
+        728
+      ],
+      "summary": "Handles update logic within play.rs.",
+      "tags": [
+        "voice-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/play.rs:track",
+      "type": "function",
+      "name": "track",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        733,
+        781
+      ],
+      "summary": "Handles track logic within play.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/play.rs:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        784,
+        851
+      ],
+      "summary": "Handles render logic within play.rs.",
+      "tags": [
+        "audio-rendering",
+        "cleanup"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/play.rs:Track",
+      "type": "class",
+      "name": "Track",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        185,
+        201
+      ],
+      "summary": "Track represents track in the SFZ synthesizer with 7 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/play.rs:Player",
+      "type": "class",
+      "name": "Player",
+      "filePath": "src/play.rs",
+      "lineRange": [
+        434,
+        446
+      ],
+      "summary": "Player represents player in the SFZ synthesizer with 9 methods.",
+      "tags": [
+        "audio-engine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sfz/instrument.rs",
+      "type": "file",
+      "name": "instrument.rs",
+      "filePath": "src/sfz/instrument.rs",
+      "summary": "Provides instrument functionality for the custom SFZ synthesizer, handling SFZ instrument definitions and curve parsing.",
+      "tags": [
+        "sfz-component",
+        "parsing",
+        "data-structure"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:at",
+      "type": "function",
+      "name": "at",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        26,
+        43
+      ],
+      "summary": "Handles at logic within instrument.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:curve",
+      "type": "function",
+      "name": "curve",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        48,
+        72
+      ],
+      "summary": "Handles curve logic within instrument.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:close",
+      "type": "function",
+      "name": "close",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        133,
+        174
+      ],
+      "summary": "Handles close logic within instrument.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:header",
+      "type": "function",
+      "name": "header",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        176,
+        203
+      ],
+      "summary": "Handles header logic within instrument.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:opcode",
+      "type": "function",
+      "name": "opcode",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        205,
+        216
+      ],
+      "summary": "Handles opcode logic within instrument.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:control",
+      "type": "function",
+      "name": "control",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        218,
+        256
+      ],
+      "summary": "Handles control logic within instrument.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:curve_opcode",
+      "type": "function",
+      "name": "curve_opcode",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        258,
+        269
+      ],
+      "summary": "Handles curve opcode logic within instrument.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:new",
+      "type": "function",
+      "name": "new",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        273,
+        300
+      ],
+      "summary": "Handles new logic within instrument.rs.",
+      "tags": [
+        "constructor"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:build",
+      "type": "function",
+      "name": "build",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        315,
+        332
+      ],
+      "summary": "Handles build logic within instrument.rs.",
+      "tags": [
+        "construction"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:implicit_controllers",
+      "type": "function",
+      "name": "implicit_controllers",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        338,
+        359
+      ],
+      "summary": "Handles implicit controllers logic within instrument.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/instrument.rs:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        362,
+        364
+      ],
+      "summary": "Handles read logic within instrument.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/sfz/instrument.rs:Builder",
+      "type": "class",
+      "name": "Builder",
+      "filePath": "src/sfz/instrument.rs",
+      "lineRange": [
+        111,
+        123
+      ],
+      "summary": "Builder represents builder in the SFZ synthesizer with 7 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sfz/maps.rs",
+      "type": "file",
+      "name": "maps.rs",
+      "filePath": "src/sfz/maps.rs",
+      "summary": "Provides maps functionality for the custom SFZ synthesizer, handling key-to-articulation mapping.",
+      "tags": [
+        "sfz-component",
+        "parsing",
+        "data-structure"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/maps.rs:for_instrument",
+      "type": "function",
+      "name": "for_instrument",
+      "filePath": "src/sfz/maps.rs",
+      "lineRange": [
+        159,
+        183
+      ],
+      "summary": "Handles for instrument logic within maps.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/maps.rs:key",
+      "type": "function",
+      "name": "key",
+      "filePath": "src/sfz/maps.rs",
+      "lineRange": [
+        188,
+        193
+      ],
+      "summary": "Handles key logic within maps.rs.",
+      "tags": [
+        "mapping"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sfz/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/sfz/mod.rs",
+      "summary": "SFZ module barrel that re-exports all SFZ submodules and provides the high-level load() API for loading SFZ instrument files.",
+      "tags": [
+        "barrel",
+        "sfz-loader",
+        "entry-point",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/mod.rs:bytes",
+      "type": "function",
+      "name": "bytes",
+      "filePath": "src/sfz/mod.rs",
+      "lineRange": [
+        52,
+        54
+      ],
+      "summary": "Handles bytes logic within mod.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/mod.rs:trim",
+      "type": "function",
+      "name": "trim",
+      "filePath": "src/sfz/mod.rs",
+      "lineRange": [
+        101,
+        105
+      ],
+      "summary": "Handles trim logic within mod.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/mod.rs:load",
+      "type": "function",
+      "name": "load",
+      "filePath": "src/sfz/mod.rs",
+      "lineRange": [
+        113,
+        176
+      ],
+      "summary": "Handles load logic within mod.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/sfz/mod.rs:Samples",
+      "type": "class",
+      "name": "Samples",
+      "filePath": "src/sfz/mod.rs",
+      "lineRange": [
+        80,
+        82
+      ],
+      "summary": "Samples represents samples in the SFZ synthesizer with 3 methods.",
+      "tags": [
+        "sample-data"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sfz/region.rs",
+      "type": "file",
+      "name": "region.rs",
+      "filePath": "src/sfz/region.rs",
+      "summary": "Provides region functionality for the custom SFZ synthesizer, handling SFZ region definitions and parameter application.",
+      "tags": [
+        "sfz-component",
+        "parsing",
+        "data-structure"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/region.rs:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        105,
+        123
+      ],
+      "summary": "Handles parse logic within region.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/region.rs:of",
+      "type": "function",
+      "name": "of",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        142,
+        155
+      ],
+      "summary": "Handles of logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/region.rs:new",
+      "type": "function",
+      "name": "new",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        325,
+        339
+      ],
+      "summary": "Handles new logic within region.rs.",
+      "tags": [
+        "constructor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/region.rs:default",
+      "type": "function",
+      "name": "default",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        485,
+        571
+      ],
+      "summary": "Handles default logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/region.rs:sample",
+      "type": "function",
+      "name": "sample",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        603,
+        622
+      ],
+      "summary": "Handles sample logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/region.rs:key",
+      "type": "function",
+      "name": "key",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        648,
+        677
+      ],
+      "summary": "Handles key logic within region.rs.",
+      "tags": [
+        "mapping"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/region.rs:normal",
+      "type": "function",
+      "name": "normal",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        631,
+        645
+      ],
+      "summary": "Handles normal logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/region.rs:number",
+      "type": "function",
+      "name": "number",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        681,
+        694
+      ],
+      "summary": "Handles number logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/region.rs:shape",
+      "type": "function",
+      "name": "shape",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        705,
+        726
+      ],
+      "summary": "Handles shape logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/region.rs:controller",
+      "type": "function",
+      "name": "controller",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        739,
+        816
+      ],
+      "summary": "Handles controller logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/region.rs:ignored",
+      "type": "function",
+      "name": "ignored",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        819,
+        855
+      ],
+      "summary": "Handles ignored logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/region.rs:modulation",
+      "type": "function",
+      "name": "modulation",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        859,
+        877
+      ],
+      "summary": "Handles modulation logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/region.rs:cc_fade",
+      "type": "function",
+      "name": "cc_fade",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        890,
+        903
+      ],
+      "summary": "Handles cc fade logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/region.rs:apply",
+      "type": "function",
+      "name": "apply",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        917,
+        1254
+      ],
+      "summary": "Handles apply logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/region.rs:envelope",
+      "type": "function",
+      "name": "envelope",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        1258,
+        1292
+      ],
+      "summary": "Handles envelope logic within region.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/sfz/region.rs:Target",
+      "type": "class",
+      "name": "Target",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        203,
+        232
+      ],
+      "summary": "Target represents target in the SFZ synthesizer with 0 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/sfz/region.rs:Eg",
+      "type": "class",
+      "name": "Eg",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        258,
+        280
+      ],
+      "summary": "Eg represents eg in the SFZ synthesizer with 1 methods.",
+      "tags": [
+        "synthesis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/sfz/region.rs:Region",
+      "type": "class",
+      "name": "Region",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        375,
+        482
+      ],
+      "summary": "Region represents region in the SFZ synthesizer with 7 methods.",
+      "tags": [
+        "sfz-structure"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/sfz/region.rs:Context",
+      "type": "class",
+      "name": "Context",
+      "filePath": "src/sfz/region.rs",
+      "lineRange": [
+        591,
+        600
+      ],
+      "summary": "Context represents context in the SFZ synthesizer with 2 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sfz/sample.rs",
+      "type": "file",
+      "name": "sample.rs",
+      "filePath": "src/sfz/sample.rs",
+      "summary": "Provides sample functionality for the custom SFZ synthesizer, handling sample decoding and PCM data.",
+      "tags": [
+        "sfz-component",
+        "parsing",
+        "data-structure"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:at",
+      "type": "function",
+      "name": "at",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        52,
+        66
+      ],
+      "summary": "Handles at logic within sample.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:bytes",
+      "type": "function",
+      "name": "bytes",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        70,
+        76
+      ],
+      "summary": "Handles bytes logic within sample.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        80,
+        83
+      ],
+      "summary": "Handles read logic within sample.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:decode",
+      "type": "function",
+      "name": "decode",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        86,
+        96
+      ],
+      "summary": "Handles decode logic within sample.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:wav_chunks",
+      "type": "function",
+      "name": "wav_chunks",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        108,
+        121
+      ],
+      "summary": "Handles wav chunks logic within sample.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:wav",
+      "type": "function",
+      "name": "wav",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        123,
+        216
+      ],
+      "summary": "Handles wav logic within sample.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:smpl",
+      "type": "function",
+      "name": "smpl",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        219,
+        233
+      ],
+      "summary": "Handles smpl logic within sample.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:flac",
+      "type": "function",
+      "name": "flac",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        235,
+        293
+      ],
+      "summary": "Handles flac logic within sample.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sample.rs:ogg",
+      "type": "function",
+      "name": "ogg",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        295,
+        327
+      ],
+      "summary": "Handles ogg logic within sample.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/sfz/sample.rs:Sample",
+      "type": "class",
+      "name": "Sample",
+      "filePath": "src/sfz/sample.rs",
+      "lineRange": [
+        32,
+        43
+      ],
+      "summary": "Sample represents sample in the SFZ synthesizer with 2 methods.",
+      "tags": [
+        "sample-data"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sfz/sampler.rs",
+      "type": "file",
+      "name": "sampler.rs",
+      "filePath": "src/sfz/sampler.rs",
+      "summary": "Provides sampler functionality for the custom SFZ synthesizer, handling voice management and audio rendering.",
+      "tags": [
+        "sfz-component",
+        "parsing",
+        "data-structure",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:new",
+      "type": "function",
+      "name": "new",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        836,
+        881
+      ],
+      "summary": "Handles new logic within sampler.rs.",
+      "tags": [
+        "constructor"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:next",
+      "type": "function",
+      "name": "next",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        182,
+        245
+      ],
+      "summary": "Handles next logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:stages_of",
+      "type": "function",
+      "name": "stages_of",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        282,
+        297
+      ],
+      "summary": "Handles stages of logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:coefficients",
+      "type": "function",
+      "name": "coefficients",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        309,
+        355
+      ],
+      "summary": "Handles coefficients logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:wave",
+      "type": "function",
+      "name": "wave",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        398,
+        443
+      ],
+      "summary": "Handles wave logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:frame",
+      "type": "function",
+      "name": "frame",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        626,
+        642
+      ],
+      "summary": "Handles frame logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:gather",
+      "type": "function",
+      "name": "gather",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        646,
+        701
+      ],
+      "summary": "Handles gather logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:matrix",
+      "type": "function",
+      "name": "matrix",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        717,
+        736
+      ],
+      "summary": "Handles matrix logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:fade_in",
+      "type": "function",
+      "name": "fade_in",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        739,
+        753
+      ],
+      "summary": "Handles fade in logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:fade_out",
+      "type": "function",
+      "name": "fade_out",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        756,
+        770
+      ],
+      "summary": "Handles fade out logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:plays",
+      "type": "function",
+      "name": "plays",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        916,
+        974
+      ],
+      "summary": "Handles plays logic within sampler.rs.",
+      "tags": [
+        "playback"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:set_switch",
+      "type": "function",
+      "name": "set_switch",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        977,
+        979
+      ],
+      "summary": "Handles set switch logic within sampler.rs.",
+      "tags": [
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:set_controller",
+      "type": "function",
+      "name": "set_controller",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        983,
+        987
+      ],
+      "summary": "Handles set controller logic within sampler.rs.",
+      "tags": [
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:carry",
+      "type": "function",
+      "name": "carry",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        992,
+        1026
+      ],
+      "summary": "Handles carry logic within sampler.rs.",
+      "tags": [
+        "voice-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:hold",
+      "type": "function",
+      "name": "hold",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1031,
+        1035
+      ],
+      "summary": "Handles hold logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:end_pending",
+      "type": "function",
+      "name": "end_pending",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1038,
+        1046
+      ],
+      "summary": "Handles end pending logic within sampler.rs.",
+      "tags": [
+        "cleanup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:note_on",
+      "type": "function",
+      "name": "note_on",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1050,
+        1089
+      ],
+      "summary": "Handles note on logic within sampler.rs.",
+      "tags": [
+        "midi-events"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:set_note_controllers",
+      "type": "function",
+      "name": "set_note_controllers",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1092,
+        1106
+      ],
+      "summary": "Handles set note controllers logic within sampler.rs.",
+      "tags": [
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:choke_for",
+      "type": "function",
+      "name": "choke_for",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1110,
+        1135
+      ],
+      "summary": "Handles choke for logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1139,
+        1359
+      ],
+      "summary": "Handles start logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:stages",
+      "type": "function",
+      "name": "stages",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1362,
+        1379
+      ],
+      "summary": "Handles stages logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:limit",
+      "type": "function",
+      "name": "limit",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1383,
+        1401
+      ],
+      "summary": "Handles limit logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:free_slot",
+      "type": "function",
+      "name": "free_slot",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1405,
+        1417
+      ],
+      "summary": "Handles free slot logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:note_off",
+      "type": "function",
+      "name": "note_off",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1421,
+        1460
+      ],
+      "summary": "Handles note off logic within sampler.rs.",
+      "tags": [
+        "midi-events"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:end_string",
+      "type": "function",
+      "name": "end_string",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1463,
+        1476
+      ],
+      "summary": "Handles end string logic within sampler.rs.",
+      "tags": [
+        "cleanup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:stop",
+      "type": "function",
+      "name": "stop",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1479,
+        1486
+      ],
+      "summary": "Handles stop logic within sampler.rs.",
+      "tags": [
+        "cleanup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1490,
+        1511
+      ],
+      "summary": "Handles update logic within sampler.rs.",
+      "tags": [
+        "voice-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1514,
+        1683
+      ],
+      "summary": "Handles render logic within sampler.rs.",
+      "tags": [
+        "audio-rendering",
+        "cleanup"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:sounding",
+      "type": "function",
+      "name": "sounding",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1687,
+        1689
+      ],
+      "summary": "Handles sounding logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sampler.rs:velocity_curve",
+      "type": "function",
+      "name": "velocity_curve",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        1694,
+        1718
+      ],
+      "summary": "Handles velocity curve logic within sampler.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/sfz/sampler.rs:Envelope",
+      "type": "class",
+      "name": "Envelope",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        101,
+        115
+      ],
+      "summary": "Envelope represents envelope in the SFZ synthesizer with 3 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/sfz/sampler.rs:Voice",
+      "type": "class",
+      "name": "Voice",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        470,
+        520
+      ],
+      "summary": "Voice represents voice in the SFZ synthesizer with 1 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/sfz/sampler.rs:Random",
+      "type": "class",
+      "name": "Random",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        775,
+        775
+      ],
+      "summary": "Random represents random in the SFZ synthesizer with 2 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/sfz/sampler.rs:Sampler",
+      "type": "class",
+      "name": "Sampler",
+      "filePath": "src/sfz/sampler.rs",
+      "lineRange": [
+        801,
+        824
+      ],
+      "summary": "Sampler represents sampler in the SFZ synthesizer with 25 methods.",
+      "tags": [
+        "audio-engine",
+        "sample-data"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sfz/sinc.rs",
+      "type": "file",
+      "name": "sinc.rs",
+      "filePath": "src/sfz/sinc.rs",
+      "summary": "Provides sinc functionality for the custom SFZ synthesizer, handling sinc resampling kernel.",
+      "tags": [
+        "sfz-component",
+        "parsing",
+        "data-structure"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sinc.rs:kernel",
+      "type": "function",
+      "name": "kernel",
+      "filePath": "src/sfz/sinc.rs",
+      "lineRange": [
+        45,
+        50
+      ],
+      "summary": "Handles kernel logic within sinc.rs.",
+      "tags": [
+        "resampling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sinc.rs:bessel0",
+      "type": "function",
+      "name": "bessel0",
+      "filePath": "src/sfz/sinc.rs",
+      "lineRange": [
+        53,
+        65
+      ],
+      "summary": "Handles bessel0 logic within sinc.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/sinc.rs:table",
+      "type": "function",
+      "name": "table",
+      "filePath": "src/sfz/sinc.rs",
+      "lineRange": [
+        69,
+        101
+      ],
+      "summary": "Handles table logic within sinc.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/sinc.rs:weights",
+      "type": "function",
+      "name": "weights",
+      "filePath": "src/sfz/sinc.rs",
+      "lineRange": [
+        107,
+        114
+      ],
+      "summary": "Handles weights logic within sinc.rs.",
+      "tags": [
+        "resampling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sfz/text.rs",
+      "type": "file",
+      "name": "text.rs",
+      "filePath": "src/sfz/text.rs",
+      "summary": "Provides text functionality for the custom SFZ synthesizer, handling SFZ text parsing.",
+      "tags": [
+        "sfz-component",
+        "parsing",
+        "data-structure"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sfz/text.rs:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        46,
+        48
+      ],
+      "summary": "Handles read logic within text.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/text.rs:read_with",
+      "type": "function",
+      "name": "read_with",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        52,
+        66
+      ],
+      "summary": "Handles read with logic within text.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/text.rs:includes",
+      "type": "function",
+      "name": "includes",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        70,
+        103
+      ],
+      "summary": "Handles includes logic within text.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/text.rs:file",
+      "type": "function",
+      "name": "file",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        122,
+        137
+      ],
+      "summary": "Handles file logic within text.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/text.rs:directive",
+      "type": "function",
+      "name": "directive",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        148,
+        215
+      ],
+      "summary": "Handles directive logic within text.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/text.rs:include",
+      "type": "function",
+      "name": "include",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        217,
+        232
+      ],
+      "summary": "Handles include logic within text.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/text.rs:header",
+      "type": "function",
+      "name": "header",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        234,
+        248
+      ],
+      "summary": "Handles header logic within text.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/text.rs:opcode",
+      "type": "function",
+      "name": "opcode",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        250,
+        273
+      ],
+      "summary": "Handles opcode logic within text.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/text.rs:expand",
+      "type": "function",
+      "name": "expand",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        277,
+        313
+      ],
+      "summary": "Handles expand logic within text.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sfz/text.rs:skip_blank",
+      "type": "function",
+      "name": "skip_blank",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        317,
+        330
+      ],
+      "summary": "Handles skip blank logic within text.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sfz/text.rs:value_end",
+      "type": "function",
+      "name": "value_end",
+      "filePath": "src/sfz/text.rs",
+      "lineRange": [
+        362,
+        412
+      ],
+      "summary": "Handles value end logic within text.rs.",
+      "tags": [
+        "cleanup"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/dls.rs",
+      "type": "file",
+      "name": "dls.rs",
+      "filePath": "src/dls.rs",
+      "summary": "DLS (Downloadable Sound) format parser that converts DLS sound sets to the internal SF2 representation used by rustysynth.",
+      "tags": [
+        "dls-parser",
+        "soundfont-format",
+        "conversion",
+        "parsing"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/dls.rs:wsmp",
+      "type": "function",
+      "name": "wsmp",
+      "filePath": "src/dls.rs",
+      "lineRange": [
+        81,
+        105
+      ],
+      "summary": "Handles wsmp logic within dls.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/dls.rs:blocks",
+      "type": "function",
+      "name": "blocks",
+      "filePath": "src/dls.rs",
+      "lineRange": [
+        108,
+        136
+      ],
+      "summary": "Handles blocks logic within dls.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/dls.rs:take",
+      "type": "function",
+      "name": "take",
+      "filePath": "src/dls.rs",
+      "lineRange": [
+        189,
+        314
+      ],
+      "summary": "Handles take logic within dls.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/dls.rs:wave",
+      "type": "function",
+      "name": "wave",
+      "filePath": "src/dls.rs",
+      "lineRange": [
+        331,
+        378
+      ],
+      "summary": "Handles wave logic within dls.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/dls.rs:to_sf2",
+      "type": "function",
+      "name": "to_sf2",
+      "filePath": "src/dls.rs",
+      "lineRange": [
+        382,
+        580
+      ],
+      "summary": "Handles to sf2 logic within dls.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/dls.rs:Generators",
+      "type": "class",
+      "name": "Generators",
+      "filePath": "src/dls.rs",
+      "lineRange": [
+        169,
+        174
+      ],
+      "summary": "Generators represents generators in the DLS format parser with 4 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/lib.rs",
+      "summary": "Library root that defines the OxiGuitar plugin interface (MidiPlugin struct, playable() function, user_folder()), re-exports all modules, and implements the plugin entry point.",
+      "tags": [
+        "entry-point",
+        "plugin-interface",
+        "barrel",
+        "plugin-entry",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/lib.rs:user_folder",
+      "type": "function",
+      "name": "user_folder",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        98,
+        103
+      ],
+      "summary": "Handles user folder logic within lib.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib.rs:playable",
+      "type": "function",
+      "name": "playable",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        106,
+        112
+      ],
+      "summary": "Handles playable logic within lib.rs.",
+      "tags": [
+        "playback"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib.rs:fingerprint",
+      "type": "function",
+      "name": "fingerprint",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        116,
+        134
+      ],
+      "summary": "Handles fingerprint logic within lib.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib.rs:say_missing",
+      "type": "function",
+      "name": "say_missing",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        153,
+        171
+      ],
+      "summary": "Handles say missing logic within lib.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib.rs:load_sfz",
+      "type": "function",
+      "name": "load_sfz",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        175,
+        208
+      ],
+      "summary": "Handles load sfz logic within lib.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib.rs:load",
+      "type": "function",
+      "name": "load",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        211,
+        232
+      ],
+      "summary": "Handles load logic within lib.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib.rs:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        236,
+        286
+      ],
+      "summary": "Handles read logic within lib.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib.rs:advise_sets",
+      "type": "function",
+      "name": "advise_sets",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        290,
+        316
+      ],
+      "summary": "Handles advise sets logic within lib.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib.rs:prepare",
+      "type": "function",
+      "name": "prepare",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        345,
+        425
+      ],
+      "summary": "Handles prepare logic within lib.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/lib.rs:MidiPlugin",
+      "type": "class",
+      "name": "MidiPlugin",
+      "filePath": "src/lib.rs",
+      "lineRange": [
+        79,
+        89
+      ],
+      "summary": "MidiPlugin represents midiplugin in the RIFF format parser with 11 methods.",
+      "tags": [
+        "plugin-interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/riff.rs",
+      "type": "file",
+      "name": "riff.rs",
+      "filePath": "src/riff.rs",
+      "summary": "RIFF format utilities for reading chunks, lists, and binary data from RIFF-based audio formats (SF2, DLS).",
+      "tags": [
+        "riff-format",
+        "utility",
+        "binary-parsing",
+        "chunk-reader"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/riff.rs:list",
+      "type": "function",
+      "name": "list",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        21,
+        29
+      ],
+      "summary": "Handles list logic within riff.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/riff.rs:u16_at",
+      "type": "function",
+      "name": "u16_at",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        33,
+        35
+      ],
+      "summary": "Handles u16 at logic within riff.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/riff.rs:u32_at",
+      "type": "function",
+      "name": "u32_at",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        38,
+        40
+      ],
+      "summary": "Handles u32 at logic within riff.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/riff.rs:i32_at",
+      "type": "function",
+      "name": "i32_at",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        43,
+        45
+      ],
+      "summary": "Handles i32 at logic within riff.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/riff.rs:invalid",
+      "type": "function",
+      "name": "invalid",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        48,
+        50
+      ],
+      "summary": "Handles invalid logic within riff.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/riff.rs:chunks",
+      "type": "function",
+      "name": "chunks",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        55,
+        81
+      ],
+      "summary": "Handles chunks logic within riff.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/riff.rs:form",
+      "type": "function",
+      "name": "form",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        84,
+        94
+      ],
+      "summary": "Handles form logic within riff.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/riff.rs:find",
+      "type": "function",
+      "name": "find",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        97,
+        99
+      ],
+      "summary": "Handles find logic within riff.rs.",
+      "tags": [
+        "search"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/riff.rs:find_list",
+      "type": "function",
+      "name": "find_list",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        102,
+        108
+      ],
+      "summary": "Handles find list logic within riff.rs.",
+      "tags": [
+        "search"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/riff.rs:show",
+      "type": "function",
+      "name": "show",
+      "filePath": "src/riff.rs",
+      "lineRange": [
+        111,
+        115
+      ],
+      "summary": "Handles show logic within riff.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sf2.rs",
+      "type": "file",
+      "name": "sf2.rs",
+      "filePath": "src/sf2.rs",
+      "summary": "SoundFont 2 format parser providing data structures for samples, zones, instruments, presets, and the top-level Sf2 container, plus write support.",
+      "tags": [
+        "soundfont-format",
+        "sf2-parser",
+        "data-structure",
+        "serialization"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sf2.rs:generators",
+      "type": "function",
+      "name": "generators",
+      "filePath": "src/sf2.rs",
+      "lineRange": [
+        172,
+        188
+      ],
+      "summary": "Handles generators logic within sf2.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sf2.rs:write",
+      "type": "function",
+      "name": "write",
+      "filePath": "src/sf2.rs",
+      "lineRange": [
+        192,
+        299
+      ],
+      "summary": "Handles write logic within sf2.rs.",
+      "tags": [
+        "serialization"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sf2.rs:test_set",
+      "type": "function",
+      "name": "test_set",
+      "filePath": "src/sf2.rs",
+      "lineRange": [
+        308,
+        363
+      ],
+      "summary": "Handles test set logic within sf2.rs.",
+      "tags": [
+        "testing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/sf3.rs",
+      "type": "file",
+      "name": "sf3.rs",
+      "filePath": "src/sf3.rs",
+      "summary": "SoundFont 3 detection and conversion utilities, detecting SF3 files and converting them to SF2 format for use with rustysynth.",
+      "tags": [
+        "soundfont-format",
+        "sf3-converter",
+        "conversion",
+        "detection"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sf3.rs:is_sf3",
+      "type": "function",
+      "name": "is_sf3",
+      "filePath": "src/sf3.rs",
+      "lineRange": [
+        32,
+        49
+      ],
+      "summary": "Handles is sf3 logic within sf3.rs.",
+      "tags": [
+        "query"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sf3.rs:decode",
+      "type": "function",
+      "name": "decode",
+      "filePath": "src/sf3.rs",
+      "lineRange": [
+        51,
+        61
+      ],
+      "summary": "Handles decode logic within sf3.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sf3.rs:samples",
+      "type": "function",
+      "name": "samples",
+      "filePath": "src/sf3.rs",
+      "lineRange": [
+        68,
+        119
+      ],
+      "summary": "Handles samples logic within sf3.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sf3.rs:to_sf2",
+      "type": "function",
+      "name": "to_sf2",
+      "filePath": "src/sf3.rs",
+      "lineRange": [
+        142,
+        216
+      ],
+      "summary": "Handles to sf2 logic within sf3.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/info.rs",
+      "type": "file",
+      "name": "info.rs",
+      "filePath": "src/info.rs",
+      "summary": "Sound set metadata and label utilities, parsing set info files and providing short labels for display in the settings UI.",
+      "tags": [
+        "metadata",
+        "ui-support",
+        "parsing",
+        "labeling"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/info.rs:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "src/info.rs",
+      "lineRange": [
+        73,
+        107
+      ],
+      "summary": "Handles parse logic within info.rs.",
+      "tags": [
+        "parsing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/info.rs:plays_unpicked",
+      "type": "function",
+      "name": "plays_unpicked",
+      "filePath": "src/info.rs",
+      "lineRange": [
+        116,
+        121
+      ],
+      "summary": "Handles plays unpicked logic within info.rs.",
+      "tags": [
+        "playback"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/info.rs:short_label",
+      "type": "function",
+      "name": "short_label",
+      "filePath": "src/info.rs",
+      "lineRange": [
+        129,
+        149
+      ],
+      "summary": "Handles short label logic within info.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/info.rs:of",
+      "type": "function",
+      "name": "of",
+      "filePath": "src/info.rs",
+      "lineRange": [
+        162,
+        181
+      ],
+      "summary": "Handles of logic within info.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/info.rs:Info",
+      "type": "class",
+      "name": "Info",
+      "filePath": "src/info.rs",
+      "lineRange": [
+        49,
+        68
+      ],
+      "summary": "Info represents info in the metadata module with 4 methods.",
+      "tags": [
+        "metadata"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/sets.rs",
+      "type": "file",
+      "name": "sets.rs",
+      "filePath": "src/sets.rs",
+      "summary": "Sound set discovery and loading, finding installed sound sets in system and user directories, and managing set origins.",
+      "tags": [
+        "set-discovery",
+        "filesystem",
+        "configuration",
+        "soundfont"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sets.rs:of",
+      "type": "function",
+      "name": "of",
+      "filePath": "src/sets.rs",
+      "lineRange": [
+        42,
+        51
+      ],
+      "summary": "Handles of logic within sets.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sets.rs:installed_places",
+      "type": "function",
+      "name": "installed_places",
+      "filePath": "src/sets.rs",
+      "lineRange": [
+        72,
+        81
+      ],
+      "summary": "Handles installed places logic within sets.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sets.rs:system_places",
+      "type": "function",
+      "name": "system_places",
+      "filePath": "src/sets.rs",
+      "lineRange": [
+        84,
+        105
+      ],
+      "summary": "Handles system places logic within sets.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sets.rs:find",
+      "type": "function",
+      "name": "find",
+      "filePath": "src/sets.rs",
+      "lineRange": [
+        119,
+        139
+      ],
+      "summary": "Handles find logic within sets.rs.",
+      "tags": [
+        "search"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sets.rs:leave_out_included",
+      "type": "function",
+      "name": "leave_out_included",
+      "filePath": "src/sets.rs",
+      "lineRange": [
+        143,
+        157
+      ],
+      "summary": "Handles leave out included logic within sets.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sets.rs:look_in",
+      "type": "function",
+      "name": "look_in",
+      "filePath": "src/sets.rs",
+      "lineRange": [
+        171,
+        217
+      ],
+      "summary": "Handles look in logic within sets.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/settings.rs",
+      "type": "file",
+      "name": "settings.rs",
+      "filePath": "src/settings.rs",
+      "summary": "Settings window for the MIDI plugin, managing per-role sound set selection (clean, overdriven, distorted, nylon, steel, bass, drums) and the settings UI integration.",
+      "tags": [
+        "ui",
+        "settings",
+        "configuration",
+        "role-management"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/settings.rs:key",
+      "type": "function",
+      "name": "key",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        62,
+        73
+      ],
+      "summary": "Handles key logic within settings.rs.",
+      "tags": [
+        "mapping"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:from_key",
+      "type": "function",
+      "name": "from_key",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        76,
+        78
+      ],
+      "summary": "Handles from key logic within settings.rs.",
+      "tags": [
+        "mapping",
+        "conversion"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:of_key",
+      "type": "function",
+      "name": "of_key",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        83,
+        91
+      ],
+      "summary": "Handles of key logic within settings.rs.",
+      "tags": [
+        "mapping",
+        "conversion"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:title",
+      "type": "function",
+      "name": "title",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        93,
+        104
+      ],
+      "summary": "Handles title logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:of",
+      "type": "function",
+      "name": "of",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        127,
+        146
+      ],
+      "summary": "Handles of logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:pick",
+      "type": "function",
+      "name": "pick",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        151,
+        166
+      ],
+      "summary": "Handles pick logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:chosen",
+      "type": "function",
+      "name": "chosen",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        171,
+        183
+      ],
+      "summary": "Handles chosen logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:automatic",
+      "type": "function",
+      "name": "automatic",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        192,
+        200
+      ],
+      "summary": "Handles automatic logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:sfz_label",
+      "type": "function",
+      "name": "sfz_label",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        204,
+        218
+      ],
+      "summary": "Handles sfz label logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:label",
+      "type": "function",
+      "name": "label",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        324,
+        333
+      ],
+      "summary": "Handles label logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:new",
+      "type": "function",
+      "name": "new",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        268,
+        273
+      ],
+      "summary": "Handles new logic within settings.rs.",
+      "tags": [
+        "constructor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:found",
+      "type": "function",
+      "name": "found",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        277,
+        288
+      ],
+      "summary": "Handles found logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/settings.rs:instrument",
+      "type": "function",
+      "name": "instrument",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        294,
+        322
+      ],
+      "summary": "Handles instrument logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/settings.rs:better_sounds",
+      "type": "function",
+      "name": "better_sounds",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        341,
+        373
+      ],
+      "summary": "Handles better sounds logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/settings.rs:content",
+      "type": "function",
+      "name": "content",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        376,
+        427
+      ],
+      "summary": "Handles content logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/settings.rs:on",
+      "type": "function",
+      "name": "on",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        429,
+        468
+      ],
+      "summary": "Handles on logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/settings.rs:only_basic",
+      "type": "function",
+      "name": "only_basic",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        473,
+        475
+      ],
+      "summary": "Handles only basic logic within settings.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/settings.rs:Role",
+      "type": "class",
+      "name": "Role",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        26,
+        35
+      ],
+      "summary": "Role represents role in the settings module with 9 methods.",
+      "tags": [
+        "data-structure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/settings.rs:Window",
+      "type": "class",
+      "name": "Window",
+      "filePath": "src/settings.rs",
+      "lineRange": [
+        261,
+        265
+      ],
+      "summary": "Window represents window in the settings module with 6 methods.",
+      "tags": [
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/track.rs",
+      "type": "file",
+      "name": "track.rs",
+      "filePath": "src/track.rs",
+      "summary": "Track-level sound set selection, allowing individual tracks to override the global settings with their own sound set or follow automatic selection.",
+      "tags": [
+        "track-management",
+        "selection",
+        "playback-config"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/track.rs:of",
+      "type": "function",
+      "name": "of",
+      "filePath": "src/track.rs",
+      "lineRange": [
+        48,
+        56
+      ],
+      "summary": "Handles of logic within track.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/track.rs:of_text",
+      "type": "function",
+      "name": "of_text",
+      "filePath": "src/track.rs",
+      "lineRange": [
+        59,
+        64
+      ],
+      "summary": "Handles of text logic within track.rs.",
+      "tags": [
+        "parsing",
+        "conversion"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/track.rs:save",
+      "type": "function",
+      "name": "save",
+      "filePath": "src/track.rs",
+      "lineRange": [
+        67,
+        79
+      ],
+      "summary": "Handles save logic within track.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/track.rs:set_for",
+      "type": "function",
+      "name": "set_for",
+      "filePath": "src/track.rs",
+      "lineRange": [
+        84,
+        98
+      ],
+      "summary": "Handles set for logic within track.rs.",
+      "tags": [
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/track.rs:choices",
+      "type": "function",
+      "name": "choices",
+      "filePath": "src/track.rs",
+      "lineRange": [
+        103,
+        127
+      ],
+      "summary": "Handles choices logic within track.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/track.rs:content",
+      "type": "function",
+      "name": "content",
+      "filePath": "src/track.rs",
+      "lineRange": [
+        143,
+        172
+      ],
+      "summary": "Handles content logic within track.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/track.rs:on",
+      "type": "function",
+      "name": "on",
+      "filePath": "src/track.rs",
+      "lineRange": [
+        174,
+        193
+      ],
+      "summary": "Handles on logic within track.rs.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/track.rs:Pick",
+      "type": "class",
+      "name": "Pick",
+      "filePath": "src/track.rs",
+      "lineRange": [
+        39,
+        43
+      ],
+      "summary": "Pick represents pick in the track module with 3 methods.",
+      "tags": [
+        "selection"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/ci.yml",
+      "type": "pipeline",
+      "name": "ci.yml",
+      "filePath": ".github/workflows/ci.yml",
+      "summary": "GitHub Actions CI workflow running cargo test and clippy checks on push and pull requests.",
+      "tags": [
+        "ci-cd",
+        "testing",
+        "continuous-integration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "pipeline:.github/workflows/listening.yml",
+      "type": "pipeline",
+      "name": "listening.yml",
+      "filePath": ".github/workflows/listening.yml",
+      "summary": "GitHub Actions workflow that renders OxiGuitar reference songs with recommended SFZ sound sets for ear-testing from the Actions tab.",
+      "tags": [
+        "ci-cd",
+        "audio-testing",
+        "listening"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "pipeline:.github/workflows/publish.yml",
+      "type": "pipeline",
+      "name": "publish.yml",
+      "filePath": ".github/workflows/publish.yml",
+      "summary": "GitHub Actions workflow for publishing releases, handling Homebrew tap updates and package distribution.",
+      "tags": [
+        "ci-cd",
+        "deployment",
+        "publishing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/release.yml",
+      "type": "pipeline",
+      "name": "release.yml",
+      "filePath": ".github/workflows/release.yml",
+      "summary": "GitHub Actions workflow for building and uploading release artifacts across Linux, Windows, and macOS platforms.",
+      "tags": [
+        "ci-cd",
+        "release",
+        "cross-platform"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:CHANGELOG.md",
+      "type": "document",
+      "name": "CHANGELOG.md",
+      "filePath": "CHANGELOG.md",
+      "summary": "Project changelog documenting version history, breaking changes, and feature additions since the plugin split from OxiGuitar.",
+      "tags": [
+        "documentation",
+        "changelog",
+        "version-history"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Claude Code configuration file providing project-specific context and coding guidelines for AI-assisted development.",
+      "tags": [
+        "documentation",
+        "ai-configuration",
+        "development"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:CONTRIBUTING.md",
+      "type": "document",
+      "name": "CONTRIBUTING.md",
+      "filePath": "CONTRIBUTING.md",
+      "summary": "Contribution guidelines for the OxiGuitar MIDI plugin, including DCO signing requirements and build instructions.",
+      "tags": [
+        "documentation",
+        "contributing",
+        "dcosigning"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "Cargo.toml",
+      "summary": "Rust package manifest defining dependencies (oxiguitar-plugin SDK, rustysynth, lewton, claxon), features, and lint configuration.",
+      "tags": [
+        "configuration",
+        "rust",
+        "dependencies",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Project overview documenting the MIDI plugin features, installation, build instructions, and sound set management.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:build-oxp.sh",
+      "type": "file",
+      "name": "build-oxp.sh",
+      "filePath": "build-oxp.sh",
+      "summary": "Build script that compiles the plugin with --features oxp --crate-type cdylib and packages it as a versioned .oxp file.",
+      "tags": [
+        "build-system",
+        "script",
+        "packaging"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:clippy.toml",
+      "type": "config",
+      "name": "clippy.toml",
+      "filePath": "clippy.toml",
+      "summary": "Rust clippy linter configuration for the project.",
+      "tags": [
+        "configuration",
+        "clippy",
+        "linting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:deny.toml",
+      "type": "config",
+      "name": "deny.toml",
+      "filePath": "deny.toml",
+      "summary": "Cargo deny configuration for license compliance, advisory checking, and ban list management.",
+      "tags": [
+        "configuration",
+        "security",
+        "license-check"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:manifest.json",
+      "type": "config",
+      "name": "manifest.json",
+      "filePath": "manifest.json",
+      "summary": "Plugin manifest file defining the OxiGuitar plugin metadata including ID, name, version, and entry point.",
+      "tags": [
+        "configuration",
+        "plugin-manifest",
+        "metadata"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:rustfmt.toml",
+      "type": "config",
+      "name": "rustfmt.toml",
+      "filePath": "rustfmt.toml",
+      "summary": "Rust formatter configuration for consistent code style across the project.",
+      "tags": [
+        "configuration",
+        "rustfmt",
+        "code-style"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.github/dependabot.yml",
+      "type": "config",
+      "name": "dependabot.yml",
+      "filePath": ".github/dependabot.yml",
+      "summary": "GitHub Dependabot configuration for automatic dependency updates of GitHub Actions and Rust crates.",
+      "tags": [
+        "configuration",
+        "dependabot",
+        "dependency-management"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.github/pull_request_template.md",
+      "type": "document",
+      "name": "pull_request_template.md",
+      "filePath": ".github/pull_request_template.md",
+      "summary": "GitHub pull request template providing a checklist and description format for contributions.",
+      "tags": [
+        "documentation",
+        "github",
+        "templates"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:fixtures/sfz/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "fixtures/sfz/README.md",
+      "summary": "Documentation for the SFZ test fixtures directory containing sample audio files used in unit tests.",
+      "tags": [
+        "documentation",
+        "test-fixtures",
+        "sfz"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/check-dco.sh",
+      "type": "file",
+      "name": "check-dco.sh",
+      "filePath": "scripts/check-dco.sh",
+      "summary": "Shell script that checks commit messages for Developer Certificate of Origin (DCO) sign-off compliance.",
+      "tags": [
+        "script",
+        "dcosigning",
+        "compliance",
+        "ci-support"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:tests/contract.rs",
+      "type": "file",
+      "name": "contract.rs",
+      "filePath": "tests/contract.rs",
+      "summary": "Contract test suite that validates the built .oxp plugin file against OxiGuitar plugin interface requirements.",
+      "tags": [
+        "test",
+        "contract-test",
+        "plugin-interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/realtime.rs",
+      "type": "file",
+      "name": "realtime.rs",
+      "filePath": "tests/realtime.rs",
+      "summary": "Real-time integration tests that exercise the SFZ sampler with actual audio playback using test fixtures.",
+      "tags": [
+        "test",
+        "integration-test",
+        "realtime",
+        "audio-testing"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/sfz/maps.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/sfz/sampler.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:vibrato_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:vibrato_of",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:new",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:new",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:stop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:set_program",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:send_bend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:send_expression",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:program_for",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:expression",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:asked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:sampler_note_on",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:note_on",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:end",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:note_off",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:track",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "function:src/play.rs:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "class:src/play.rs:Track",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "class:src/play.rs:Player",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "class:src/play.rs:Player",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:at",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:at",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:curve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:close",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:opcode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:control",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:curve_opcode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:new",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:build",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:implicit_controllers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "function:src/sfz/instrument.rs:read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "class:src/sfz/instrument.rs:Builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/maps.rs",
+      "target": "function:src/sfz/maps.rs:for_instrument",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/maps.rs",
+      "target": "function:src/sfz/maps.rs:for_instrument",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/maps.rs",
+      "target": "function:src/sfz/maps.rs:key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/maps.rs",
+      "target": "function:src/sfz/maps.rs:key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/instrument.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/maps.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/region.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/sample.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/sampler.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/sinc.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/text.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "function:src/sfz/mod.rs:bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "function:src/sfz/mod.rs:bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "function:src/sfz/mod.rs:trim",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "function:src/sfz/mod.rs:trim",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "function:src/sfz/mod.rs:load",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "function:src/sfz/mod.rs:load",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "class:src/sfz/mod.rs:Samples",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "class:src/sfz/mod.rs:Samples",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:parse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:new",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:sample",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:normal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:normal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:number",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:number",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:shape",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:shape",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:controller",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:ignored",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:modulation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:cc_fade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:apply",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:apply",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "function:src/sfz/region.rs:envelope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "class:src/sfz/region.rs:Target",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "class:src/sfz/region.rs:Target",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "class:src/sfz/region.rs:Eg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "class:src/sfz/region.rs:Eg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "class:src/sfz/region.rs:Region",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "class:src/sfz/region.rs:Region",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "class:src/sfz/region.rs:Context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "class:src/sfz/region.rs:Context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:at",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:at",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:decode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:wav_chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:wav",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:smpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:flac",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "function:src/sfz/sample.rs:ogg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "class:src/sfz/sample.rs:Sample",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sample.rs",
+      "target": "class:src/sfz/sample.rs:Sample",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:new",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:new",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:stages_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:coefficients",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:wave",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:frame",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:gather",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:matrix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:fade_in",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:fade_out",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:plays",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:set_switch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:set_switch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:set_controller",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:set_controller",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:carry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:carry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:hold",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:hold",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:end_pending",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:end_pending",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:note_on",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:note_on",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:set_note_controllers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:choke_for",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:limit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:free_slot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:note_off",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:note_off",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:end_string",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:end_string",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:stop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:stop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:sounding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:sounding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "function:src/sfz/sampler.rs:velocity_curve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "class:src/sfz/sampler.rs:Envelope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "class:src/sfz/sampler.rs:Voice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "class:src/sfz/sampler.rs:Random",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "class:src/sfz/sampler.rs:Sampler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "class:src/sfz/sampler.rs:Sampler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sinc.rs",
+      "target": "function:src/sfz/sinc.rs:kernel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sinc.rs",
+      "target": "function:src/sfz/sinc.rs:kernel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sinc.rs",
+      "target": "function:src/sfz/sinc.rs:bessel0",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sinc.rs",
+      "target": "function:src/sfz/sinc.rs:table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sinc.rs",
+      "target": "function:src/sfz/sinc.rs:weights",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/sinc.rs",
+      "target": "function:src/sfz/sinc.rs:weights",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:read_with",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:read_with",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:includes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:includes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:directive",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:include",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:opcode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:expand",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:skip_blank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sfz/text.rs",
+      "target": "function:src/sfz/text.rs:value_end",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/lib.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "file:src/riff.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "file:src/sf2.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "function:src/dls.rs:wsmp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "function:src/dls.rs:blocks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "function:src/dls.rs:take",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "function:src/dls.rs:wave",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "function:src/dls.rs:to_sf2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "function:src/dls.rs:to_sf2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "class:src/dls.rs:Generators",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/dls.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/info.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/play.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/riff.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sets.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/settings.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sf2.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sf3.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sfz/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/track.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:user_folder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:user_folder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:playable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:playable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:fingerprint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:say_missing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:load_sfz",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:load",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:advise_sets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "function:src/lib.rs:prepare",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "class:src/lib.rs:MidiPlugin",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "class:src/lib.rs:MidiPlugin",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:list",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:u16_at",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:u16_at",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:u32_at",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:u32_at",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:i32_at",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:i32_at",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:invalid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:invalid",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:chunks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:form",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:form",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:find",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:find",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:find_list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:find_list",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:show",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/riff.rs",
+      "target": "function:src/riff.rs:show",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sf2.rs",
+      "target": "function:src/sf2.rs:generators",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sf2.rs",
+      "target": "function:src/sf2.rs:write",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sf2.rs",
+      "target": "function:src/sf2.rs:write",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sf2.rs",
+      "target": "function:src/sf2.rs:test_set",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sf2.rs",
+      "target": "function:src/sf2.rs:test_set",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sf3.rs",
+      "target": "file:src/riff.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sf3.rs",
+      "target": "function:src/sf3.rs:is_sf3",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sf3.rs",
+      "target": "function:src/sf3.rs:is_sf3",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sf3.rs",
+      "target": "function:src/sf3.rs:decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sf3.rs",
+      "target": "function:src/sf3.rs:samples",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sf3.rs",
+      "target": "function:src/sf3.rs:to_sf2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sf3.rs",
+      "target": "function:src/sf3.rs:to_sf2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "file:src/settings.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "function:src/info.rs:parse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "function:src/info.rs:parse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "function:src/info.rs:plays_unpicked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "function:src/info.rs:plays_unpicked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "function:src/info.rs:short_label",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "function:src/info.rs:short_label",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "function:src/info.rs:of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "function:src/info.rs:of",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "class:src/info.rs:Info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "class:src/info.rs:Info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:of",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:installed_places",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:installed_places",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:system_places",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:system_places",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:find",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:find",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:leave_out_included",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "function:src/sets.rs:look_in",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "file:src/sets.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:from_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:from_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:of_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:of_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:title",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:title",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:of",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:pick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:chosen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:chosen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:automatic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:automatic",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:sfz_label",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:label",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:label",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:new",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:new",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:found",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:found",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:instrument",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:better_sounds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:on",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:only_basic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "function:src/settings.rs:only_basic",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "class:src/settings.rs:Role",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "class:src/settings.rs:Role",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "class:src/settings.rs:Window",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/settings.rs",
+      "target": "class:src/settings.rs:Window",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "file:src/sets.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "file:src/settings.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:of",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:of_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:of_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:set_for",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:set_for",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:choices",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "function:src/track.rs:on",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "class:src/track.rs:Pick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/track.rs",
+      "target": "class:src/track.rs:Pick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/play.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sfz/instrument.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sfz/maps.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sfz/mod.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sfz/region.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sfz/sample.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sfz/sampler.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sfz/sinc.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sfz/text.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/dls.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/lib.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/riff.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sf2.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sf3.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/info.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/sets.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/settings.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:Cargo.toml",
+      "target": "file:src/track.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/lib.rs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/play.rs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:manifest.json",
+      "target": "file:src/lib.rs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:build-oxp.sh",
+      "target": "file:src/lib.rs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:tests/contract.rs",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:tests/realtime.rs",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "file:tests/realtime.rs",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "pipeline:.github/workflows/ci.yml",
+      "target": "file:tests/contract.rs",
+      "type": "triggers",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "pipeline:.github/workflows/ci.yml",
+      "target": "file:tests/realtime.rs",
+      "type": "triggers",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.github/dependabot.yml",
+      "target": "config:Cargo.toml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "pipeline:.github/workflows/ci.yml",
+      "target": "file:scripts/check-dco.sh",
+      "type": "triggers",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:core-library",
+      "name": "Core Library",
+      "description": "The OxiGuitar plugin interface — the lib.rs entry point that defines MidiPlugin, implements the plugin contract, and re-exports all public modules.",
+      "nodeIds": [
+        "file:src/lib.rs"
+      ]
+    },
+    {
+      "id": "layer:sfz-engine",
+      "name": "SFZ Engine",
+      "description": "The custom SFZ synthesizer engine — 9 files covering SFZ text parsing, region definitions, instrument building, key mapping, sample loading/decoding, voice management (sampler), and sinc resampling.",
+      "nodeIds": [
+        "file:src/sfz/mod.rs",
+        "file:src/sfz/text.rs",
+        "file:src/sfz/region.rs",
+        "file:src/sfz/instrument.rs",
+        "file:src/sfz/maps.rs",
+        "file:src/sfz/sample.rs",
+        "file:src/sfz/sampler.rs",
+        "file:src/sfz/sinc.rs"
+      ]
+    },
+    {
+      "id": "layer:soundfont-support",
+      "name": "SoundFont Support",
+      "description": "SoundFont 2, SoundFont 3, and DLS format parsers — converts these sound set formats into structures usable by rustysynth for MIDI playback.",
+      "nodeIds": [
+        "file:src/sf2.rs",
+        "file:src/sf3.rs",
+        "file:src/dls.rs"
+      ]
+    },
+    {
+      "id": "layer:playback-engine",
+      "name": "Playback Engine",
+      "description": "The main MIDI playback runner — manages the Player state machine, vibrato, and coordinates the SFZ sampler for real-time audio rendering.",
+      "nodeIds": [
+        "file:src/play.rs"
+      ]
+    },
+    {
+      "id": "layer:format-utilities",
+      "name": "Format Utilities",
+      "description": "RIFF binary format utilities — chunk reading, list traversal, and binary data access used by both SF2 and DLS parsers.",
+      "nodeIds": [
+        "file:src/riff.rs"
+      ]
+    },
+    {
+      "id": "layer:settings-and-selection",
+      "name": "Settings and Selection",
+      "description": "User-facing configuration — sound set discovery (sets.rs), per-role sound selection (settings.rs), track-level overrides (track.rs), and set metadata/labeling (info.rs).",
+      "nodeIds": [
+        "file:src/settings.rs",
+        "file:src/track.rs",
+        "file:src/info.rs",
+        "file:src/sets.rs"
+      ]
+    },
+    {
+      "id": "layer:infrastructure",
+      "name": "Infrastructure",
+      "description": "CI/CD pipelines and GitHub configuration — four GitHub Actions workflows (CI, listening tests, publishing, releases) plus Dependabot configuration.",
+      "nodeIds": [
+        "pipeline:.github/workflows/ci.yml",
+        "pipeline:.github/workflows/listening.yml",
+        "pipeline:.github/workflows/publish.yml",
+        "pipeline:.github/workflows/release.yml",
+        "config:.github/dependabot.yml"
+      ]
+    },
+    {
+      "id": "layer:configuration",
+      "name": "Configuration",
+      "description": "Build and project configuration — Cargo.toml (dependencies, features, lints), manifest.json (plugin metadata), and Rust tooling configs (clippy, deny, rustfmt).",
+      "nodeIds": [
+        "config:Cargo.toml",
+        "config:manifest.json",
+        "config:clippy.toml",
+        "config:deny.toml",
+        "config:rustfmt.toml"
+      ]
+    },
+    {
+      "id": "layer:documentation",
+      "name": "Documentation",
+      "description": "Project documentation — README, CHANGELOG, CONTRIBUTING guidelines, CLAUDE.md for AI-assisted development, and the pull request template.",
+      "nodeIds": [
+        "document:README.md",
+        "document:CHANGELOG.md",
+        "document:CONTRIBUTING.md",
+        "document:CLAUDE.md",
+        "document:.github/pull_request_template.md",
+        "document:fixtures/sfz/README.md"
+      ]
+    },
+    {
+      "id": "layer:testing",
+      "name": "Testing",
+      "description": "Test infrastructure — contract tests validating the .oxp plugin interface, real-time integration tests exercising the SFZ sampler, the DCO sign-off script, and SFZ test fixtures.",
+      "nodeIds": [
+        "file:tests/contract.rs",
+        "file:tests/realtime.rs",
+        "file:scripts/check-dco.sh"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "Read the README to understand what this plugin does: it plays OxiGuitar guitar tablature tracks using MIDI with SoundFont, DLS, or SFZ sound sets. It ships with a custom 256-voice SFZ synthesizer and uses rustysynth for SoundFont synthesis.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Plugin Entry Point & Module Organization",
+      "description": "Examine src/lib.rs — the OxiGuitar plugin contract. This is the entry point that defines the MidiPlugin trait implementation, re-exports all public modules, and wires together the SFZ engine, soundfont parsers, settings, and playback engine.",
+      "nodeIds": [
+        "file:src/lib.rs"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "MIDI Playback Engine",
+      "description": "Study src/play.rs — the main playback runner. It manages the Player state machine, handles note-on/note-off events from the MIDI stream, coordinates vibrato, and drives the SFZ sampler for real-time audio rendering. This is where MIDI events become audible audio.",
+      "nodeIds": [
+        "file:src/play.rs"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "SFZ Engine: Text Parsing & Regions",
+      "description": "Explore src/sfz/text.rs and src/sfz/region.rs — the SFZ parser that reads SFZ text files, extracts global and drum groups, parses amplitude envelopes, pitch envelopes, key ranges, and other SFZ2 opcodes into structured Region objects.",
+      "nodeIds": [
+        "file:src/sfz/text.rs",
+        "file:src/sfz/region.rs"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "SFZ Engine: Instruments & Key Mapping",
+      "description": "Review src/sfz/instrument.rs and src/sfz/maps.rs — how parsed regions are assembled into instruments, and how MIDI key numbers are mapped to articulations with support for key ranges, velocity layers, and group-based priority.",
+      "nodeIds": [
+        "file:src/sfz/instrument.rs",
+        "file:src/sfz/maps.rs"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "SFZ Engine: Sample Loading & Resampling",
+      "description": "Look at src/sfz/sample.rs and src/sfz/sinc.rs — how audio samples are loaded from files, decoded (FLAC, OGG, WAV), and resampled using sinc interpolation to match the target sample rate while preserving audio quality.",
+      "nodeIds": [
+        "file:src/sfz/sample.rs",
+        "file:src/sfz/sinc.rs"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "SFZ Engine: Voice Manager & Sampler",
+      "description": "Study src/sfz/sampler.rs — the most complex SFZ file at ~2000 lines. It implements the voice manager (allocating, triggering, and releasing voices), handles amplitude envelopes, pitch modulation, and routes audio output through the audio callback.",
+      "nodeIds": [
+        "file:src/sfz/sampler.rs"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "SFZ Engine: High-Level Loader",
+      "description": "Review src/sfz/mod.rs — the barrel module that ties together text parsing, region building, instrument construction, and sample loading into a single load() API. This is the public interface for loading an SFZ instrument file.",
+      "nodeIds": [
+        "file:src/sfz/mod.rs"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "SoundFont & DLS Format Support",
+      "description": "Examine src/sf2.rs, src/sf3.rs, and src/dls.rs — parsers for SoundFont 2, SoundFont 3, and DLS sound set formats. These convert proprietary binary formats into a unified representation that rustysynth can use for MIDI synthesis. They share src/riff.rs for RIFF chunk reading.",
+      "nodeIds": [
+        "file:src/sf2.rs",
+        "file:src/sf3.rs",
+        "file:src/dls.rs",
+        "file:src/riff.rs"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "Settings & Sound Selection",
+      "description": "Explore src/settings.rs, src/sets.rs, src/info.rs, and src/track.rs — the user-facing configuration layer. Settings discovers available sound sets, assigns them to MIDI channels (roles), allows per-track overrides, and manages set metadata and labeling.",
+      "nodeIds": [
+        "file:src/settings.rs",
+        "file:src/sets.rs",
+        "file:src/info.rs",
+        "file:src/track.rs"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Testing & Validation",
+      "description": "Review the test suite: tests/contract.rs validates the .oxp plugin interface contract, and tests/realtime.rs exercises the SFZ sampler in real-time to catch audio glitches. Also check scripts/check-dco.sh for contributor sign-off enforcement.",
+      "nodeIds": [
+        "file:tests/contract.rs",
+        "file:tests/realtime.rs",
+        "file:scripts/check-dco.sh"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Build Configuration & CI",
+      "description": "Look at Cargo.toml for dependencies (oxiguitar-plugin, rustysynth, lewton, claxon), deny.toml for dependency audit rules, and the GitHub Actions workflows (ci.yml, listening.yml, publish.yml, release.yml) that drive continuous integration and plugin publishing.",
+      "nodeIds": [
+        "config:Cargo.toml",
+        "config:deny.toml",
+        "pipeline:.github/workflows/ci.yml",
+        "pipeline:.github/workflows/listening.yml",
+        "pipeline:.github/workflows/publish.yml",
+        "pipeline:.github/workflows/release.yml"
+      ]
+    }
+  ]
+}
