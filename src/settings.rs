@@ -287,15 +287,6 @@ impl Window {
         sets
     }
 
-    /// Sets relevant for `role`: those whose `info.roles` includes it,
-    /// or that have no role info (General MIDI fallbacks).
-    pub(crate) fn found_for_role(&self, role: Role) -> Vec<Found> {
-        self.found()
-            .into_iter()
-            .filter(|f| f.info.as_ref().is_none_or(|i| i.roles.contains(&role)))
-            .collect()
-    }
-
     /// Whether the SFZ file at `path` is an instrument, not a part others
     /// include: it has regions, and every `$name` it uses is defined
     /// (Karoryfer's sets keep parts that work only when included). Kept
@@ -384,10 +375,10 @@ fn better_sounds(found: &[Found]) -> Vec<Row> {
 impl Tab for Window {
     fn content(&self) -> TabContent {
         let settings = self.host.settings().unwrap_or_default();
-        let mut rows = better_sounds(&self.found());
+        let found = self.found();
+        let labels: Vec<String> = found.iter().map(|f| self.label(f)).collect();
+        let mut rows = better_sounds(&found);
         for role in Role::ALL {
-            let found = self.found_for_role(role);
-            let labels: Vec<String> = found.iter().map(|f| self.label(f)).collect();
             let plays =
                 automatic(role, &found).map_or_else(|| "none found".to_owned(), |f| self.label(f));
             let mut options = vec![format!("Automatic: {plays}")];
@@ -442,7 +433,7 @@ impl Tab for Window {
         let TabEvent::Chosen(i) = event else {
             return Ok(());
         };
-        let found = self.found_for_role(role);
+        let found = self.found();
         let mut settings = self.host.settings()?;
         // The older shared picks go to every row they stood for, so
         // picking one row leaves the others as they were: the electric one
