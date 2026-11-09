@@ -36,7 +36,7 @@ claxon = "0.4.3"
 # (tests/realtime.rs) run the built .oxp file through OxiGuitar's own plugin
 # host.
 oxiguitar-plugin-test = { git = "https://github.com/mateusrdp/oxiguitar", tag = "v0.11.0" }
-oxiguitar-host = { git = "https://github.com/mateusrdp/oxiguitar", tag = "v0.11.0" }
+oxiguitar-host = { git = "https://github.com/mateusrdp/oxiguitar", tag = "v0.13.1" }
 serde_json = "1"
 
 # Plugins deny `unsafe` rather than forbid it: `export_plugin!` allows it on
