@@ -1,0 +1,4869 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "304d1f3c06c6867ab45688b8cb8b4d1af30f3e23",
+  "generatedAt": "2026-11-07T17:47:30.535Z",
+  "files": {
+    ".github/dependabot.yml": {
+      "filePath": ".github/dependabot.yml",
+      "contentHash": "1d177c4b52c244956069a6269ed50492bb649dcaebb1a1b1ef9d610835eeb2d3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 25,
+      "hasStructuralAnalysis": false
+    },
+    ".github/pull_request_template.md": {
+      "filePath": ".github/pull_request_template.md",
+      "contentHash": "2725627b502bd9a41e49fa5324897c4c507ae2dc69a726057c974456140b6213",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    ".github/workflows/ci.yml": {
+      "filePath": ".github/workflows/ci.yml",
+      "contentHash": "147a2717a8b17c4cfc8241873ff15bb5ba4a284c43756059bc4bd251c1e3d195",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 175,
+      "hasStructuralAnalysis": false
+    },
+    ".github/workflows/listening.yml": {
+      "filePath": ".github/workflows/listening.yml",
+      "contentHash": "72dec408afe4ef23d123aa85cb115173745b97edecc40a6f357bbeab71344b5c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 326,
+      "hasStructuralAnalysis": false
+    },
+    ".github/workflows/publish.yml": {
+      "filePath": ".github/workflows/publish.yml",
+      "contentHash": "4294236fcbd56c56053894de8e153c384e35363364f016a6575676fd313b4685",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 29,
+      "hasStructuralAnalysis": false
+    },
+    ".github/workflows/release.yml": {
+      "filePath": ".github/workflows/release.yml",
+      "contentHash": "6e0d84970dc73afa50e0beae3ee0f1167a1067b2ae8b0a131dc8f2b2738755e9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 43,
+      "hasStructuralAnalysis": false
+    },
+    "CHANGELOG.md": {
+      "filePath": "CHANGELOG.md",
+      "contentHash": "4bf004c427e1bffca928bbd285b4c5328dab04ba74364b95bb3b073be2886dd8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 63,
+      "hasStructuralAnalysis": false
+    },
+    "CLAUDE.md": {
+      "filePath": "CLAUDE.md",
+      "contentHash": "4a33213d1bcb11a2834f3808410c31584126c6e40d3de9e7a06a4d000032af80",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": false
+    },
+    "CONTRIBUTING.md": {
+      "filePath": "CONTRIBUTING.md",
+      "contentHash": "a48b9cc04e7450e0abe8d2dc47cf8d6b56c36b999ba48ef4f267b348462e4ac0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 43,
+      "hasStructuralAnalysis": false
+    },
+    "Cargo.toml": {
+      "filePath": "Cargo.toml",
+      "contentHash": "75ba8f914e3cf5bdced851b4c8214c90af286d342d946b6ed2a6725f2ebcf1ed",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 64,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "f0f0eebf3c5937eec4ef990e048196a0eabeca90e19038ebe7a70044b6aaaed7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": false
+    },
+    "build-oxp.sh": {
+      "filePath": "build-oxp.sh",
+      "contentHash": "a4b6e4338f20e0de778857efb110b1f2fa71a2e1f2bc53a6f1e43d54c084d01b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "clippy.toml": {
+      "filePath": "clippy.toml",
+      "contentHash": "f47870687bec93d43189402220733f9f496cb22ec33914d2c35c4dc65c3ffa11",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": false
+    },
+    "deny.toml": {
+      "filePath": "deny.toml",
+      "contentHash": "e3533f4749ad3b5cc1868bf4a1ac96a33af22c34c142249de95883fda9e27bd7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 65,
+      "hasStructuralAnalysis": false
+    },
+    "fixtures/sfz/README.md": {
+      "filePath": "fixtures/sfz/README.md",
+      "contentHash": "8d3147887ac72f8a336a7b1c437c4ed6b84df97a693247c74c35b433196e40cc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "fixtures/sfz/sine-16.flac": {
+      "filePath": "fixtures/sfz/sine-16.flac",
+      "contentHash": "933b7317b62c75415ecf1037c60719a4b09da6866eae33497b7087dde3ece382",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "fixtures/sfz/sine-24.flac": {
+      "filePath": "fixtures/sfz/sine-24.flac",
+      "contentHash": "c90d594b947aa92edf2cf031dc9f1e26dfd34f857b5b11ccedea4d825dea8fc5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "fixtures/sfz/sine.ogg": {
+      "filePath": "fixtures/sfz/sine.ogg",
+      "contentHash": "47cbb2bb1a7fbc5a58f11d48bcac770de48ecd3adb224b28574fccf894860dc9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "manifest.json": {
+      "filePath": "manifest.json",
+      "contentHash": "3c70c22fe7c11c34ec5c16904e0316c08340d485fd0ca33789f3bf6e9d48254d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "rustfmt.toml": {
+      "filePath": "rustfmt.toml",
+      "contentHash": "d461d42d0e324e3bd489a46e068794c0358a9f542c90495ed15ee2e581cb66ad",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "scripts/check-dco.sh": {
+      "filePath": "scripts/check-dco.sh",
+      "contentHash": "09c2fc940f2e61ebbfe8f266bcbcb8c1aafd454ea078a1288566a0465a27570d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 71,
+      "hasStructuralAnalysis": false
+    },
+    "src/dls.rs": {
+      "filePath": "src/dls.rs",
+      "contentHash": "ced832459ef7220d405d51c8ebe921754b218a4998d748072ca6de86e6169ac1",
+      "functions": [
+        {
+          "name": "wsmp",
+          "owner": "",
+          "params": [
+            "data"
+          ],
+          "returnType": "Option<Wsmp>",
+          "exported": false,
+          "lineCount": 25
+        },
+        {
+          "name": "blocks",
+          "owner": "",
+          "params": [
+            "list"
+          ],
+          "returnType": "Vec<Block>",
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "articulation",
+          "owner": "",
+          "params": [
+            "chunks"
+          ],
+          "returnType": "Vec<Block>",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "whole",
+          "owner": "",
+          "params": [
+            "v"
+          ],
+          "returnType": "i32",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "time",
+          "owner": "",
+          "params": [
+            "v"
+          ],
+          "returnType": "i16",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "amount",
+          "owner": "",
+          "params": [
+            "v"
+          ],
+          "returnType": "i16",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "set",
+          "owner": "Generators",
+          "params": [
+            "n",
+            "v"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "get",
+          "owner": "Generators",
+          "params": [
+            "n"
+          ],
+          "returnType": "Option<i16>",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "take",
+          "owner": "Generators",
+          "params": [
+            "b"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 126
+        },
+        {
+          "name": "finish",
+          "owner": "Generators",
+          "params": [],
+          "returnType": "Vec<(u16, i16)>",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "wave",
+          "owner": "",
+          "params": [
+            "body",
+            "index"
+          ],
+          "returnType": "Result<Wave, Error>",
+          "exported": false,
+          "lineCount": 48
+        },
+        {
+          "name": "to_sf2",
+          "owner": "",
+          "params": [
+            "file"
+          ],
+          "returnType": "Result<(Vec<u8>, usize), Error>",
+          "exported": true,
+          "lineCount": 199
+        }
+      ],
+      "classes": [
+        {
+          "name": "Block",
+          "methods": [],
+          "properties": [
+            "source",
+            "control",
+            "destination",
+            "scale"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "Wsmp",
+          "methods": [],
+          "properties": [
+            "unity",
+            "fine",
+            "attenuation",
+            "looped"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "Generators",
+          "methods": [
+            "set",
+            "get",
+            "take",
+            "finish"
+          ],
+          "properties": [
+            "list",
+            "shifts"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "Wave",
+          "methods": [],
+          "properties": [
+            "sample",
+            "wsmp"
+          ],
+          "exported": false,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "oxiguitar_plugin",
+          "specifiers": [
+            "Error"
+          ]
+        },
+        {
+          "source": "crate::riff",
+          "specifiers": [
+            "self",
+            "Chunk",
+            "i32_at",
+            "invalid",
+            "u16_at",
+            "u32_at"
+          ]
+        },
+        {
+          "source": "crate::sf2",
+          "specifiers": [
+            "self",
+            "Sf2"
+          ]
+        }
+      ],
+      "exports": [
+        "to_sf2"
+      ],
+      "totalLines": 843,
+      "hasStructuralAnalysis": true
+    },
+    "src/info.rs": {
+      "filePath": "src/info.rs",
+      "contentHash": "82af33c442fd0d720500126d588082b050790e0d1a1a82843812d0fe514ad32d",
+      "functions": [
+        {
+          "name": "parse",
+          "owner": "Info",
+          "params": [
+            "text"
+          ],
+          "returnType": "Option<Info>",
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "relative",
+          "owner": "Info",
+          "params": [
+            "file"
+          ],
+          "returnType": "Option<&'a Path>",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "plays_unpicked",
+          "owner": "Info",
+          "params": [
+            "file"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "short_label",
+          "owner": "Info",
+          "params": [
+            "file"
+          ],
+          "returnType": "Option<String>",
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "innermost",
+          "owner": "",
+          "params": [
+            "text"
+          ],
+          "returnType": "Option<&str>",
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "of",
+          "owner": "",
+          "params": [
+            "set",
+            "root"
+          ],
+          "returnType": "Option<Info>",
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "Info",
+          "methods": [
+            "parse",
+            "relative",
+            "plays_unpicked",
+            "short_label"
+          ],
+          "properties": [
+            "name",
+            "roles",
+            "licence",
+            "credit",
+            "source",
+            "recommended",
+            "patches",
+            "dir"
+          ],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::collections",
+          "specifiers": [
+            "BTreeMap"
+          ]
+        },
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin::serde_json",
+          "specifiers": [
+            "self",
+            "Value"
+          ]
+        },
+        {
+          "source": "crate::settings",
+          "specifiers": [
+            "Role"
+          ]
+        }
+      ],
+      "exports": [
+        "Info",
+        "parse",
+        "plays_unpicked",
+        "short_label",
+        "of"
+      ],
+      "totalLines": 291,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib.rs": {
+      "filePath": "src/lib.rs",
+      "contentHash": "7d9007386d16c36a326e73c193895706d037845f978e3a52c0141177448e50d0",
+      "functions": [
+        {
+          "name": "fmt",
+          "owner": null,
+          "params": [
+            "f"
+          ],
+          "returnType": "std::fmt::Result",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "user_folder",
+          "owner": "",
+          "params": [
+            "host"
+          ],
+          "returnType": "Option<PathBuf>",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "playable",
+          "owner": "",
+          "params": [
+            "host"
+          ],
+          "returnType": "Vec<sets::Found>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "fingerprint",
+          "owner": "",
+          "params": [
+            "path",
+            "size",
+            "modified"
+          ],
+          "returnType": "u64",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "read_error",
+          "owner": "",
+          "params": [
+            "path",
+            "e"
+          ],
+          "returnType": "Error",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "unplayable",
+          "owner": "",
+          "params": [
+            "path",
+            "e"
+          ],
+          "returnType": "Error",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "say_missing",
+          "owner": "MidiPlugin",
+          "params": [
+            "settings",
+            "track"
+          ],
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "load_sfz",
+          "owner": "MidiPlugin",
+          "params": [
+            "found"
+          ],
+          "returnType": "Result<Arc<sfz::Loaded>, Error>",
+          "exported": false,
+          "lineCount": 34
+        },
+        {
+          "name": "load",
+          "owner": "MidiPlugin",
+          "params": [
+            "found"
+          ],
+          "returnType": "Result<Arc<SoundFont>, Error>",
+          "exported": false,
+          "lineCount": 22
+        },
+        {
+          "name": "read",
+          "owner": "MidiPlugin",
+          "params": [
+            "path",
+            "size",
+            "modified"
+          ],
+          "returnType": "Result<SoundFont, Error>",
+          "exported": false,
+          "lineCount": 51
+        },
+        {
+          "name": "advise_sets",
+          "owner": "MidiPlugin",
+          "params": [],
+          "exported": false,
+          "lineCount": 27
+        },
+        {
+          "name": "start",
+          "owner": null,
+          "params": [
+            "host"
+          ],
+          "returnType": "Result<MidiPlugin, Error>",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "instrument",
+          "owner": null,
+          "params": [
+            "id"
+          ],
+          "returnType": "Option<&dyn Instrument>",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "settings_window",
+          "owner": null,
+          "params": [],
+          "returnType": "Option<&dyn Tab>",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "track_section",
+          "owner": null,
+          "params": [
+            "id"
+          ],
+          "returnType": "Option<&dyn TrackSection>",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "prepare",
+          "owner": null,
+          "params": [
+            "prepare"
+          ],
+          "returnType": "Result<Box<dyn Renderer>, Error>",
+          "exported": false,
+          "lineCount": 81
+        }
+      ],
+      "classes": [
+        {
+          "name": "Loaded",
+          "methods": [],
+          "properties": [
+            "path",
+            "modified",
+            "size",
+            "font"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "LoadedSfz",
+          "methods": [],
+          "properties": [
+            "path",
+            "modified",
+            "size",
+            "sfz"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "MidiPlugin",
+          "methods": [
+            "fmt",
+            "say_missing",
+            "load_sfz",
+            "load",
+            "read",
+            "advise_sets",
+            "start",
+            "instrument",
+            "settings_window",
+            "track_section",
+            "prepare"
+          ],
+          "properties": [
+            "host",
+            "loaded",
+            "loaded_sfz",
+            "samples",
+            "window",
+            "missing"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::io::Read as _",
+          "specifiers": [
+            "std::io::Read as _"
+          ]
+        },
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        },
+        {
+          "source": "std::sync",
+          "specifiers": [
+            "Arc",
+            "Mutex"
+          ]
+        },
+        {
+          "source": "std::time",
+          "specifiers": [
+            "SystemTime"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin::audio",
+          "specifiers": [
+            "Prepare"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin",
+          "specifiers": [
+            "Advice",
+            "Error",
+            "ErrorKind",
+            "Host",
+            "Instrument",
+            "Level",
+            "Link",
+            "Plugin",
+            "Renderer",
+            "SharedFolder",
+            "Tab",
+            "TrackSection"
+          ]
+        },
+        {
+          "source": "rustysynth",
+          "specifiers": [
+            "SoundFont"
+          ]
+        }
+      ],
+      "exports": [
+        "MidiPlugin",
+        "user_folder",
+        "playable"
+      ],
+      "totalLines": 429,
+      "hasStructuralAnalysis": true
+    },
+    "src/play.rs": {
+      "filePath": "src/play.rs",
+      "contentHash": "6a7464cdc2b0a1b5068b28c5d11f326c52485791ba0e0dbab43aabb00810675b",
+      "functions": [
+        {
+          "name": "vibrato_of",
+          "owner": "",
+          "params": [
+            "note"
+          ],
+          "returnType": "Option<(f64, f64)>",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "new",
+          "owner": "Channel",
+          "params": [
+            "program"
+          ],
+          "returnType": "Channel",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "synth",
+          "owner": "Track",
+          "params": [],
+          "returnType": "&mut Synthesizer",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "stop",
+          "owner": "Track",
+          "params": [
+            "fade"
+          ],
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "set_program",
+          "owner": "Track",
+          "params": [
+            "channel",
+            "program"
+          ],
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "send_bend",
+          "owner": "Track",
+          "params": [
+            "channel",
+            "cents"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "send_expression",
+          "owner": "Track",
+          "params": [
+            "channel",
+            "value"
+          ],
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "channel_of",
+          "owner": "Track",
+          "params": [
+            "note"
+          ],
+          "returnType": "u8",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "program_for",
+          "owner": "Track",
+          "params": [
+            "note"
+          ],
+          "returnType": "u8",
+          "exported": false,
+          "lineCount": 20
+        },
+        {
+          "name": "run",
+          "owner": "",
+          "params": [
+            "pitch",
+            "note"
+          ],
+          "returnType": "&'a [PitchPoint]",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "expression",
+          "owner": "",
+          "params": [
+            "note",
+            "t"
+          ],
+          "returnType": "i32",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "asked",
+          "owner": "",
+          "params": [
+            "note"
+          ],
+          "returnType": "Asked",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "sampler_note_on",
+          "owner": "",
+          "params": [
+            "sampler",
+            "strings",
+            "map",
+            "note",
+            "pitch"
+          ],
+          "exported": false,
+          "lineCount": 53
+        },
+        {
+          "name": "fmt",
+          "owner": null,
+          "params": [
+            "f"
+          ],
+          "returnType": "std::fmt::Result",
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "string_channels",
+          "owner": "",
+          "params": [
+            "strings"
+          ],
+          "returnType": "Vec<u8>",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "carried_on",
+          "owner": "",
+          "params": [
+            "events",
+            "note"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "new",
+          "owner": "Player",
+          "params": [
+            "prepare",
+            "sounds"
+          ],
+          "returnType": "Result<Player, Error>",
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "note_on",
+          "owner": "Player",
+          "params": [
+            "note",
+            "pitch"
+          ],
+          "exported": false,
+          "lineCount": 94
+        },
+        {
+          "name": "end",
+          "owner": "Player",
+          "params": [
+            "i"
+          ],
+          "exported": false,
+          "lineCount": 20
+        },
+        {
+          "name": "note_off",
+          "owner": "Player",
+          "params": [
+            "note",
+            "later",
+            "pitch"
+          ],
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "all_off",
+          "owner": "Player",
+          "params": [],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "update",
+          "owner": "Player",
+          "params": [
+            "pitch",
+            "t",
+            "seconds"
+          ],
+          "exported": false,
+          "lineCount": 43
+        },
+        {
+          "name": "track",
+          "owner": "",
+          "params": [
+            "t",
+            "font",
+            "settings"
+          ],
+          "returnType": "Result<Track, Error>",
+          "exported": false,
+          "lineCount": 49
+        },
+        {
+          "name": "render",
+          "owner": null,
+          "params": [
+            "piece"
+          ],
+          "exported": false,
+          "lineCount": 68
+        },
+        {
+          "name": "resolution",
+          "owner": null,
+          "params": [],
+          "returnType": "u32",
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "Sounding",
+          "methods": [],
+          "properties": [
+            "id",
+            "track",
+            "channel",
+            "key",
+            "held"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "Voice",
+          "methods": [],
+          "properties": [
+            "note",
+            "offset",
+            "phase",
+            "vibrating",
+            "cut"
+          ],
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "Channel",
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "voice",
+            "bend",
+            "expression",
+            "program"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "Track",
+          "methods": [
+            "synth",
+            "stop",
+            "set_program",
+            "send_bend",
+            "send_expression",
+            "channel_of",
+            "program_for"
+          ],
+          "properties": [
+            "synths",
+            "live",
+            "fading",
+            "strings",
+            "channel",
+            "program",
+            "channels"
+          ],
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "Sound",
+          "methods": [],
+          "properties": [
+            "Font",
+            "Sfz"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Part",
+          "methods": [],
+          "properties": [
+            "Synth",
+            "Sampler"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "Asked",
+          "methods": [],
+          "properties": [
+            "Normal",
+            "Legato",
+            "PalmMute",
+            "Dead",
+            "Ghost"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "Player",
+          "methods": [
+            "fmt",
+            "new",
+            "note_on",
+            "end",
+            "note_off",
+            "all_off",
+            "update",
+            "render",
+            "resolution"
+          ],
+          "properties": [
+            "tracks",
+            "sounding",
+            "left",
+            "right",
+            "fade",
+            "rate"
+          ],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::sync",
+          "specifiers": [
+            "Arc"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin::audio",
+          "specifiers": [
+            "Piece",
+            "PitchPoint",
+            "Prepare",
+            "PreparedTrack",
+            "RtEvent",
+            "RtEventKind",
+            "RtNote",
+            "attack",
+            "cents_at",
+            "flags",
+            "harmonic",
+            "sound"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin",
+          "specifiers": [
+            "Error",
+            "ErrorKind",
+            "Renderer"
+          ]
+        },
+        {
+          "source": "rustysynth",
+          "specifiers": [
+            "SoundFont",
+            "Synthesizer",
+            "SynthesizerSettings"
+          ]
+        },
+        {
+          "source": "crate::sfz::maps",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "crate::sfz::sampler",
+          "specifiers": [
+            "Sampler"
+          ]
+        }
+      ],
+      "exports": [
+        "vibrato_of",
+        "run",
+        "Sound",
+        "Player",
+        "new"
+      ],
+      "totalLines": 1431,
+      "hasStructuralAnalysis": true
+    },
+    "src/riff.rs": {
+      "filePath": "src/riff.rs",
+      "contentHash": "fb9d075af9151fa753f21c0f16801d19472c6f908ad8217d5e9119f910422bea",
+      "functions": [
+        {
+          "name": "list",
+          "owner": "Chunk<'a>",
+          "params": [],
+          "returnType": "Option<([u8; 4], &'a [u8])>",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "u16_at",
+          "owner": "",
+          "params": [
+            "data",
+            "at"
+          ],
+          "returnType": "Option<u16>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "u32_at",
+          "owner": "",
+          "params": [
+            "data",
+            "at"
+          ],
+          "returnType": "Option<u32>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "i32_at",
+          "owner": "",
+          "params": [
+            "data",
+            "at"
+          ],
+          "returnType": "Option<i32>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "invalid",
+          "owner": "",
+          "params": [
+            "what"
+          ],
+          "returnType": "Error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "chunks",
+          "owner": "",
+          "params": [
+            "body"
+          ],
+          "returnType": "Result<Vec<Chunk<'_>>, Error>",
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "form",
+          "owner": "",
+          "params": [
+            "file"
+          ],
+          "returnType": "Result<([u8; 4], Vec<Chunk<'_>>), Error>",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "find",
+          "owner": "",
+          "params": [
+            "chunks",
+            "id"
+          ],
+          "returnType": "Option<&'a [u8]>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "find_list",
+          "owner": "",
+          "params": [
+            "chunks",
+            "kind"
+          ],
+          "returnType": "Option<&'a [u8]>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "show",
+          "owner": "",
+          "params": [
+            "id"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "Chunk",
+          "methods": [],
+          "properties": [
+            "id",
+            "data",
+            "at"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "oxiguitar_plugin",
+          "specifiers": [
+            "Error",
+            "ErrorKind"
+          ]
+        }
+      ],
+      "exports": [
+        "Chunk",
+        "list",
+        "u16_at",
+        "u32_at",
+        "i32_at",
+        "invalid",
+        "chunks",
+        "form",
+        "find",
+        "find_list",
+        "show"
+      ],
+      "totalLines": 116,
+      "hasStructuralAnalysis": true
+    },
+    "src/sets.rs": {
+      "filePath": "src/sets.rs",
+      "contentHash": "ea61c6e4a88b14696ffb170fa241c49d00fc89abb68fcbedbd0e474c528a46a8",
+      "functions": [
+        {
+          "name": "of",
+          "owner": "Kind",
+          "params": [
+            "path"
+          ],
+          "returnType": "Option<Kind>",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "installed_places",
+          "owner": "",
+          "params": [],
+          "returnType": "Vec<PathBuf>",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "system_places",
+          "owner": "",
+          "params": [],
+          "returnType": "Vec<PathBuf>",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "find",
+          "owner": "",
+          "params": [
+            "user",
+            "installed",
+            "system"
+          ],
+          "returnType": "Vec<Found>",
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "leave_out_included",
+          "owner": "",
+          "params": [
+            "found"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "look",
+          "owner": "",
+          "params": [
+            "place",
+            "origin",
+            "depth",
+            "found",
+            "seen"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "look_in",
+          "owner": "",
+          "params": [
+            "place",
+            "root",
+            "origin",
+            "depth",
+            "found",
+            "seen"
+          ],
+          "exported": false,
+          "lineCount": 47
+        }
+      ],
+      "classes": [
+        {
+          "name": "Origin",
+          "methods": [],
+          "properties": [
+            "User",
+            "Installed",
+            "System"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Kind",
+          "methods": [
+            "of"
+          ],
+          "properties": [
+            "Sf2",
+            "Sf3",
+            "Dls",
+            "Sfz"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Found",
+          "methods": [],
+          "properties": [
+            "path",
+            "size",
+            "origin",
+            "kind",
+            "info"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        }
+      ],
+      "exports": [
+        "Origin",
+        "Kind",
+        "of",
+        "Found",
+        "installed_places",
+        "system_places",
+        "find"
+      ],
+      "totalLines": 327,
+      "hasStructuralAnalysis": true
+    },
+    "src/settings.rs": {
+      "filePath": "src/settings.rs",
+      "contentHash": "c8d26e8352670aafa359bfc3659ff51ed9a47206192814a284f4311044148294",
+      "functions": [
+        {
+          "name": "key",
+          "owner": "Role",
+          "params": [],
+          "returnType": "&'static str",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "from_key",
+          "owner": "Role",
+          "params": [
+            "key"
+          ],
+          "returnType": "Option<Role>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "of_key",
+          "owner": "Role",
+          "params": [
+            "key"
+          ],
+          "returnType": "Vec<Role>",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "title",
+          "owner": "Role",
+          "params": [],
+          "returnType": "&'static str",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "guitar",
+          "owner": "Role",
+          "params": [],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "acoustic",
+          "owner": "Role",
+          "params": [],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "electric",
+          "owner": "Role",
+          "params": [],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "of",
+          "owner": "Role",
+          "params": [
+            "track"
+          ],
+          "returnType": "Role",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "pick",
+          "owner": "Role",
+          "params": [
+            "settings"
+          ],
+          "returnType": "Option<&str>",
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "chosen",
+          "owner": "",
+          "params": [
+            "settings",
+            "role",
+            "found"
+          ],
+          "returnType": "Option<&'a Found>",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "automatic",
+          "owner": "",
+          "params": [
+            "role",
+            "found"
+          ],
+          "returnType": "Option<&Found>",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "sfz_label",
+          "owner": "",
+          "params": [
+            "f",
+            "user"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "label",
+          "owner": "",
+          "params": [
+            "f"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "new",
+          "owner": "Window",
+          "params": [
+            "host"
+          ],
+          "returnType": "Window",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "found",
+          "owner": "Window",
+          "params": [],
+          "returnType": "Vec<Found>",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "instrument",
+          "owner": "Window",
+          "params": [
+            "path"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "label",
+          "owner": "Window",
+          "params": [
+            "f"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "better_sounds",
+          "owner": "",
+          "params": [
+            "found"
+          ],
+          "returnType": "Vec<Row>",
+          "exported": false,
+          "lineCount": 33
+        },
+        {
+          "name": "content",
+          "owner": null,
+          "params": [],
+          "returnType": "TabContent",
+          "exported": false,
+          "lineCount": 52
+        },
+        {
+          "name": "on",
+          "owner": null,
+          "params": [
+            "widget",
+            "event"
+          ],
+          "returnType": "Result<(), Error>",
+          "exported": false,
+          "lineCount": 40
+        },
+        {
+          "name": "only_basic",
+          "owner": "",
+          "params": [
+            "used"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "Role",
+          "methods": [
+            "key",
+            "from_key",
+            "of_key",
+            "title",
+            "guitar",
+            "acoustic",
+            "electric",
+            "of",
+            "pick"
+          ],
+          "properties": [
+            "CleanGuitars",
+            "OverdrivenGuitars",
+            "DistortedGuitars",
+            "NylonGuitars",
+            "SteelGuitars",
+            "Basses",
+            "Drums",
+            "Other"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Checked",
+          "methods": [],
+          "properties": [
+            "path",
+            "modified",
+            "size",
+            "instrument"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "Window",
+          "methods": [
+            "new",
+            "found",
+            "instrument",
+            "label",
+            "content",
+            "on"
+          ],
+          "properties": [
+            "host",
+            "checked"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        },
+        {
+          "source": "std::sync",
+          "specifiers": [
+            "Mutex"
+          ]
+        },
+        {
+          "source": "std::time",
+          "specifiers": [
+            "SystemTime"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin::audio",
+          "specifiers": [
+            "PreparedTrack"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin::serde_json",
+          "specifiers": [
+            "Map",
+            "Value"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin",
+          "specifiers": [
+            "Error",
+            "Host",
+            "InstrumentClass",
+            "Row",
+            "Tab",
+            "TabContent",
+            "TabEvent",
+            "Widget"
+          ]
+        },
+        {
+          "source": "crate::sets",
+          "specifiers": [
+            "self",
+            "Found",
+            "Kind",
+            "Origin"
+          ]
+        }
+      ],
+      "exports": [
+        "Role",
+        "key",
+        "from_key",
+        "of_key",
+        "title",
+        "of",
+        "chosen",
+        "automatic",
+        "Window",
+        "new",
+        "found",
+        "label",
+        "only_basic"
+      ],
+      "totalLines": 766,
+      "hasStructuralAnalysis": true
+    },
+    "src/sf2.rs": {
+      "filePath": "src/sf2.rs",
+      "contentHash": "f2a63e149ce944d16b289e3d6055a9aa4b1848091866bfd084fbd3f10eab75ea",
+      "functions": [
+        {
+          "name": "chunk",
+          "owner": "",
+          "params": [
+            "out",
+            "id",
+            "body"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "list",
+          "owner": "",
+          "params": [
+            "out",
+            "kind",
+            "body"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "name",
+          "owner": "",
+          "params": [
+            "out",
+            "text",
+            "len"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "text",
+          "owner": "",
+          "params": [
+            "out",
+            "id",
+            "value"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "generators",
+          "owner": "",
+          "params": [
+            "zone",
+            "last"
+          ],
+          "returnType": "Vec<(u16, u16)>",
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "write",
+          "owner": "Sf2",
+          "params": [],
+          "returnType": "Vec<u8>",
+          "exported": true,
+          "lineCount": 108
+        },
+        {
+          "name": "test_set",
+          "owner": "",
+          "params": [],
+          "returnType": "Vec<u8>",
+          "exported": true,
+          "lineCount": 56
+        }
+      ],
+      "classes": [
+        {
+          "name": "Sample",
+          "methods": [],
+          "properties": [
+            "name",
+            "data",
+            "rate",
+            "root",
+            "correction",
+            "looped"
+          ],
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "Zone",
+          "methods": [],
+          "properties": [
+            "keys",
+            "velocities",
+            "generators",
+            "target"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Instrument",
+          "methods": [],
+          "properties": [
+            "name",
+            "zones"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Preset",
+          "methods": [],
+          "properties": [
+            "name",
+            "bank",
+            "program",
+            "zones"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Sf2",
+          "methods": [
+            "write"
+          ],
+          "properties": [
+            "name",
+            "samples",
+            "instruments",
+            "presets"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "Sample",
+        "Zone",
+        "Instrument",
+        "Preset",
+        "Sf2",
+        "write",
+        "test_set"
+      ],
+      "totalLines": 394,
+      "hasStructuralAnalysis": true
+    },
+    "src/sf3.rs": {
+      "filePath": "src/sf3.rs",
+      "contentHash": "316ed12231ee9179f53ae9134e3f73e9ef8c926953c49f00028a71269587017a",
+      "functions": [
+        {
+          "name": "is_sf3",
+          "owner": "",
+          "params": [
+            "head"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "decode",
+          "owner": "",
+          "params": [
+            "data"
+          ],
+          "returnType": "Result<Vec<i16>, String>",
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "samples",
+          "owner": "",
+          "params": [
+            "shdr",
+            "smpl"
+          ],
+          "returnType": "Result<Vec<Vec<i16>>, Error>",
+          "exported": false,
+          "lineCount": 52
+        },
+        {
+          "name": "chunk",
+          "owner": "",
+          "params": [
+            "id",
+            "data"
+          ],
+          "returnType": "Vec<u8>",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "list",
+          "owner": "",
+          "params": [
+            "kind",
+            "parts"
+          ],
+          "returnType": "Vec<u8>",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "to_sf2",
+          "owner": "",
+          "params": [
+            "file"
+          ],
+          "returnType": "Result<Vec<u8>, Error>",
+          "exported": true,
+          "lineCount": 75
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "std::io",
+          "specifiers": [
+            "Cursor"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin",
+          "specifiers": [
+            "Error"
+          ]
+        },
+        {
+          "source": "crate::riff",
+          "specifiers": [
+            "self",
+            "Chunk",
+            "invalid",
+            "u16_at",
+            "u32_at"
+          ]
+        }
+      ],
+      "exports": [
+        "is_sf3",
+        "to_sf2"
+      ],
+      "totalLines": 281,
+      "hasStructuralAnalysis": true
+    },
+    "src/sfz/instrument.rs": {
+      "filePath": "src/sfz/instrument.rs",
+      "contentHash": "98e8e5bf15b48b4c2547c27efdd622a3d83ae0c6e0fcf1523265c103217362e9",
+      "functions": [
+        {
+          "name": "at",
+          "owner": "Curves",
+          "params": [
+            "index",
+            "x"
+          ],
+          "returnType": "f32",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "curve",
+          "owner": "",
+          "params": [
+            "points"
+          ],
+          "returnType": "Box<[f32; 128]>",
+          "exported": false,
+          "lineCount": 25
+        },
+        {
+          "name": "problem",
+          "owner": "Builder",
+          "params": [
+            "what"
+          ],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "close",
+          "owner": "Builder",
+          "params": [],
+          "exported": false,
+          "lineCount": 42
+        },
+        {
+          "name": "header",
+          "owner": "Builder",
+          "params": [
+            "name"
+          ],
+          "exported": false,
+          "lineCount": 28
+        },
+        {
+          "name": "opcode",
+          "owner": "Builder",
+          "params": [
+            "name",
+            "value"
+          ],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "control",
+          "owner": "Builder",
+          "params": [
+            "name",
+            "value"
+          ],
+          "exported": false,
+          "lineCount": 39
+        },
+        {
+          "name": "curve_opcode",
+          "owner": "Builder",
+          "params": [
+            "name",
+            "value"
+          ],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "new",
+          "owner": "Builder",
+          "params": [
+            "path"
+          ],
+          "returnType": "Builder",
+          "exported": false,
+          "lineCount": 28
+        },
+        {
+          "name": "starting_controllers",
+          "owner": "",
+          "params": [],
+          "returnType": "[f32; CCS]",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "build",
+          "owner": "",
+          "params": [
+            "path",
+            "text"
+          ],
+          "returnType": "Instrument",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "implicit_controllers",
+          "owner": "",
+          "params": [
+            "regions"
+          ],
+          "exported": false,
+          "lineCount": 22
+        },
+        {
+          "name": "read",
+          "owner": "",
+          "params": [
+            "path"
+          ],
+          "returnType": "Result<Instrument, String>",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "Curves",
+          "methods": [
+            "at"
+          ],
+          "properties": [
+            "custom"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Instrument",
+          "methods": [],
+          "properties": [
+            "path",
+            "regions",
+            "samples",
+            "curves",
+            "controllers",
+            "default_switch",
+            "unknown",
+            "problems",
+            "files"
+          ],
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "Scope",
+          "methods": [],
+          "properties": [
+            "None",
+            "Control",
+            "Global",
+            "Master",
+            "Group",
+            "Region",
+            "Curve",
+            "Other"
+          ],
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "Builder",
+          "methods": [
+            "problem",
+            "close",
+            "header",
+            "opcode",
+            "control",
+            "curve_opcode",
+            "new"
+          ],
+          "properties": [
+            "ctx",
+            "global",
+            "master",
+            "group",
+            "region",
+            "curve_index",
+            "curve_points",
+            "scope",
+            "note_offset",
+            "octave_offset",
+            "instrument"
+          ],
+          "exported": false,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::collections",
+          "specifiers": [
+            "BTreeMap"
+          ]
+        },
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        },
+        {
+          "source": "super::region",
+          "specifiers": [
+            "self",
+            "Applied",
+            "CCS",
+            "Context",
+            "Mod",
+            "Region",
+            "Target"
+          ]
+        },
+        {
+          "source": "super::text",
+          "specifiers": [
+            "Item",
+            "Text"
+          ]
+        }
+      ],
+      "exports": [
+        "Curves",
+        "at",
+        "Instrument",
+        "build",
+        "read"
+      ],
+      "totalLines": 533,
+      "hasStructuralAnalysis": true
+    },
+    "src/sfz/maps.rs": {
+      "filePath": "src/sfz/maps.rs",
+      "contentHash": "b5d335c655ca4af9beb59de308e6dacec084e5566f43644e661d9eb274e28af6",
+      "functions": [
+        {
+          "name": "for_instrument",
+          "owner": "",
+          "params": [
+            "path"
+          ],
+          "returnType": "Option<&'static Map>",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "key",
+          "owner": "Map",
+          "params": [
+            "key"
+          ],
+          "returnType": "(u8, Option<(u16, f32)>)",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "Articulation",
+          "methods": [],
+          "properties": [
+            "switch",
+            "controllers"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Map",
+          "methods": [
+            "key"
+          ],
+          "properties": [
+            "name",
+            "keys",
+            "normal",
+            "palm_mute",
+            "dead",
+            "ghost",
+            "legato"
+          ],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path"
+          ]
+        }
+      ],
+      "exports": [
+        "Articulation",
+        "Map",
+        "for_instrument",
+        "key"
+      ],
+      "totalLines": 248,
+      "hasStructuralAnalysis": true
+    },
+    "src/sfz/mod.rs": {
+      "filePath": "src/sfz/mod.rs",
+      "contentHash": "45b42c62eba2ab40cefb8b73e63f9df8080baa0b6418c30f35fce9ad81aafe1b",
+      "functions": [
+        {
+          "name": "bytes",
+          "owner": "Loaded",
+          "params": [],
+          "returnType": "usize",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "of",
+          "owner": "Stamp",
+          "params": [
+            "path"
+          ],
+          "returnType": "Option<Stamp>",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "get",
+          "owner": "Samples",
+          "params": [
+            "stamp"
+          ],
+          "returnType": "Option<Arc<Sample>>",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "put",
+          "owner": "Samples",
+          "params": [
+            "stamp",
+            "sample"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "trim",
+          "owner": "Samples",
+          "params": [],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "load",
+          "owner": "",
+          "params": [
+            "path",
+            "cache"
+          ],
+          "returnType": "Result<Loaded, String>",
+          "exported": true,
+          "lineCount": 64
+        }
+      ],
+      "classes": [
+        {
+          "name": "Loaded",
+          "methods": [
+            "bytes"
+          ],
+          "properties": [
+            "instrument",
+            "samples",
+            "missing"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "Stamp",
+          "methods": [
+            "of"
+          ],
+          "properties": [
+            "path",
+            "size",
+            "modified"
+          ],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "Samples",
+          "methods": [
+            "get",
+            "put",
+            "trim"
+          ],
+          "properties": [
+            "kept"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        },
+        {
+          "source": "std::sync::atomic",
+          "specifiers": [
+            "AtomicUsize",
+            "Ordering"
+          ]
+        },
+        {
+          "source": "std::sync",
+          "specifiers": [
+            "Arc",
+            "Mutex"
+          ]
+        },
+        {
+          "source": "std::time",
+          "specifiers": [
+            "SystemTime"
+          ]
+        },
+        {
+          "source": "instrument",
+          "specifiers": [
+            "Instrument"
+          ]
+        },
+        {
+          "source": "sample",
+          "specifiers": [
+            "Sample"
+          ]
+        }
+      ],
+      "exports": [
+        "Loaded",
+        "bytes",
+        "Samples",
+        "trim",
+        "load"
+      ],
+      "totalLines": 255,
+      "hasStructuralAnalysis": true
+    },
+    "src/sfz/region.rs": {
+      "filePath": "src/sfz/region.rs",
+      "contentHash": "5de40f9e809459e4574bbc888add0e1b116b4b79cca2afdf7af96f110e3765f4",
+      "functions": [
+        {
+          "name": "parse",
+          "owner": "FilterKind",
+          "params": [
+            "v"
+          ],
+          "returnType": "Option<FilterKind>",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "of",
+          "owner": "Wave",
+          "params": [
+            "v"
+          ],
+          "returnType": "Option<Wave>",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "new",
+          "owner": "Eg",
+          "params": [
+            "release"
+          ],
+          "returnType": "Eg",
+          "exported": false,
+          "lineCount": 22
+        },
+        {
+          "name": "new",
+          "owner": "Lfo",
+          "params": [
+            "index"
+          ],
+          "returnType": "Lfo",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "default",
+          "owner": null,
+          "params": [],
+          "returnType": "Region",
+          "exported": false,
+          "lineCount": 87
+        },
+        {
+          "name": "sample",
+          "owner": "Context",
+          "params": [
+            "value"
+          ],
+          "returnType": "Option<Source>",
+          "exported": false,
+          "lineCount": 20
+        },
+        {
+          "name": "key",
+          "owner": "Context",
+          "params": [
+            "value"
+          ],
+          "returnType": "Option<u8>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "normal",
+          "owner": "",
+          "params": [
+            "path"
+          ],
+          "returnType": "PathBuf",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "key",
+          "owner": "",
+          "params": [
+            "value"
+          ],
+          "returnType": "Option<i32>",
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "number",
+          "owner": "",
+          "params": [
+            "value"
+          ],
+          "returnType": "Option<f32>",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "integer",
+          "owner": "",
+          "params": [
+            "value"
+          ],
+          "returnType": "Option<i64>",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "shape",
+          "owner": "",
+          "params": [
+            "name"
+          ],
+          "returnType": "(String, Vec<u32>)",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "controller",
+          "owner": "",
+          "params": [
+            "pattern",
+            "numbers"
+          ],
+          "returnType": "Option<(Target, CcPart)>",
+          "exported": false,
+          "lineCount": 78
+        },
+        {
+          "name": "ignored",
+          "owner": "",
+          "params": [
+            "pattern"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 37
+        },
+        {
+          "name": "modulation",
+          "owner": "Region",
+          "params": [
+            "target",
+            "cc"
+          ],
+          "returnType": "&mut Mod",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "lfo",
+          "owner": "Region",
+          "params": [
+            "index"
+          ],
+          "returnType": "&mut Lfo",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "cc_fade",
+          "owner": "Region",
+          "params": [
+            "cc"
+          ],
+          "returnType": "&mut CcFade",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "cc_range",
+          "owner": "Region",
+          "params": [
+            "cc"
+          ],
+          "returnType": "&mut (u16, f32, f32)",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "apply",
+          "owner": "Region",
+          "params": [
+            "name",
+            "value",
+            "ctx"
+          ],
+          "returnType": "Applied",
+          "exported": true,
+          "lineCount": 338
+        },
+        {
+          "name": "envelope",
+          "owner": "Region",
+          "params": [
+            "kind",
+            "rest",
+            "value"
+          ],
+          "returnType": "Option<Applied>",
+          "exported": false,
+          "lineCount": 35
+        }
+      ],
+      "classes": [
+        {
+          "name": "Trigger",
+          "methods": [],
+          "properties": [
+            "Attack",
+            "Release",
+            "First",
+            "Legato",
+            "ReleaseKey"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "LoopMode",
+          "methods": [],
+          "properties": [
+            "NoLoop",
+            "OneShot",
+            "Continuous",
+            "Sustain"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "OffMode",
+          "methods": [],
+          "properties": [
+            "Fast",
+            "Normal",
+            "Time"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "Crossfade",
+          "methods": [],
+          "properties": [
+            "Power",
+            "Gain"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "FilterKind",
+          "methods": [
+            "parse"
+          ],
+          "properties": [
+            "LowPass1",
+            "LowPass2",
+            "LowPass4",
+            "LowPass6",
+            "HighPass1",
+            "HighPass2",
+            "HighPass4",
+            "HighPass6",
+            "BandPass1",
+            "BandPass2",
+            "BandReject2",
+            "LowShelf",
+            "HighShelf",
+            "Peak"
+          ],
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "Wave",
+          "methods": [
+            "of"
+          ],
+          "properties": [
+            "Triangle",
+            "Sine",
+            "Pulse75",
+            "Square",
+            "Pulse25",
+            "Pulse12",
+            "Ramp",
+            "Saw",
+            "Random"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "EgKind",
+          "methods": [],
+          "properties": [
+            "Amp",
+            "Filter",
+            "Pitch"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "EgParam",
+          "methods": [],
+          "properties": [
+            "Delay",
+            "Start",
+            "Attack",
+            "Hold",
+            "Decay",
+            "Sustain",
+            "Release",
+            "Depth"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "LfoParam",
+          "methods": [],
+          "properties": [
+            "Freq",
+            "Delay",
+            "Fade",
+            "Phase",
+            "Pitch",
+            "Volume",
+            "Amplitude",
+            "Pan",
+            "Cutoff"
+          ],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "OldLfo",
+          "methods": [],
+          "properties": [
+            "Amp",
+            "Filter",
+            "Pitch"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "Target",
+          "methods": [],
+          "properties": [
+            "Amplitude",
+            "Volume",
+            "Pan",
+            "Width",
+            "Position",
+            "Tune",
+            "Offset",
+            "Delay",
+            "VelTrack",
+            "Eg",
+            "Cutoff",
+            "Resonance",
+            "Lfo",
+            "OldLfoDepth",
+            "OldLfoFreq"
+          ],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "Mod",
+          "methods": [],
+          "properties": [
+            "target",
+            "cc",
+            "depth",
+            "curve"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "CcFade",
+          "methods": [],
+          "properties": [
+            "cc",
+            "fade_in",
+            "fade_out"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "Eg",
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "delay",
+            "start",
+            "attack",
+            "hold",
+            "decay",
+            "sustain",
+            "release",
+            "depth",
+            "vel2_delay",
+            "vel2_attack",
+            "vel2_hold",
+            "vel2_decay",
+            "vel2_sustain",
+            "vel2_release",
+            "vel2_depth",
+            "attack_shape",
+            "decay_shape",
+            "release_shape"
+          ],
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "Lfo",
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "index",
+            "freq",
+            "delay",
+            "fade",
+            "phase",
+            "wave",
+            "pitch",
+            "volume",
+            "amplitude",
+            "pan",
+            "cutoff"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "SimpleLfo",
+          "methods": [],
+          "properties": [
+            "depth",
+            "freq",
+            "delay",
+            "fade"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Source",
+          "methods": [],
+          "properties": [
+            "File",
+            "Sine",
+            "Silence",
+            "Noise"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "KeyCenter",
+          "methods": [],
+          "properties": [
+            "Key",
+            "FromSample"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "Region",
+          "methods": [
+            "default",
+            "modulation",
+            "lfo",
+            "cc_fade",
+            "cc_range",
+            "apply",
+            "envelope"
+          ],
+          "properties": [
+            "source",
+            "offset",
+            "offset_random",
+            "end",
+            "loop_mode",
+            "loop_start",
+            "loop_end",
+            "reverse",
+            "delay",
+            "delay_random",
+            "lokey",
+            "hikey",
+            "lovel",
+            "hivel",
+            "lorand",
+            "hirand",
+            "seq_length",
+            "seq_position",
+            "trigger",
+            "channel",
+            "cc_ranges",
+            "lobend",
+            "hibend",
+            "cc_triggered",
+            "sw_lokey",
+            "sw_hikey",
+            "sw_last",
+            "sw_default",
+            "sw_down",
+            "sw_up",
+            "sw_previous",
+            "group",
+            "off_by",
+            "off_mode",
+            "off_time",
+            "polyphony",
+            "note_polyphony",
+            "note_selfmask",
+            "keycenter",
+            "pitch_keytrack",
+            "pitch_veltrack",
+            "pitch_random",
+            "transpose",
+            "tune",
+            "bend_up",
+            "bend_down",
+            "volume",
+            "group_volume",
+            "master_volume",
+            "global_volume",
+            "amplitude",
+            "pan",
+            "width",
+            "position",
+            "amp_keycenter",
+            "amp_keytrack",
+            "amp_veltrack",
+            "velcurve",
+            "amp_random",
+            "rt_decay",
+            "xfin_vel",
+            "xfout_vel",
+            "xfin_key",
+            "xfout_key",
+            "xf_velcurve",
+            "xf_keycurve",
+            "xf_cccurve",
+            "cc_fades",
+            "ampeg",
+            "fileg",
+            "pitcheg",
+            "filter",
+            "cutoff",
+            "resonance",
+            "fil_keytrack",
+            "fil_keycenter",
+            "fil_veltrack",
+            "fil_random",
+            "lfos",
+            "amplfo",
+            "fillfo",
+            "pitchlfo",
+            "mods"
+          ],
+          "exported": true,
+          "lineCount": 108
+        },
+        {
+          "name": "Applied",
+          "methods": [],
+          "properties": [
+            "Taken",
+            "Ignored",
+            "Unknown",
+            "Bad"
+          ],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "Context",
+          "methods": [
+            "sample",
+            "key"
+          ],
+          "properties": [
+            "base",
+            "default_path",
+            "key_offset",
+            "samples"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "CcPart",
+          "methods": [],
+          "properties": [
+            "Depth",
+            "Curve",
+            "Ignored"
+          ],
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        }
+      ],
+      "exports": [
+        "Trigger",
+        "LoopMode",
+        "OffMode",
+        "Crossfade",
+        "FilterKind",
+        "Wave",
+        "EgKind",
+        "EgParam",
+        "LfoParam",
+        "OldLfo",
+        "Target",
+        "Mod",
+        "CcFade",
+        "Eg",
+        "Lfo",
+        "SimpleLfo",
+        "Source",
+        "KeyCenter",
+        "Region",
+        "Applied",
+        "Context",
+        "normal",
+        "key",
+        "number",
+        "shape",
+        "apply"
+      ],
+      "totalLines": 1538,
+      "hasStructuralAnalysis": true
+    },
+    "src/sfz/sample.rs": {
+      "filePath": "src/sfz/sample.rs",
+      "contentHash": "04d34956c4a6877b4d0bd746e47068229e17b0dc2e19444668b9bc28611a1da1",
+      "functions": [
+        {
+          "name": "at",
+          "owner": "Sample",
+          "params": [
+            "frame",
+            "channel"
+          ],
+          "returnType": "f32",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "bytes",
+          "owner": "Sample",
+          "params": [],
+          "returnType": "usize",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "read",
+          "owner": "",
+          "params": [
+            "path"
+          ],
+          "returnType": "Result<Sample, String>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "decode",
+          "owner": "",
+          "params": [
+            "bytes"
+          ],
+          "returnType": "Result<Sample, String>",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "u16_at",
+          "owner": "",
+          "params": [
+            "d",
+            "at"
+          ],
+          "returnType": "Option<u16>",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "u32_at",
+          "owner": "",
+          "params": [
+            "d",
+            "at"
+          ],
+          "returnType": "Option<u32>",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "wav_chunks",
+          "owner": "",
+          "params": [
+            "bytes"
+          ],
+          "returnType": "Vec<([u8; 4], &[u8])>",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "wav",
+          "owner": "",
+          "params": [
+            "bytes"
+          ],
+          "returnType": "Result<Sample, String>",
+          "exported": false,
+          "lineCount": 94
+        },
+        {
+          "name": "smpl",
+          "owner": "",
+          "params": [
+            "d"
+          ],
+          "returnType": "(Option<(u32, u32)>, Option<u8>)",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "flac",
+          "owner": "",
+          "params": [
+            "bytes"
+          ],
+          "returnType": "Result<Sample, String>",
+          "exported": false,
+          "lineCount": 59
+        },
+        {
+          "name": "ogg",
+          "owner": "",
+          "params": [
+            "bytes"
+          ],
+          "returnType": "Result<Sample, String>",
+          "exported": false,
+          "lineCount": 33
+        }
+      ],
+      "classes": [
+        {
+          "name": "Pcm",
+          "methods": [],
+          "properties": [
+            "I16",
+            "I24",
+            "F32"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Sample",
+          "methods": [
+            "at",
+            "bytes"
+          ],
+          "properties": [
+            "rate",
+            "channels",
+            "frames",
+            "pcm",
+            "looped",
+            "unity"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path"
+          ]
+        }
+      ],
+      "exports": [
+        "Pcm",
+        "Sample",
+        "at",
+        "bytes",
+        "read",
+        "decode"
+      ],
+      "totalLines": 476,
+      "hasStructuralAnalysis": true
+    },
+    "src/sfz/sampler.rs": {
+      "filePath": "src/sfz/sampler.rs",
+      "contentHash": "97d05eb5dc071d077fa1782a08266b18bf63f5849cc29281b05d8754686c4db1",
+      "functions": [
+        {
+          "name": "ratio",
+          "owner": "",
+          "params": [
+            "cents"
+          ],
+          "returnType": "f64",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "db",
+          "owner": "",
+          "params": [
+            "db"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "hertz",
+          "owner": "",
+          "params": [
+            "key"
+          ],
+          "returnType": "f64",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "exp_rate",
+          "owner": "",
+          "params": [
+            "seconds",
+            "rate"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "new",
+          "owner": "Envelope",
+          "params": [
+            "s",
+            "rate"
+          ],
+          "returnType": "Envelope",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "release",
+          "owner": "Envelope",
+          "params": [],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "next",
+          "owner": "Envelope",
+          "params": [],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 64
+        },
+        {
+          "name": "run",
+          "owner": "Biquad",
+          "params": [
+            "c",
+            "x"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "stages_of",
+          "owner": "",
+          "params": [
+            "kind"
+          ],
+          "returnType": "(usize, Option<Shape>)",
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "coefficients",
+          "owner": "",
+          "params": [
+            "shape",
+            "hz",
+            "resonance_db",
+            "rate"
+          ],
+          "returnType": "Coefficients",
+          "exported": false,
+          "lineCount": 47
+        },
+        {
+          "name": "run",
+          "owner": "Filter",
+          "params": [
+            "channel",
+            "x"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "wave",
+          "owner": "",
+          "params": [
+            "w",
+            "phase",
+            "held"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 46
+        },
+        {
+          "name": "lfo_level",
+          "owner": "",
+          "params": [
+            "delay",
+            "fade",
+            "seconds"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "fade_out",
+          "owner": "Voice",
+          "params": [
+            "frames"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "frame",
+          "owner": "",
+          "params": [
+            "s",
+            "i",
+            "looping",
+            "end",
+            "c"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "gather",
+          "owner": "",
+          "params": [
+            "s",
+            "first",
+            "looping",
+            "end",
+            "out"
+          ],
+          "exported": false,
+          "lineCount": 56
+        },
+        {
+          "name": "dot",
+          "owner": "",
+          "params": [
+            "w",
+            "x"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "pan_gains",
+          "owner": "",
+          "params": [
+            "pan"
+          ],
+          "returnType": "(f32, f32)",
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "matrix",
+          "owner": "",
+          "params": [
+            "stereo",
+            "pan",
+            "width",
+            "position"
+          ],
+          "returnType": "[f32; 4]",
+          "exported": false,
+          "lineCount": 20
+        },
+        {
+          "name": "fade_in",
+          "owner": "",
+          "params": [
+            "range",
+            "value",
+            "curve"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "fade_out",
+          "owner": "",
+          "params": [
+            "range",
+            "value",
+            "curve"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "next",
+          "owner": "Random",
+          "params": [],
+          "returnType": "u64",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "unit",
+          "owner": "Random",
+          "params": [],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fmt",
+          "owner": null,
+          "params": [
+            "f"
+          ],
+          "returnType": "std::fmt::Result",
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "new",
+          "owner": "Sampler",
+          "params": [
+            "sfz",
+            "rate",
+            "seed"
+          ],
+          "returnType": "Sampler",
+          "exported": true,
+          "lineCount": 46
+        },
+        {
+          "name": "is_switch",
+          "owner": "Sampler",
+          "params": [
+            "key"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "curves",
+          "owner": "Sampler",
+          "params": [],
+          "returnType": "&Curves",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "added",
+          "owner": "Sampler",
+          "params": [
+            "r",
+            "target"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "multiplied",
+          "owner": "Sampler",
+          "params": [
+            "r",
+            "target"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "plays",
+          "owner": "Sampler",
+          "params": [
+            "i",
+            "key",
+            "velocity",
+            "rand",
+            "event",
+            "others"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 59
+        },
+        {
+          "name": "set_switch",
+          "owner": "Sampler",
+          "params": [
+            "key"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set_controller",
+          "owner": "Sampler",
+          "params": [
+            "cc",
+            "value"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "carry",
+          "owner": "Sampler",
+          "params": [
+            "note"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "hold",
+          "owner": "Sampler",
+          "params": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "end_pending",
+          "owner": "Sampler",
+          "params": [
+            "pitch"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "note_on",
+          "owner": "Sampler",
+          "params": [
+            "note",
+            "pitch",
+            "cut"
+          ],
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "set_note_controllers",
+          "owner": "Sampler",
+          "params": [
+            "key",
+            "velocity"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "choke_for",
+          "owner": "Sampler",
+          "params": [
+            "list",
+            "key",
+            "velocity",
+            "born"
+          ],
+          "exported": false,
+          "lineCount": 26
+        },
+        {
+          "name": "start",
+          "owner": "Sampler",
+          "params": [
+            "i",
+            "note",
+            "key",
+            "velocity",
+            "attenuation_db",
+            "born",
+            "pitch"
+          ],
+          "exported": false,
+          "lineCount": 221
+        },
+        {
+          "name": "stages",
+          "owner": "Sampler",
+          "params": [
+            "r",
+            "kind",
+            "v"
+          ],
+          "returnType": "Stages",
+          "exported": false,
+          "lineCount": 18
+        },
+        {
+          "name": "limit",
+          "owner": "Sampler",
+          "params": [
+            "limit",
+            "quick",
+            "which"
+          ],
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "free_slot",
+          "owner": "Sampler",
+          "params": [],
+          "returnType": "usize",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "note_off",
+          "owner": "Sampler",
+          "params": [
+            "id",
+            "pitch"
+          ],
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "end_string",
+          "owner": "Sampler",
+          "params": [
+            "string",
+            "pitch"
+          ],
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "stop",
+          "owner": "Sampler",
+          "params": [],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "update",
+          "owner": "Sampler",
+          "params": [
+            "pitch",
+            "t",
+            "seconds"
+          ],
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "render",
+          "owner": "Sampler",
+          "params": [
+            "left",
+            "right"
+          ],
+          "exported": true,
+          "lineCount": 170
+        },
+        {
+          "name": "sounding",
+          "owner": "Sampler",
+          "params": [],
+          "returnType": "usize",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "velocity_curve",
+          "owner": "",
+          "params": [
+            "points",
+            "velocity"
+          ],
+          "returnType": "f32",
+          "exported": false,
+          "lineCount": 25
+        }
+      ],
+      "classes": [
+        {
+          "name": "Stage",
+          "methods": [],
+          "properties": [
+            "Delay",
+            "Attack",
+            "Hold",
+            "Decay",
+            "Sustain",
+            "Release",
+            "Fadeout",
+            "Done"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "Envelope",
+          "methods": [
+            "new",
+            "release",
+            "next"
+          ],
+          "properties": [
+            "stage",
+            "value",
+            "delay",
+            "attack_step",
+            "hold",
+            "decay_rate",
+            "sustain",
+            "release_rate",
+            "fade_step",
+            "free_running",
+            "rate"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "Stages",
+          "methods": [],
+          "properties": [
+            "delay",
+            "start",
+            "attack",
+            "hold",
+            "decay",
+            "sustain",
+            "release",
+            "depth"
+          ],
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "Coefficients",
+          "methods": [],
+          "properties": [
+            "b0",
+            "b1",
+            "b2",
+            "a1",
+            "a2"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "Biquad",
+          "methods": [
+            "run"
+          ],
+          "properties": [
+            "x1",
+            "x2",
+            "y1",
+            "y2"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "Shape",
+          "methods": [],
+          "properties": [
+            "LowPass1",
+            "HighPass1",
+            "LowPass",
+            "HighPass",
+            "BandPass",
+            "BandReject"
+          ],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "Filter",
+          "methods": [
+            "run"
+          ],
+          "properties": [
+            "shape",
+            "stages",
+            "coefficients",
+            "state",
+            "hz",
+            "cents",
+            "resonance"
+          ],
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "LfoState",
+          "methods": [],
+          "properties": [
+            "index",
+            "phase",
+            "freq",
+            "held"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "Loop",
+          "methods": [],
+          "properties": [
+            "start",
+            "end",
+            "sustain"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "Voice",
+          "methods": [
+            "fade_out"
+          ],
+          "properties": [
+            "active",
+            "note",
+            "key",
+            "center",
+            "region",
+            "source",
+            "wait",
+            "pos",
+            "end",
+            "looping",
+            "one_shot",
+            "base_speed",
+            "cents",
+            "moving",
+            "carried",
+            "gain",
+            "matrix",
+            "stereo",
+            "amp",
+            "pitch_eg",
+            "filter_eg",
+            "filter",
+            "lfos",
+            "seconds",
+            "fade",
+            "born",
+            "released",
+            "vibrato_phase",
+            "vibrating",
+            "phase"
+          ],
+          "exported": false,
+          "lineCount": 51
+        },
+        {
+          "name": "Held",
+          "methods": [],
+          "properties": [
+            "id",
+            "key",
+            "velocity",
+            "string",
+            "since",
+            "note",
+            "cut",
+            "ending"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "Random",
+          "methods": [
+            "next",
+            "unit"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "Event",
+          "methods": [],
+          "properties": [
+            "On",
+            "Off"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "Sampler",
+          "methods": [
+            "fmt",
+            "new",
+            "is_switch",
+            "curves",
+            "added",
+            "multiplied",
+            "plays",
+            "set_switch",
+            "set_controller",
+            "carry",
+            "hold",
+            "end_pending",
+            "note_on",
+            "set_note_controllers",
+            "choke_for",
+            "start",
+            "stages",
+            "limit",
+            "free_slot",
+            "note_off",
+            "end_string",
+            "stop",
+            "update",
+            "render",
+            "sounding"
+          ],
+          "properties": [
+            "sfz",
+            "rate",
+            "voices",
+            "held",
+            "counts",
+            "controllers",
+            "on_key",
+            "off_key",
+            "switches",
+            "switch",
+            "keys_down",
+            "previous_key",
+            "alternate",
+            "random",
+            "clock",
+            "kernel"
+          ],
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::sync",
+          "specifiers": [
+            "Arc"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin::audio",
+          "specifiers": [
+            "PitchPoint",
+            "RtNote",
+            "cents_at"
+          ]
+        },
+        {
+          "source": "super",
+          "specifiers": [
+            "Loaded"
+          ]
+        },
+        {
+          "source": "super::instrument",
+          "specifiers": [
+            "Curves"
+          ]
+        },
+        {
+          "source": "super::region",
+          "specifiers": [
+            "Crossfade",
+            "EgKind",
+            "EgParam",
+            "FilterKind",
+            "KeyCenter",
+            "LfoParam",
+            "LoopMode",
+            "OffMode",
+            "OldLfo",
+            "Region",
+            "Source",
+            "Target",
+            "Trigger",
+            "Wave",
+            "cc"
+          ]
+        },
+        {
+          "source": "super::sample",
+          "specifiers": [
+            "Pcm",
+            "Sample"
+          ]
+        },
+        {
+          "source": "super::sinc",
+          "specifiers": [
+            "self",
+            "BEFORE",
+            "TAPS"
+          ]
+        }
+      ],
+      "exports": [
+        "Sampler",
+        "new",
+        "set_switch",
+        "set_controller",
+        "carry",
+        "hold",
+        "end_pending",
+        "note_on",
+        "note_off",
+        "end_string",
+        "stop",
+        "update",
+        "render",
+        "sounding"
+      ],
+      "totalLines": 2090,
+      "hasStructuralAnalysis": true
+    },
+    "src/sfz/sinc.rs": {
+      "filePath": "src/sfz/sinc.rs",
+      "contentHash": "89650bc99cf9f0b301d5c3371cf40db96895a137d8b4608b4d78af5cdd4b0b34",
+      "functions": [
+        {
+          "name": "kernel",
+          "owner": "",
+          "params": [],
+          "returnType": "&'static Kernel",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "bessel0",
+          "owner": "",
+          "params": [
+            "x"
+          ],
+          "returnType": "f64",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "table",
+          "owner": "",
+          "params": [
+            "cutoff"
+          ],
+          "returnType": "Box<[f32]>",
+          "exported": false,
+          "lineCount": 33
+        },
+        {
+          "name": "weights",
+          "owner": "Kernel",
+          "params": [
+            "speed",
+            "frac"
+          ],
+          "returnType": "&[f32]",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [
+        {
+          "name": "Kernel",
+          "methods": [
+            "weights"
+          ],
+          "properties": [
+            "tables"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::sync",
+          "specifiers": [
+            "OnceLock"
+          ]
+        }
+      ],
+      "exports": [
+        "Kernel",
+        "kernel",
+        "weights"
+      ],
+      "totalLines": 186,
+      "hasStructuralAnalysis": true
+    },
+    "src/sfz/text.rs": {
+      "filePath": "src/sfz/text.rs",
+      "contentHash": "c7af41c59763f7a0e8b84731cbfe686e4fa455b91be014b2a48195ce3d74d0ad",
+      "functions": [
+        {
+          "name": "read",
+          "owner": "",
+          "params": [
+            "top"
+          ],
+          "returnType": "Result<Text, String>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "read_with",
+          "owner": "",
+          "params": [
+            "top",
+            "load"
+          ],
+          "returnType": "Result<Text, String>",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "includes",
+          "owner": "",
+          "params": [
+            "bytes"
+          ],
+          "returnType": "Vec<String>",
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "identifier",
+          "owner": "",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "space",
+          "owner": "",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "file",
+          "owner": "Reader<'_>",
+          "params": [
+            "bytes",
+            "depth"
+          ],
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "problem",
+          "owner": "Reader<'_>",
+          "params": [
+            "what"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "directive",
+          "owner": "Reader<'_>",
+          "params": [
+            "chars",
+            "at",
+            "depth"
+          ],
+          "returnType": "usize",
+          "exported": false,
+          "lineCount": 68
+        },
+        {
+          "name": "include",
+          "owner": "Reader<'_>",
+          "params": [
+            "path",
+            "depth"
+          ],
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "header",
+          "owner": "Reader<'_>",
+          "params": [
+            "chars",
+            "at"
+          ],
+          "returnType": "usize",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "opcode",
+          "owner": "Reader<'_>",
+          "params": [
+            "chars",
+            "at"
+          ],
+          "returnType": "usize",
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "expand",
+          "owner": "Reader<'_>",
+          "params": [
+            "text"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 37
+        },
+        {
+          "name": "skip_blank",
+          "owner": "",
+          "params": [
+            "chars",
+            "at"
+          ],
+          "returnType": "usize",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "end_of_line",
+          "owner": "",
+          "params": [
+            "chars",
+            "at"
+          ],
+          "returnType": "usize",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "end_of_block_comment",
+          "owner": "",
+          "params": [
+            "chars",
+            "at"
+          ],
+          "returnType": "usize",
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "strip_comment",
+          "owner": "",
+          "params": [
+            "text"
+          ],
+          "returnType": "&str",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "value_end",
+          "owner": "",
+          "params": [
+            "chars",
+            "start"
+          ],
+          "returnType": "usize",
+          "exported": false,
+          "lineCount": 51
+        }
+      ],
+      "classes": [
+        {
+          "name": "Item",
+          "methods": [],
+          "properties": [
+            "Header",
+            "Opcode"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Text",
+          "methods": [],
+          "properties": [
+            "items",
+            "problems",
+            "files"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "Reader",
+          "methods": [],
+          "properties": [
+            "base",
+            "load",
+            "defines",
+            "text"
+          ],
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        }
+      ],
+      "exports": [
+        "Item",
+        "Text",
+        "read",
+        "read_with",
+        "includes"
+      ],
+      "totalLines": 545,
+      "hasStructuralAnalysis": true
+    },
+    "src/track.rs": {
+      "filePath": "src/track.rs",
+      "contentHash": "c795f28f5922e6d68454d8565f69b3e8ea8b9dc2cb2bd935c1ec1c2514e80f1c",
+      "functions": [
+        {
+          "name": "of",
+          "owner": "Pick",
+          "params": [
+            "settings"
+          ],
+          "returnType": "Pick",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "of_text",
+          "owner": "Pick",
+          "params": [
+            "settings"
+          ],
+          "returnType": "Pick",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "save",
+          "owner": "Pick",
+          "params": [
+            "settings"
+          ],
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "set_for",
+          "owner": "",
+          "params": [
+            "pick",
+            "automatic",
+            "found",
+            "row"
+          ],
+          "returnType": "(Option<&'a Found>, bool)",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "choices",
+          "owner": "",
+          "params": [
+            "pick",
+            "paths",
+            "labels"
+          ],
+          "returnType": "(Vec<String>, u32)",
+          "exported": false,
+          "lineCount": 25
+        },
+        {
+          "name": "chosen",
+          "owner": "",
+          "params": [
+            "i",
+            "paths"
+          ],
+          "returnType": "Option<Pick>",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "content",
+          "owner": null,
+          "params": [
+            "_track",
+            "settings"
+          ],
+          "returnType": "TabContent",
+          "exported": false,
+          "lineCount": 30
+        },
+        {
+          "name": "on",
+          "owner": null,
+          "params": [
+            "_track",
+            "settings",
+            "widget",
+            "event"
+          ],
+          "returnType": "Result<(), Error>",
+          "exported": false,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "Pick",
+          "methods": [
+            "of",
+            "of_text",
+            "save"
+          ],
+          "properties": [
+            "Automatic",
+            "Role",
+            "Set"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin::serde_json",
+          "specifiers": [
+            "self",
+            "Map",
+            "Value"
+          ]
+        },
+        {
+          "source": "oxiguitar_plugin",
+          "specifiers": [
+            "Error",
+            "Row",
+            "TabContent",
+            "TabEvent",
+            "TrackInfo",
+            "TrackSection",
+            "Widget"
+          ]
+        },
+        {
+          "source": "crate::sets",
+          "specifiers": [
+            "Found"
+          ]
+        },
+        {
+          "source": "crate::settings",
+          "specifiers": [
+            "Role",
+            "Window"
+          ]
+        }
+      ],
+      "exports": [
+        "Pick",
+        "of",
+        "of_text",
+        "set_for"
+      ],
+      "totalLines": 288,
+      "hasStructuralAnalysis": true
+    },
+    "tests/contract.rs": {
+      "filePath": "tests/contract.rs",
+      "contentHash": "12ef2cf0c9ca3f411e9a291783b84fed9a75481daf7be727a4b483317236c99c",
+      "functions": [
+        {
+          "name": "the_plugin_file_keeps_the_contract",
+          "owner": "",
+          "params": [],
+          "exported": false,
+          "lineCount": 20
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "tests/realtime.rs": {
+      "filePath": "tests/realtime.rs",
+      "contentHash": "ed48bcf1b044d9f0e805b37849eda39d651be649141a113e1111093aa4f65494",
+      "functions": [
+        {
+          "name": "midi_oxp",
+          "owner": "",
+          "params": [],
+          "returnType": "PathBuf",
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "sine_wav",
+          "owner": "",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "Vec<u8>",
+          "exported": false,
+          "lineCount": 26
+        },
+        {
+          "name": "our_midi_plugin_plays_sfz_in_real_time",
+          "owner": "",
+          "params": [],
+          "exported": false,
+          "lineCount": 55
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "std::path",
+          "specifiers": [
+            "Path",
+            "PathBuf"
+          ]
+        },
+        {
+          "source": "std::sync",
+          "specifiers": [
+            "Arc"
+          ]
+        },
+        {
+          "source": "oxiguitar_host",
+          "specifiers": [
+            "Plugins",
+            "SharedSettings",
+            "Unheard"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 110,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

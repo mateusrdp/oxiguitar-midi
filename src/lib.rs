@@ -86,6 +86,9 @@ pub struct MidiPlugin {
     window: settings::Window,
     /// The sets tracks picked that weren't here, each said once.
     missing: Mutex<Vec<PathBuf>>,
+    /// Whether the footer has said there is no sound set at all (once, until
+    /// a set is there again).
+    told_no_sets: Mutex<bool>,
 }
 
 impl std::fmt::Debug for MidiPlugin {
@@ -285,6 +288,26 @@ impl MidiPlugin {
         Ok(font)
     }
 
+    /// No sound set at all: the footer says where one goes (the host's own
+    /// `soundfonts` folder, which inside OxiGuitar's Flatpak is the
+    /// Flatpak's) and links to the page on getting one, the sound-set
+    /// installer first (#163).
+    fn tell_no_sets(&self) {
+        let place = user_folder(&self.host).map_or_else(
+            || "OxiGuitar's soundfonts folder".to_owned(),
+            |p| p.display().to_string(),
+        );
+        self.host.notify_with_link(
+            Level::Warning,
+            format!(
+                "No sound set found. Put a SoundFont (.sf2 or .sf3) or SFZ set in {place}, \
+                 or install the recommended ones with the sound-set installer."
+            ),
+            "Better sounds",
+            BETTER_SOUNDS,
+        );
+    }
+
     /// Advises, once (the host keeps what the user silenced), that only the
     /// system's sets play, with a link to the manual's page on better ones.
     fn advise_sets(&self) {
@@ -325,6 +348,7 @@ impl Plugin for MidiPlugin {
             loaded_sfz: Mutex::default(),
             samples: sfz::Samples::default(),
             missing: Mutex::default(),
+            told_no_sets: Mutex::default(),
         })
     }
 
@@ -344,6 +368,12 @@ impl Plugin for MidiPlugin {
 impl Instrument for MidiPlugin {
     fn prepare(&self, prepare: &Prepare) -> Result<Box<dyn Renderer>, Error> {
         let found = playable(&self.host);
+        if let Ok(mut told) = self.told_no_sets.lock() {
+            if found.is_empty() && !*told {
+                self.tell_no_sets();
+            }
+            *told = found.is_empty();
+        }
         if found.is_empty() {
             let place = user_folder(&self.host).map_or_else(
                 || "the soundfonts folder".to_owned(),
