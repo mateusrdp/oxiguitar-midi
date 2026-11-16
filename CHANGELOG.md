@@ -6,6 +6,8 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.4] - 2026-11-16
+
 ### Added
 
 - **No sound set at all** (as in OxiGuitar's Flatpak until a set is added, #163): the footer says once, with a **Better sounds** link to the manual's page on the sound-set installer, where a set goes (the host's `soundfonts` folder, the Flatpak's own inside it). Playing still fails as before until a set is there.

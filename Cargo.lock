@@ -122,7 +122,7 @@ dependencies = [
 
 [[package]]
 name = "oxiguitar-midi-plugin"
-version = "0.2.2"
+version = "0.2.4"
 dependencies = [
  "claxon",
  "lewton",
