@@ -6,6 +6,10 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Dependabot leaves every `oxiguitar-*` crate alone (it proposed `oxiguitar-host` v0.13.1, which the tests do not build against); they move by hand with the interface.
+
 ## [0.2.4] - 2026-11-16
 
 ### Added
