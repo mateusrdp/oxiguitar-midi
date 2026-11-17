@@ -6,6 +6,8 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.5] - 2026-11-17
+
 ### Changed
 
 - **The Sound Sets dialog** (#19): the sound sets are picked in the plugin's own dialog, **Plugins → MIDI Sound Sets…**, with **OK** and **Cancel**, where OxiGuitar's settings window (Tools → Plugins…, Settings…) used to be. A pick is kept only when you press OK, and the new sets load then, once: going down a list no longer saves and loads each entry on the way, so the lists no longer lag, close or jump to picks made seconds before. Cancel leaves the sets as they were. The dialog works with or without a song open, and while it plays. It lists the sets found when it opened, so each pick is answered at once.
