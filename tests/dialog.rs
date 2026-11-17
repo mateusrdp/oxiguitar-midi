@@ -105,7 +105,10 @@ fn picks_are_kept_with_ok_and_forgotten_with_cancel() {
         assert_eq!(selected, 0, "each opening starts from what is saved");
         let sine = options
             .iter()
-            .position(|o| o.contains("Sines: Sine (SFZ)"))
+            // "Sines: Sine (SFZ)"; on macOS and Windows the temporary
+            // folder's path may not start with the user folder's as
+            // resolved, and the label is then the instrument's alone.
+            .position(|o| o.ends_with("Sine (SFZ)") && !o.starts_with("Automatic"))
             .unwrap_or_else(|| panic!("the SFZ instrument is listed: {options:?}"));
         let after = plugins
             .tab_event(&dialog, "clean-guitars", TabEvent::Chosen(sine as u32))
