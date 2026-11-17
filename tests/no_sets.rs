@@ -63,7 +63,7 @@ fn no_set_says_where_with_the_better_sounds_link() {
     let plugins = Plugins::discover(
         &[folder],
         SharedSettings::default(),
-        oxiguitar_host::display_system(),
+        oxiguitar_host::NO_DISPLAY,
         footer.clone(),
     );
     let folders = oxiguitar_host::Folders::resolve(

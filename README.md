@@ -4,8 +4,8 @@ The MIDI plugin for [OxiGuitar](https://github.com/mateusrdp/oxiguitar), a free,
 
 - Plugin file `midi.oxp`, id `oxiguitar.midi`, shown as **MIDI (SoundFont, SFZ)**. It replaces the former `oxiguitar.soundfont`: its settings and data folder are carried over once, and a score's track settings keep working. A `soundfont.oxp` left in your plugin folder is not used any more and can be deleted.
 - Sound sets are plain files. Put yours in OxiGuitar's `soundfonts` folder, or install a recorded set with [oxiguitar-bettersounds-soundfonts](https://github.com/mateusrdp/oxiguitar-bettersounds-soundfonts); the plugin also looks in `/usr/share/oxiguitar/soundfonts` on Linux and reads an `oxiguitar-set.json` beside a set (name, role, licence, credit, and for a set of several patches which is recommended and what each is called) to list it by a short name.
-- The settings window (Tools, Plugins, MIDI, Settings) picks a set for clean, overdriven and distorted electric guitars, nylon-string and steel-string guitars, basses, drums and everything else. When it finds only the basic General MIDI set of your system, OxiGuitar tells you once, with a link to the [Better sounds](https://mateusrdp.github.io/oxiguitar/better-sounds.html) page (SFZ sets first).
-- The track dialog's section **Sound** lets one track play another row of the settings window (a distorted guitar played clean into an amp model) or a set of its own; Automatic, the default, follows the track's instrument.
+- Its **Sound Sets** dialog (**Plugins → MIDI Sound Sets…**, with or without a song open) picks a set for clean, overdriven and distorted electric guitars, nylon-string and steel-string guitars, basses, drums and everything else. When it finds only the basic General MIDI set of your system, OxiGuitar tells you once, with a link to the [Better sounds](https://mateusrdp.github.io/oxiguitar/better-sounds.html) page (SFZ sets first). Your picks take effect when you press **OK**; **Cancel** leaves them as they were.
+- The track dialog's section **Sound** lets one track play another row of the Sound Sets dialog (a distorted guitar played clean into an amp model) or a set of its own; Automatic, the default, follows the track's instrument.
 - The SFZ player is our own: 256 voices, sfizz's behaviour as the reference (no code taken), samples in WAV, FLAC or Ogg, whole in memory. The SoundFont synthesiser is [rustysynth](https://crates.io/crates/rustysynth) (MIT), used exactly as published.
 
 Listen to it on the manual's [Hear it](https://mateusrdp.github.io/oxiguitar/hear-it.html) page, which has the same songs played with each recommended set.
@@ -16,7 +16,7 @@ Every [release](https://github.com/mateusrdp/oxiguitar-midi/releases) holds a zi
 
 ## Build and test
 
-Rust 1.99 or later from [rustup](https://rustup.rs). The plugin SDK comes from OxiGuitar's repository by git tag (`v0.11.0`); nothing of OxiGuitar's is on crates.io.
+Rust 1.99 or later from [rustup](https://rustup.rs). The plugin SDK comes from OxiGuitar's repository by git tag, or by commit while the interface it needs (1.9) is not released yet; nothing of OxiGuitar's is on crates.io.
 
 ```sh
 cargo test          # unit tests, the contract suite on the built .oxp file, and the real-time checks with an SFZ set

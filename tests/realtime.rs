@@ -86,7 +86,7 @@ fn our_midi_plugin_plays_sfz_in_real_time() {
     let plugins = Plugins::discover(
         &[folder],
         settings,
-        oxiguitar_host::display_system(),
+        oxiguitar_host::NO_DISPLAY,
         Arc::new(Unheard),
     );
     let folders = oxiguitar_host::Folders::resolve(

@@ -2,14 +2,14 @@
 // Copyright (C) 2026 Mateus Rocha de Paula and the OxiGuitar contributors
 
 //! The track dialog's section "Sound" (mateusrdp/oxiguitar#152, Mateus, 3
-//! Nov 2026): what one track plays, over the settings window's rows. Kept
+//! Nov 2026): what one track plays, over the Sound Sets dialog's rows. Kept
 //! in the song's sidecar (`FILE.oxg`) as this plugin's settings for the
 //! track:
 //!
-//! - nothing: **Automatic**, the settings window's row for the kind of
+//! - nothing: **Automatic**, the Sound Sets dialog's row for the kind of
 //!   track its General MIDI program names (a distorted guitar the
 //!   Distorted guitars row);
-//! - `{"sound": "role:clean-guitars"}`: **a row** of the settings window,
+//! - `{"sound": "role:clean-guitars"}`: **a row** of the Sound Sets dialog,
 //!   whatever the program says (a distorted guitar played clean into an
 //!   amp model, a bass played as a distorted guitar); it means the same on
 //!   any computer;
@@ -31,7 +31,7 @@ pub(crate) const SECTION: &str = "sound";
 /// The key of the track's settings, and the choice's id.
 const KEY: &str = "sound";
 
-/// How a row of the settings window is saved.
+/// How a row of the Sound Sets dialog is saved.
 const ROLE: &str = "role:";
 
 /// What a track picks.
@@ -80,7 +80,7 @@ impl Pick {
 }
 
 /// The set a track with `pick` plays among `found` (`row` gives the
-/// settings window's set for a role), and whether its own set is missing.
+/// Sound Sets dialog's set for a role), and whether its own set is missing.
 pub(crate) fn set_for<'a>(
     pick: &Pick,
     automatic: Role,
@@ -163,7 +163,7 @@ impl TrackSection for Window {
                 },
                 Row {
                     widgets: vec![Widget::Label {
-                        text: "The rows are the plugin's settings window's.".into(),
+                        text: "The rows are those of Plugins → MIDI Sound Sets….".into(),
                         muted: true,
                     }],
                 },
