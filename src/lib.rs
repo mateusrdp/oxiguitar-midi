@@ -11,7 +11,7 @@
 //!   `/usr/share/oxiguitar/soundfonts` and the system's own, read only;
 //!   nothing is ever fetched. `info` reads the `oxiguitar-set.json` beside
 //!   a set (name, role, licence, credit).
-//! - `settings` is the settings window: a set for guitars, basses, drums
+//! - `settings` is the Sound Sets dialog (Plugins → MIDI Sound Sets…): a set for guitars, basses, drums
 //!   and everything else; until the user picks, the best set found (the
 //!   user's before the system's, the larger before the smaller).
 //! - `play` turns the timeline's notes into rustysynth's: one synthesiser
@@ -31,7 +31,7 @@ use std::time::SystemTime;
 
 use oxiguitar_plugin::audio::Prepare;
 use oxiguitar_plugin::{
-    Advice, Error, ErrorKind, Host, Instrument, Level, Link, Plugin, Renderer, SharedFolder, Tab,
+    Advice, Error, ErrorKind, Host, Instrument, Level, Link, Plugin, Renderer, Tab, Tool,
     TrackSection,
 };
 use rustysynth::SoundFont;
@@ -54,7 +54,7 @@ pub const INSTRUMENT: &str = "soundfont";
 pub const ADVICE_NO_SOUND_SETS: &str = "no-sound-sets";
 
 /// The manual's page on getting better sets, at the sound-set installer,
-/// which the `no-sound-sets` advice and the settings window link to.
+/// which the `no-sound-sets` advice and the Sound Sets dialog link to.
 pub const BETTER_SOUNDS: &str =
     "https://mateusrdp.github.io/oxiguitar/better-sounds.html#the-sound-set-installer";
 
@@ -97,12 +97,14 @@ impl std::fmt::Debug for MidiPlugin {
     }
 }
 
-/// The user's `soundfonts` folder, as the host names it.
+/// The name of the folder the plugin shares with the user (the manifest's
+/// `folders`), where sound sets go.
+pub(crate) const FOLDER: &str = "soundfonts";
+
+/// The user's `soundfonts` folder, asked for by its name (interface 1.8:
+/// OxiGuitar knows no folder's name).
 pub(crate) fn user_folder(host: &Host) -> Option<PathBuf> {
-    let folders = host.folders().ok()?;
-    folders
-        .shared(SharedFolder::Soundfonts)
-        .map(Path::to_path_buf)
+    host.folder(FOLDER).ok().map(|f| f.user)
 }
 
 /// The sets this plugin can play, the best first.
@@ -356,8 +358,12 @@ impl Plugin for MidiPlugin {
         (id == INSTRUMENT).then_some(self as &dyn Instrument)
     }
 
-    fn settings_window(&self) -> Option<&dyn Tab> {
-        Some(&self.window)
+    fn tool(&self, id: &str) -> Option<&dyn Tool> {
+        (id == settings::DIALOG).then_some(&self.window as &dyn Tool)
+    }
+
+    fn tab(&self, id: &str) -> Option<&dyn Tab> {
+        (id == settings::DIALOG).then_some(&self.window as &dyn Tab)
     }
 
     fn track_section(&self, id: &str) -> Option<&dyn TrackSection> {

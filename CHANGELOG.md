@@ -8,6 +8,9 @@ follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- **The Sound Sets dialog** (#19): the sound sets are picked in the plugin's own dialog, **Plugins → MIDI Sound Sets…**, with **OK** and **Cancel**, where OxiGuitar's settings window (Tools → Plugins…, Settings…) used to be. A pick is kept only when you press OK, and the new sets load then, once: going down a list no longer saves and loads each entry on the way, so the lists no longer lag, close or jump to picks made seconds before. Cancel leaves the sets as they were. The dialog works with or without a song open, and while it plays. It lists the sets found when it opened, so each pick is answered at once.
+- The `soundfonts` folder is asked for by its name (interface 1.8), as OxiGuitar no longer knows it (mateusrdp/oxiguitar#308).
+- Plugin interface 1.9 (from mateusrdp/oxiguitar#306, the SDK at that commit until OxiGuitar's next release is tagged): OxiGuitar retired the settings window it drew for plugins. This version needs that release; older OxiGuitar versions refuse it.
 - Dependabot leaves every `oxiguitar-*` crate alone (it proposed `oxiguitar-host` v0.13.1, which the tests do not build against); they move by hand with the interface.
 
 ## [0.2.4] - 2026-11-16

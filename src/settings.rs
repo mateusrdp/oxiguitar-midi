@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 Mateus Rocha de Paula and the OxiGuitar contributors
 
-//! The plugin's settings window: a set for clean, overdriven and distorted
+//! The plugin's Sound Sets dialog (Plugins → MIDI Sound Sets…, interface
+//! 1.9; it was the core's settings window until the core stopped owning
+//! anything of a plugin, ADR 0012 of OxiGuitar, and #19): a set for clean,
+//! overdriven and distorted
 //! electric guitars, nylon and steel-string guitars, basses, drums and everything else,
 //! for every file (Mateus, 21 Oct 2026; Guitars split in two on 26 Oct 2026,
 //! since an SFZ guitar is one or the other; electric guitars split in three
@@ -10,6 +13,12 @@
 //! own settings as each set's path.
 //! Until the user picks, the best General MIDI set found plays; an SFZ
 //! instrument plays only where picked.
+//!
+//! The dialog changes a draft and lists the sets found when it opened, so a
+//! pick is answered at once and nothing is saved or loaded: OK writes the
+//! draft to the settings (and OxiGuitar then loads the new sets, once),
+//! Cancel forgets it (#19: each pick used to be saved and loaded at once,
+//! and picks made meanwhile queued up).
 
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
@@ -17,7 +26,9 @@ use std::time::SystemTime;
 
 use oxiguitar_plugin::audio::PreparedTrack;
 use oxiguitar_plugin::serde_json::{Map, Value};
-use oxiguitar_plugin::{Error, Host, InstrumentClass, Row, Tab, TabContent, TabEvent, Widget};
+use oxiguitar_plugin::{
+    Error, Host, InstrumentClass, Row, Tab, TabContent, TabEvent, Tool, Widget,
+};
 
 use crate::sets::{self, Found, Kind, Origin};
 
@@ -256,12 +267,23 @@ struct Checked {
     instrument: bool,
 }
 
-/// The settings window.
+/// The id of the dialog (a tab whose area is `dialog`) and of the tool
+/// that opens it, in the manifest.
+pub(crate) const DIALOG: &str = "sound-sets";
+
+/// The Sound Sets dialog, the tool that opens it, and the track section
+/// (`track.rs`), which share the sets found.
 #[derive(Debug)]
 pub(crate) struct Window {
     pub(crate) host: Host,
     /// The SFZ files checked so far.
     checked: Mutex<Vec<Checked>>,
+    /// While the dialog is open: the sets found when it opened, which it
+    /// lists until it closes.
+    listed: Mutex<Option<Vec<Found>>>,
+    /// While the dialog is open and something was picked: the settings as
+    /// the dialog has them, which OK writes.
+    draft: Mutex<Option<Map<String, Value>>>,
 }
 
 impl Window {
@@ -269,7 +291,21 @@ impl Window {
         Window {
             host,
             checked: Mutex::new(Vec::new()),
+            listed: Mutex::new(None),
+            draft: Mutex::new(None),
         }
+    }
+
+    /// The sets the dialog lists: those found when it opened, or now.
+    fn listed(&self) -> Vec<Found> {
+        let listed = self.listed.lock().ok().and_then(|l| l.as_ref().cloned());
+        listed.unwrap_or_else(|| self.found())
+    }
+
+    /// The settings as the dialog has them: its draft, or what is saved.
+    fn current(&self) -> Map<String, Value> {
+        let draft = self.draft.lock().ok().and_then(|d| d.as_ref().cloned());
+        draft.unwrap_or_else(|| self.host.settings().unwrap_or_default())
     }
 
     /// Every set found, the General MIDI ones first, then the SFZ
@@ -334,7 +370,7 @@ impl Window {
 }
 
 /// The advice on better sounds at the top of the window (Mateus, 27 Oct
-/// 2026: in the settings window and the footer both, with the link, towards
+/// 2026: in the settings window (now the Sound Sets dialog) and the footer both, with the link, towards
 /// SFZ). OxiGuitar downloads nothing, so the link opens the manual's page,
 /// which says what to get, where, and what to pick here. Labels don't wrap:
 /// one short sentence a row.
@@ -372,10 +408,27 @@ fn better_sounds(found: &[Found]) -> Vec<Row> {
     }
 }
 
+/// Plugins → MIDI Sound Sets…: it doesn't edit the score, so it works with
+/// no score open and while the song plays. Each opening starts from what
+/// is saved, with the sets there are now.
+impl Tool for Window {
+    fn run(&self) -> Result<String, Error> {
+        let found = self.found();
+        if let Ok(mut listed) = self.listed.lock() {
+            *listed = Some(found);
+        }
+        if let Ok(mut draft) = self.draft.lock() {
+            *draft = None;
+        }
+        self.host.open_dialog(DIALOG)?;
+        Ok(String::new())
+    }
+}
+
 impl Tab for Window {
     fn content(&self) -> TabContent {
-        let settings = self.host.settings().unwrap_or_default();
-        let found = self.found();
+        let settings = self.current();
+        let found = self.listed();
         let labels: Vec<String> = found.iter().map(|f| self.label(f)).collect();
         let mut rows = better_sounds(&found);
         for role in Role::ALL {
@@ -433,8 +486,8 @@ impl Tab for Window {
         let TabEvent::Chosen(i) = event else {
             return Ok(());
         };
-        let found = self.found();
-        let mut settings = self.host.settings()?;
+        let found = self.listed();
+        let mut settings = self.current();
         // The older shared picks go to every row they stood for, so
         // picking one row leaves the others as they were: the electric one
         // (before #152) to the three electric rows, then 0.9's one for
@@ -464,7 +517,23 @@ impl Tab for Window {
                 settings.remove(role.key());
             }
         }
-        self.host.set_settings(&settings)
+        if let Ok(mut draft) = self.draft.lock() {
+            *draft = Some(settings);
+        }
+        Ok(())
+    }
+
+    /// OK writes the picks, if any were made; Cancel (or Escape) forgets
+    /// them. Either way the dialog lets go of its list.
+    fn closed(&self, ok: bool) -> Result<(), Error> {
+        let draft = self.draft.lock().ok().and_then(|mut d| d.take());
+        if let Ok(mut listed) = self.listed.lock() {
+            *listed = None;
+        }
+        match draft {
+            Some(settings) if ok => self.host.set_settings(&settings),
+            _ => Ok(()),
+        }
     }
 }
 
