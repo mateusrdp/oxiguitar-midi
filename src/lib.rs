@@ -31,8 +31,8 @@ use std::time::SystemTime;
 
 use oxiguitar_plugin::audio::Prepare;
 use oxiguitar_plugin::{
-    Advice, Error, ErrorKind, Host, Instrument, Level, Link, Plugin, Renderer, SharedFolder, Tab,
-    Tool, TrackSection,
+    Advice, Error, ErrorKind, Host, Instrument, Level, Link, Plugin, Renderer, Tab, Tool,
+    TrackSection,
 };
 use rustysynth::SoundFont;
 
@@ -97,12 +97,14 @@ impl std::fmt::Debug for MidiPlugin {
     }
 }
 
-/// The user's `soundfonts` folder, as the host names it.
+/// The name of the folder the plugin shares with the user (the manifest's
+/// `folders`), where sound sets go.
+pub(crate) const FOLDER: &str = "soundfonts";
+
+/// The user's `soundfonts` folder, asked for by its name (interface 1.8:
+/// OxiGuitar knows no folder's name).
 pub(crate) fn user_folder(host: &Host) -> Option<PathBuf> {
-    let folders = host.folders().ok()?;
-    folders
-        .shared(SharedFolder::Soundfonts)
-        .map(Path::to_path_buf)
+    host.folder(FOLDER).ok().map(|f| f.user)
 }
 
 /// The sets this plugin can play, the best first.
