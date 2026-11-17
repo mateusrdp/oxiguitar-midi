@@ -120,7 +120,7 @@ impl Info {
         }
     }
 
-    /// How the settings window names `file`, a patch of this set: the
+    /// How the Sound Sets dialog names `file`, a patch of this set: the
     /// source and the patch, "FreePats: Electric Guitar FSBS (clean)". The
     /// source is the set's name, the patch's product and variant come from
     /// the innermost parentheses of its credit ("FreePats (Electric Guitar

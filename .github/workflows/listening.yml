@@ -5,7 +5,7 @@
 # (musescore-general-soundfont, the SoundFont 3 one, which the plugin
 # decodes); and once with each of FreePats' electric guitar banks (CC0,
 # their SoundFont 2 files from FreePats' GitHub releases) for the guitars
-# and FluidR3 for everything else, as the plugin's settings window picks
+# and FluidR3 for everything else, as the plugin's Sound Sets dialog picks
 # them, before the manual's Better sounds page names them; and once with
 # each recommended SFZ guitar, bass and drum kit (M4 slice 5), the same
 # way. For Mateus's ears: each set is an artifact of its own, kept 14
@@ -140,7 +140,7 @@ jobs:
             mkdir -p "$home/soundfonts" "listening/freepats-$b"
             cp "$sf2" "$home/soundfonts/"
             mine="$(readlink -f "$home/soundfonts/$(basename "$sf2")")"
-            # The plugin's settings window's picks: this bank for guitars,
+            # The plugin's Sound Sets dialog's picks: this bank for guitars,
             # FluidR3 for the rest.
             printf '{"oxiguitar.midi":{"clean-guitars":"%s","overdriven-guitars":"%s","distorted-guitars":"%s","acoustic-guitars":"%s","basses":"%s","drums":"%s","other":"%s"}}\n' \
               "$mine" "$mine" "$mine" "$mine" "$fluid" "$fluid" "$fluid" > "$home/settings.json"
@@ -179,7 +179,7 @@ jobs:
   # own: the set fetched from its makers' repository or release (git's
   # text conversion off: some of these repositories mark every file as
   # CRLF text, which corrupts samples on checkout), picked for its role
-  # as the settings window would, FluidR3 for the rest.
+  # as the Sound Sets dialog would, FluidR3 for the rest.
   sfz:
     name: Render the reference songs with ${{ matrix.name }}
     runs-on: ubuntu-24.04
