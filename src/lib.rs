@@ -53,10 +53,9 @@ pub const INSTRUMENT: &str = "soundfont";
 /// The advice's id when only the system's sets play.
 pub const ADVICE_NO_SOUND_SETS: &str = "no-sound-sets";
 
-/// The manual's page on getting better sets, at the sound-set installer,
-/// which the `no-sound-sets` advice and the Sound Sets dialog link to.
-pub const BETTER_SOUNDS: &str =
-    "https://mateusrdp.github.io/oxiguitar/better-sounds.html#the-sound-set-installer";
+/// The sound-set installer's manual, where better sets come from, which the
+/// `no-sound-sets` advice and the Sound Sets dialog link to.
+pub const BETTER_SOUNDS: &str = "https://mateusrdp.github.io/oxiguitar-bettersounds-soundfonts/";
 
 /// A set loaded once and kept while it is in use, so opening another file
 /// doesn't load it again.
