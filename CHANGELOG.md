@@ -6,6 +6,10 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **The manual is the plugin's own** (OxiGuitar #325): `docs/manual`, published at https://mateusrdp.github.io/oxiguitar-midi/. The no-sound-set advice and the Sound Sets dialog now link to the sound-set installer's manual instead of a page of OxiGuitar's.
+
 ## [0.2.5] - 2026-11-17
 
 ### Changed
