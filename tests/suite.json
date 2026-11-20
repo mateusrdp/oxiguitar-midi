@@ -1,0 +1,6 @@
+{
+  "repository": "mateusrdp/oxiguitar-midi",
+  "plugins": [
+    {"name": "midi", "package": "oxiguitar-midi-plugin", "library": "oxiguitar_midi_plugin"}
+  ]
+}
