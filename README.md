@@ -23,6 +23,7 @@ Rust 1.99 or later from [rustup](https://rustup.rs). The plugin SDK comes from O
 ```sh
 cargo test          # unit tests, the contract suite on the built .oxp file, and the real-time checks with an SFZ set
 ./build-oxp.sh      # dist/midi-VERSION-SYSTEM-ARCH.oxp
+python3 scripts/test-all.py   # every test, as the manual's Testing page says
 ```
 
 `.github/workflows/listening.yml` renders OxiGuitar's reference songs with the sets Debian and Ubuntu package and the recommended SFZ sets, for listening by ear (by hand from the Actions tab). CI fetches test material there; the plugin itself downloads and uploads nothing.

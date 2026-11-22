@@ -113,3 +113,81 @@ pub(crate) fn show(id: &[u8; 4]) -> String {
         .map(|&c| if c.is_ascii_graphic() { c as char } else { '?' })
         .collect()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn chunk(id: &[u8; 4], data: &[u8]) -> Vec<u8> {
+        let mut out = id.to_vec();
+        out.extend_from_slice(&(data.len() as u32).to_le_bytes());
+        out.extend_from_slice(data);
+        out
+    }
+
+    fn riff(kind: &[u8; 4], body: &[u8]) -> Vec<u8> {
+        let mut inner = kind.to_vec();
+        inner.extend_from_slice(body);
+        chunk(b"RIFF", &inner)
+    }
+
+    /// Chunks in order, an odd one's pad byte skipped; lists found by type.
+    #[test]
+    fn a_file_s_chunks_and_lists_are_read_in_order() {
+        let mut body = chunk(b"abc ", b"odd");
+        body.push(0);
+        let mut list = b"INFO".to_vec();
+        list.extend(chunk(b"INAM", b"name"));
+        body.extend(chunk(b"LIST", &list));
+        let file = riff(b"sfbk", &body);
+        let (kind, top) = form(&file).unwrap();
+        assert_eq!(&kind, b"sfbk");
+        assert_eq!(top.len(), 2);
+        assert_eq!(find(&top, b"abc "), Some(&b"odd"[..]));
+        let info = find_list(&top, b"INFO").unwrap();
+        assert_eq!(find(&chunks(info).unwrap(), b"INAM"), Some(&b"name"[..]));
+        assert_eq!(find_list(&top, b"pdta"), None);
+    }
+
+    /// Some writers (MuseScore's SF3 files) leave out an odd chunk's pad:
+    /// the next chunk is still found.
+    #[test]
+    fn a_missing_pad_byte_is_forgiven() {
+        let mut body = chunk(b"abc ", b"odd");
+        body.extend(chunk(b"next", b"ok"));
+        let read = chunks(&body).unwrap();
+        assert_eq!(read.len(), 2);
+        assert_eq!(&read[1].id, b"next");
+        assert_eq!(read[1].data, b"ok");
+    }
+
+    /// Not RIFF, too short, or a chunk running past the end: errors, never
+    /// a panic. A RIFF size past the end is taken as the end.
+    #[test]
+    fn damaged_files_are_errors() {
+        assert!(form(b"RIFX\0\0\0\0sfbk").is_err());
+        assert!(form(b"RIFF").is_err());
+        let mut cut = chunk(b"data", b"0123456789");
+        cut.truncate(12);
+        assert!(chunks(&cut).is_err());
+        let mut long = riff(b"DLS ", &chunk(b"vers", b"12345678"));
+        long[4..8].copy_from_slice(&u32::MAX.to_le_bytes());
+        let (_, read) = form(&long).unwrap();
+        assert_eq!(find(&read, b"vers"), Some(&b"12345678"[..]));
+        assert_eq!(show(b"a\0b "), "a?b?");
+    }
+
+    /// Numbers read only when all their bytes are there.
+    #[test]
+    fn numbers_are_read_little_endian_and_only_when_whole() {
+        let data = [0x34, 0x12, 0xff, 0xff, 0xff, 0x7f];
+        assert_eq!(u16_at(&data, 0), Some(0x1234));
+        assert_eq!(u32_at(&data, 2), Some(0x7fff_ffff));
+        assert_eq!(
+            i32_at(&data, 0),
+            Some(i32::from_le_bytes([0x34, 0x12, 0xff, 0xff]))
+        );
+        assert_eq!(u16_at(&data, 5), None);
+        assert_eq!(u32_at(&data, 3), None);
+    }
+}
