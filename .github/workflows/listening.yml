@@ -36,8 +36,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libasound2-dev libpipewire-0.3-dev libclang-dev \
+          scripts/apt-install.sh libasound2-dev libpipewire-0.3-dev libclang-dev \
             fluid-soundfont-gm musescore-general-soundfont
       # The command line, the Guitar Pro plugins and the reference songs
       # come from OxiGuitar v0.11.0 (the tag this plugin is built for); the
@@ -99,8 +98,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libasound2-dev libpipewire-0.3-dev libclang-dev \
+          scripts/apt-install.sh libasound2-dev libpipewire-0.3-dev libclang-dev \
             fluid-soundfont-gm p7zip-full
       # The command line, the Guitar Pro plugins and the reference songs
       # come from OxiGuitar v0.11.0 (the tag this plugin is built for); the
@@ -237,8 +235,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libasound2-dev libpipewire-0.3-dev libclang-dev \
+          scripts/apt-install.sh libasound2-dev libpipewire-0.3-dev libclang-dev \
             fluid-soundfont-gm p7zip-full
       # The command line, the Guitar Pro plugins and the reference songs
       # come from OxiGuitar v0.11.0 (the tag this plugin is built for); the
