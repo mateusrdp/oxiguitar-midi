@@ -531,14 +531,14 @@ mod ui_tests {
         let window = settings::Window::new(Host::detached());
         let dialog = component("SoundSetsWindow");
         for (name, _) in window.properties() {
-            assert!(dialog.properties.iter().any(|p| *p == name), "{name}");
+            assert!(dialog.properties.contains(&name), "{name}");
         }
         for name in ["chosen", "better-sounds", "ok", "cancel"] {
             assert!(dialog.callbacks.iter().any(|p| p == name), "{name}");
         }
         let section = component("SoundSection");
         for (name, _) in window.section_properties(&Default::default()) {
-            assert!(section.properties.iter().any(|p| *p == name), "{name}");
+            assert!(section.properties.contains(&name), "{name}");
         }
         assert!(section.callbacks.iter().any(|p| p == "chosen"));
     }
