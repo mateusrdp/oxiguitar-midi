@@ -113,7 +113,7 @@ export component SoundSetsWindow inherits Window {
 
 export component SoundSection {
     in property <[string]> options;
-    in property <int> picked;
+    in-out property <int> picked;
     callback chosen(int);
 
     VerticalLayout {
@@ -126,7 +126,7 @@ export component SoundSection {
             }
             ComboBox {
                 model: root.options;
-                current-index: root.picked;
+                current-index <=> root.picked;
                 selected => { root.chosen(self.current-index); }
             }
         }
