@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 Mateus Rocha de Paula and the OxiGuitar contributors
 
-//! The track dialog's section "Sound" (mateusrdp/oxiguitar#152, Mateus, 3
+//! The Track tab's section "Sound" (`ui/midi.slint`'s `SoundSection`) (mateusrdp/oxiguitar#152, Mateus, 3
 //! Nov 2026): what one track plays, over the Sound Sets dialog's rows. Kept
 //! in the song's sidecar (`FILE.oxg`) as this plugin's settings for the
 //! track:
@@ -20,7 +20,7 @@
 use std::path::{Path, PathBuf};
 
 use oxiguitar_plugin::serde_json::{self, Map, Value};
-use oxiguitar_plugin::{Error, Row, TabContent, TabEvent, TrackInfo, TrackSection, Widget};
+use oxiguitar_plugin::{Error, TrackView, Value as View};
 
 use crate::sets::Found;
 use crate::settings::{Role, Window};
@@ -139,57 +139,47 @@ fn chosen(i: usize, paths: &[&Path]) -> Option<Pick> {
     }
 }
 
-impl TrackSection for Window {
-    fn content(&self, _track: &TrackInfo, settings: &Map<String, Value>) -> TabContent {
+impl Window {
+    /// The section's properties for a track whose settings are `settings`.
+    pub(crate) fn section_properties(&self, settings: &Map<String, Value>) -> Vec<(String, View)> {
         let found = self.found();
         let paths: Vec<&Path> = found.iter().map(|f| f.path.as_path()).collect();
         let labels: Vec<String> = found.iter().map(|f| self.label(f)).collect();
-        let (options, selected) = choices(&Pick::of(settings), &paths, &labels);
-        TabContent {
-            rows: vec![
-                Row {
-                    widgets: vec![
-                        Widget::Label {
-                            text: "Sound".into(),
-                            muted: false,
-                        },
-                        Widget::Choice {
-                            id: KEY.into(),
-                            options,
-                            selected,
-                            enabled: true,
-                        },
-                    ],
-                },
-                Row {
-                    widgets: vec![Widget::Label {
-                        text: "The rows are those of Plugins → MIDI Sound Sets….".into(),
-                        muted: true,
-                    }],
-                },
-            ],
-        }
+        let (options, picked) = choices(&Pick::of(settings), &paths, &labels);
+        vec![
+            (
+                "options".into(),
+                View::List(options.into_iter().map(View::String).collect()),
+            ),
+            ("picked".into(), View::Number(f64::from(picked))),
+        ]
     }
 
-    fn on(
-        &self,
-        _track: &TrackInfo,
-        settings: &mut Map<String, Value>,
-        widget: &str,
-        event: TabEvent,
-    ) -> Result<(), Error> {
-        if widget != KEY {
-            return Err(Error::not_found(format!("no widget {widget:?}")));
-        }
-        let TabEvent::Chosen(i) = event else {
-            return Ok(());
-        };
+    /// The Track tab showed the section for `track`.
+    pub(crate) fn section_shown(&self, track: Option<&TrackView>) -> Result<(), Error> {
+        let settings: Map<String, Value> = track
+            .and_then(|t| serde_json::from_str(&t.settings).ok())
+            .unwrap_or_default();
+        let properties = self.section_properties(&settings);
+        *self.section.lock().unwrap_or_else(|e| e.into_inner()) = settings;
+        self.host.set_view(SECTION, properties)
+    }
+
+    /// The user picked option `i` of the section's choice.
+    pub(crate) fn section_chosen(&self, i: usize) -> Result<(), Error> {
         let found = self.found();
         let paths: Vec<&Path> = found.iter().map(|f| f.path.as_path()).collect();
-        if let Some(pick) = chosen(i as usize, &paths) {
-            pick.save(settings);
-        }
-        Ok(())
+        let Some(pick) = chosen(i, &paths) else {
+            return Ok(());
+        };
+        let settings = {
+            let mut settings = self.section.lock().unwrap_or_else(|e| e.into_inner());
+            pick.save(&mut settings);
+            settings.clone()
+        };
+        self.host.set_track_settings(SECTION, &settings)?;
+        self.host
+            .set_view(SECTION, self.section_properties(&settings))
     }
 }
 

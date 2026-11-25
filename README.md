@@ -7,7 +7,7 @@ In plain words: MIDI carries instructions ("play G2, this loud"), not sound. Thi
 - Plugin file `midi.oxp`, id `oxiguitar.midi`, shown as **MIDI (SoundFont, SFZ)**. It replaces the former `oxiguitar.soundfont`: its settings and data folder are carried over once, and a score's track settings keep working. A `soundfont.oxp` left in your plugin folder is not used any more and can be deleted.
 - Sound sets are plain files. Put yours in OxiGuitar's `soundfonts` folder, or install a recorded set with the [sound set installer](https://mateusrdp.github.io/oxiguitar-bettersounds-soundfonts/); the plugin also looks in `/usr/share/oxiguitar/soundfonts` on Linux and reads an `oxiguitar-set.json` beside a set (name, role, licence, credit, and for a set of several patches which is recommended and what each is called) to list it by a short name.
 - Its **Sound Sets** dialog (**Plugins → MIDI Sound Sets…**, with or without a song open) picks a set for clean, overdriven and distorted electric guitars, nylon-string and steel-string guitars, basses, drums and everything else. When it finds only the basic General MIDI set of your system, OxiGuitar tells you once, with a link to the [sound set installer's manual](https://mateusrdp.github.io/oxiguitar-bettersounds-soundfonts/). Your picks take effect when you press **OK**; **Cancel** leaves them as they were.
-- The track dialog's section **Sound** lets one track play another row of the Sound Sets dialog (a distorted guitar played clean into an amp model) or a set of its own; Automatic, the default, follows the track's instrument.
+- The Track tab's section **Sound** lets one track play another row of the Sound Sets dialog (a distorted guitar played clean into an amp model) or a set of its own; Automatic, the default, follows the track's instrument.
 - The SFZ player is our own: 256 voices, sfizz's behaviour as the reference (no code taken), samples in WAV, FLAC or Ogg, whole in memory. The SoundFont synthesiser is [rustysynth](https://crates.io/crates/rustysynth) (MIT), used exactly as published.
 
 ## Manual
@@ -16,7 +16,7 @@ The manual is at <https://mateusrdp.github.io/oxiguitar-midi/>. Its source is in
 
 ## Install
 
-Every [release](https://github.com/mateusrdp/oxiguitar-midi/releases) holds a zip per system (Linux x86_64 and ARM64, Windows x86_64 and ARM64, macOS), a `.deb` and an `.rpm` for Linux, a per-user Windows installer (no administrator needed), a macOS `.pkg`, and a `SHA256SUMS` file. The [manual's install page](https://mateusrdp.github.io/oxiguitar-midi/install.html) says which one to use and how to keep it updated. The plugin needs OxiGuitar 0.11 or later (plugin interface 1.4).
+Every [release](https://github.com/mateusrdp/oxiguitar-midi/releases) holds a zip per system (Linux x86_64 and ARM64, Windows x86_64 and ARM64, macOS), a `.deb` and an `.rpm` for Linux, a per-user Windows installer (no administrator needed), a macOS `.pkg`, and a `SHA256SUMS` file. The [manual's install page](https://mateusrdp.github.io/oxiguitar-midi/install.html) says which one to use and how to keep it updated. The plugin needs OxiGuitar 0.23.0 or later (plugin interface 1.16); its 0.2 releases work with 0.21 and later.
 
 ## Build and test
 

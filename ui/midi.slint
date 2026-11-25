@@ -1,0 +1,139 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Mateus Rocha de Paula and the OxiGuitar contributors
+
+// The MIDI plugin's own UI (plugin interface 1.16): the Sound Sets window
+// (Plugins -> MIDI Sound Sets...) and the Track tab's section Sound. The
+// plugin sets every property (src/settings.rs, src/track.rs) and hears
+// each pick.
+
+import { Button, ComboBox, Palette, ScrollView } from "std-widgets.slint";
+
+export struct Choice {
+    title: string,
+    options: [string],
+    picked: int,
+}
+
+component Link inherits Text {
+    callback clicked();
+    wrap: word-wrap;
+    color: area.has-hover ? Palette.accent-background.darker(20%) : Palette.accent-background;
+    area := TouchArea {
+        mouse-cursor: pointer;
+        clicked => { root.clicked(); }
+    }
+}
+
+export component SoundSetsWindow inherits Window {
+    title: "MIDI Sound Sets";
+    preferred-width: 560px;
+    preferred-height: 520px;
+    // Whether only the system's basic sets play now.
+    in property <bool> only-basic;
+    in property <[Choice]> rows;
+    in property <bool> can-pick;
+    in property <string> folder;
+    callback chosen(int, int);
+    callback better-sounds();
+    callback ok();
+    callback cancel();
+
+    VerticalLayout {
+        padding: 12px;
+        spacing: 8px;
+        if root.only-basic: VerticalLayout {
+            spacing: 2px;
+            Text {
+                text: "Only your system's basic General MIDI set plays now. Free recorded SFZ sets sound far better.";
+                wrap: word-wrap;
+            }
+            Link {
+                text: "Better sounds: the sound-set installer, and how to pick sets";
+                clicked => { root.better-sounds(); }
+            }
+        }
+        if !root.only-basic: HorizontalLayout {
+            spacing: 6px;
+            alignment: start;
+            Text {
+                text: "The recommended free sets, and how to pick them:";
+                opacity: 0.7;
+            }
+            Link {
+                text: "Better sounds";
+                wrap: no-wrap;
+                clicked => { root.better-sounds(); }
+            }
+        }
+        ScrollView {
+            vertical-stretch: 1;
+            VerticalLayout {
+                spacing: 6px;
+                for row[i] in root.rows: HorizontalLayout {
+                    spacing: 8px;
+                    Text {
+                        text: row.title;
+                        min-width: 150px;
+                        vertical-alignment: center;
+                    }
+                    ComboBox {
+                        model: row.options;
+                        current-index: row.picked;
+                        enabled: root.can-pick;
+                        selected => { root.chosen(i, self.current-index); }
+                    }
+                }
+            }
+        }
+        Text {
+            text: "Put .sf2, .sf3 or .dls files, or SFZ instruments' folders, in:";
+            wrap: word-wrap;
+            opacity: 0.7;
+        }
+        Text {
+            text: root.folder;
+            wrap: word-wrap;
+            opacity: 0.7;
+        }
+        HorizontalLayout {
+            alignment: end;
+            spacing: 8px;
+            Button {
+                text: "OK";
+                primary: true;
+                clicked => { root.ok(); }
+            }
+            Button {
+                text: "Cancel";
+                clicked => { root.cancel(); }
+            }
+        }
+    }
+}
+
+export component SoundSection {
+    in property <[string]> options;
+    in-out property <int> picked;
+    callback chosen(int);
+
+    VerticalLayout {
+        spacing: 6px;
+        HorizontalLayout {
+            spacing: 8px;
+            Text {
+                text: "Sound";
+                vertical-alignment: center;
+            }
+            ComboBox {
+                model: root.options;
+                current-index <=> root.picked;
+                selected => { root.chosen(self.current-index); }
+            }
+        }
+        Text {
+            text: "The rows are those of Plugins → MIDI Sound Sets….";
+            wrap: word-wrap;
+            opacity: 0.7;
+        }
+    }
+}
