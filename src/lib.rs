@@ -31,13 +31,14 @@ use std::time::SystemTime;
 
 use oxiguitar_plugin::audio::Prepare;
 use oxiguitar_plugin::{
-    Advice, Error, ErrorKind, Host, Instrument, Level, Link, Plugin, Renderer, Tab, Tool,
-    TrackSection,
+    Advice, Error, ErrorKind, Host, Instrument, Level, Link, Plugin, Renderer, Tool, TrackView, Ui,
+    Value as View,
 };
 use rustysynth::SoundFont;
 
 pub(crate) mod dls;
 pub(crate) mod info;
+pub(crate) mod links;
 pub(crate) mod play;
 pub(crate) mod riff;
 pub(crate) mod sets;
@@ -361,12 +362,60 @@ impl Plugin for MidiPlugin {
         (id == settings::DIALOG).then_some(&self.window as &dyn Tool)
     }
 
-    fn tab(&self, id: &str) -> Option<&dyn Tab> {
-        (id == settings::DIALOG).then_some(&self.window as &dyn Tab)
+    fn ui(&self) -> Option<&dyn Ui> {
+        Some(self)
+    }
+}
+
+/// A callback's argument `i`, a whole number from 0.
+fn index(args: &[View], i: usize) -> Option<usize> {
+    match args.get(i) {
+        Some(View::Number(n)) if *n >= 0.0 && n.fract() == 0.0 => Some(*n as usize),
+        _ => None,
+    }
+}
+
+/// The plugin's views (`ui/midi.slint`): the Sound Sets window and the
+/// Track tab's section Sound.
+impl Ui for MidiPlugin {
+    fn shown(&self, view: &str, track: Option<&TrackView>) -> Result<(), Error> {
+        match view {
+            settings::DIALOG => self.host.set_view(view, self.window.properties()),
+            track::SECTION => self.window.section_shown(track),
+            _ => Ok(()),
+        }
     }
 
-    fn track_section(&self, id: &str) -> Option<&dyn TrackSection> {
-        (id == track::SECTION).then_some(&self.window as &dyn TrackSection)
+    fn callback(&self, view: &str, callback: &str, args: Vec<View>) -> Result<(), Error> {
+        match (view, callback) {
+            (settings::DIALOG, "chosen") => {
+                let (Some(row), Some(i)) = (index(&args, 0), index(&args, 1)) else {
+                    return Ok(());
+                };
+                self.window.choose(row, i)?;
+                self.host.set_view(view, self.window.properties())
+            }
+            (settings::DIALOG, "better-sounds") => links::open(BETTER_SOUNDS)
+                .map_err(|why| Error::new(oxiguitar_plugin::ErrorKind::Failed, why)),
+            (settings::DIALOG, "ok" | "cancel") => {
+                self.window.finish(callback == "ok")?;
+                self.host.close_view(view)
+            }
+            (track::SECTION, "chosen") => match index(&args, 0) {
+                Some(i) => self.window.section_chosen(i),
+                None => Ok(()),
+            },
+            _ => Ok(()),
+        }
+    }
+
+    /// The window closed by the user (its close button, Escape) forgets
+    /// the picks, as Cancel does.
+    fn closed(&self, view: &str, _accepted: bool) -> Result<(), Error> {
+        match view {
+            settings::DIALOG => self.window.finish(false),
+            _ => Ok(()),
+        }
     }
 }
 
@@ -461,3 +510,51 @@ impl Instrument for MidiPlugin {
 }
 
 oxiguitar_plugin::export_plugin!(MidiPlugin);
+
+#[cfg(test)]
+mod ui_tests {
+    use super::*;
+
+    /// The file compiles as OxiGuitar compiles it, and its two components
+    /// have every property and callback the plugin sets and hears.
+    #[test]
+    fn the_slint_file_has_what_the_plugin_sets_and_hears() {
+        let file = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("ui/midi.slint");
+        let compiled = oxiguitar_plugin_test::compile_ui_file(&file).unwrap();
+        let component = |name: &str| {
+            compiled
+                .components
+                .iter()
+                .find(|c| c.name == name)
+                .unwrap_or_else(|| panic!("{name}"))
+        };
+        let window = settings::Window::new(Host::detached());
+        let dialog = component("SoundSetsWindow");
+        for (name, _) in window.properties() {
+            assert!(dialog.properties.contains(&name), "{name}");
+        }
+        for name in ["chosen", "better-sounds", "ok", "cancel"] {
+            assert!(dialog.callbacks.iter().any(|p| p == name), "{name}");
+        }
+        let section = component("SoundSection");
+        for (name, _) in window.section_properties(&Default::default()) {
+            assert!(section.properties.contains(&name), "{name}");
+        }
+        assert!(section.callbacks.iter().any(|p| p == "chosen"));
+    }
+
+    /// A pick in the window is a draft: Cancel forgets it, and the rows
+    /// show Automatic again.
+    #[test]
+    fn the_window_s_picks_are_a_draft_until_ok() {
+        let window = settings::Window::new(Host::detached());
+        assert!(window.choose(99, 0).is_err());
+        window.choose(0, 0).unwrap();
+        window.finish(false).unwrap();
+        let rows = window.properties();
+        let View::List(rows) = &rows.iter().find(|(n, _)| n == "rows").unwrap().1 else {
+            panic!()
+        };
+        assert_eq!(rows.len(), settings::Role::ALL.len());
+    }
+}

@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- OxiGuitar 0.21 or later (plugin interface 1.9). See [the OxiGuitar manual](https://mateusrdp.github.io/oxiguitar/).
+- OxiGuitar 0.23 or later (plugin interface 1.16). Version 0.2 of the plugin works with OxiGuitar 0.21 and later. See [the OxiGuitar manual](https://mateusrdp.github.io/oxiguitar/).
 - Windows, macOS or Linux.
 - An audio output plugin to send the sound to your speakers.
 - At least one sound set. Every system comes with a basic General MIDI one.

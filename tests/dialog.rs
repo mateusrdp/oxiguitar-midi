@@ -1,16 +1,17 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 Mateus Rocha de Paula and the OxiGuitar contributors
 
-//! #19: the Sound Sets dialog (Plugins → MIDI Sound Sets…) changes a draft.
-//! A pick is neither saved nor played until OK; Cancel forgets it; OK saves
-//! it once, and OxiGuitar hears that the settings changed (so it loads the
-//! new sets once). The tool that opens it doesn't edit the score.
+//! #19: the Sound Sets window (Plugins → MIDI Sound Sets…, a view of
+//! `ui/midi.slint` since interface 1.16) changes a draft. A pick is neither
+//! saved nor played until OK; Cancel forgets it; OK saves it once, and
+//! OxiGuitar hears that the settings changed (so it loads the new sets
+//! once). The tool that opens it doesn't edit the score.
 
 use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex};
 
-use oxiguitar_host::api::tab::{TabContent, TabEvent, Widget};
-use oxiguitar_host::{Core, Level, Plugins, SharedSettings, TabId};
+use oxiguitar_host::api::view::{Place, Value};
+use oxiguitar_host::{Core, Level, Plugins, SharedSettings, ViewId};
 
 /// The plugin as the `.oxp` file we ship (a debug build).
 fn midi_oxp() -> PathBuf {
@@ -19,20 +20,35 @@ fn midi_oxp() -> PathBuf {
         .expect("the .oxp file builds")
 }
 
-/// The window, as far as the dialog goes: the dialogs opened and the
-/// plugins whose settings changed.
+/// The window, as far as the view goes: the views shown and closed, the
+/// properties last set, and the plugins whose settings changed.
 #[derive(Default)]
 struct Window {
-    dialogs: Mutex<Vec<String>>,
+    shown: Mutex<Vec<String>>,
+    closed: Mutex<Vec<String>>,
+    properties: Mutex<Vec<(String, Value)>>,
     changed: Mutex<Vec<String>>,
 }
 
 impl Core for Window {
     fn notify(&self, _level: Level, _text: String) {}
 
-    fn open_dialog(&self, _tab: &TabId, title: &str) -> Result<(), String> {
-        self.dialogs.lock().unwrap().push(title.to_owned());
+    fn show_view(&self, view: &ViewId, place: Place) -> Result<(), String> {
+        assert_eq!(place, Place::Window);
+        self.shown.lock().unwrap().push(view.view.clone());
         Ok(())
+    }
+
+    fn close_view(&self, view: &ViewId) {
+        self.closed.lock().unwrap().push(view.view.clone());
+    }
+
+    fn set_view(&self, _view: &ViewId, properties: Vec<(String, Value)>) {
+        let mut kept = self.properties.lock().unwrap();
+        for (name, value) in properties {
+            kept.retain(|(n, _)| *n != name);
+            kept.push((name, value));
+        }
     }
 
     fn settings_changed(&self, id: &str) {
@@ -40,22 +56,36 @@ impl Core for Window {
     }
 }
 
-/// The options and the selected entry of the row `key`'s list.
-fn row(content: &TabContent, key: &str) -> (Vec<String>, u32) {
-    content
-        .rows
-        .iter()
-        .flat_map(|r| &r.widgets)
-        .find_map(|w| match w {
-            Widget::Choice {
-                id,
-                options,
-                selected,
-                ..
-            } if id == key => Some((options.clone(), *selected)),
-            _ => None,
+/// The options and the picked entry of the window's row `title`.
+fn row(window: &Window, title: &str) -> (Vec<String>, usize, usize) {
+    let properties = window.properties.lock().unwrap();
+    let Some((_, Value::List(rows))) = properties.iter().find(|(n, _)| n == "rows") else {
+        panic!("no rows")
+    };
+    rows.iter()
+        .enumerate()
+        .find_map(|(i, r)| {
+            let Value::Struct(fields) = r else {
+                return None;
+            };
+            let field = |n: &str| fields.iter().find(|(k, _)| k == n).map(|(_, v)| v);
+            match (field("title"), field("options"), field("picked")) {
+                (Some(Value::String(t)), Some(Value::List(o)), Some(Value::Number(p)))
+                    if t == title =>
+                {
+                    let options = o
+                        .iter()
+                        .map(|o| match o {
+                            Value::String(s) => s.clone(),
+                            other => panic!("{other:?}"),
+                        })
+                        .collect();
+                    Some((options, *p as usize, i))
+                }
+                _ => None,
+            }
         })
-        .unwrap_or_else(|| panic!("no list {key}"))
+        .unwrap_or_else(|| panic!("no row {title}"))
 }
 
 #[test]
@@ -94,14 +124,14 @@ fn picks_are_kept_with_ok_and_forgotten_with_cancel() {
         .find(|t| t.spec.id == "sound-sets")
         .expect("the Sound Sets tool");
     assert!(!tool.spec.edits, "it works with no score and while playing");
-    let dialog = TabId {
+    let dialog = ViewId {
         plugin: "oxiguitar.midi".into(),
-        tab: "sound-sets".into(),
+        view: "sound-sets".into(),
     };
     let saved = || plugins.settings().get("oxiguitar.midi");
     let pick = || {
         assert_eq!(plugins.run_tool(*tool).unwrap(), "");
-        let (options, selected) = row(&plugins.tab_content(&dialog).unwrap(), "clean-guitars");
+        let (options, selected, index) = row(&window, "Clean guitars");
         assert_eq!(selected, 0, "each opening starts from what is saved");
         let sine = options
             .iter()
@@ -110,24 +140,26 @@ fn picks_are_kept_with_ok_and_forgotten_with_cancel() {
             // resolved, and the label is then the instrument's alone.
             .position(|o| o.ends_with("Sine (SFZ)") && !o.starts_with("Automatic"))
             .unwrap_or_else(|| panic!("the SFZ instrument is listed: {options:?}"));
-        let after = plugins
-            .tab_event(&dialog, "clean-guitars", TabEvent::Chosen(sine as u32))
-            .unwrap();
-        assert_eq!(
-            row(&after, "clean-guitars").1,
-            sine as u32,
-            "the dialog shows it"
+        plugins.view_callback(
+            &dialog,
+            "chosen",
+            vec![Value::Number(index as f64), Value::Number(sine as f64)],
         );
+        assert_eq!(row(&window, "Clean guitars").1, sine, "the window shows it");
     };
 
     pick();
     assert_eq!(saved(), None, "a pick is a draft");
-    plugins.tab_closed(&dialog, false);
+    plugins.view_callback(&dialog, "cancel", Vec::new());
     assert_eq!(saved(), None, "Cancel forgets it");
     assert!(window.changed.lock().unwrap().is_empty());
+    // Closing the window the system's way forgets it too.
+    pick();
+    plugins.view_closed(&dialog, false);
+    assert_eq!(saved(), None, "closing forgets it");
 
     pick();
-    plugins.tab_closed(&dialog, true);
+    plugins.view_callback(&dialog, "ok", Vec::new());
     let kept = saved().expect("OK keeps it");
     assert!(
         kept["clean-guitars"]
@@ -136,9 +168,11 @@ fn picks_are_kept_with_ok_and_forgotten_with_cancel() {
         "{kept}"
     );
     assert_eq!(*window.changed.lock().unwrap(), ["oxiguitar.midi"]);
+    assert_eq!(*window.shown.lock().unwrap(), ["sound-sets"; 3]);
     assert_eq!(
-        *window.dialogs.lock().unwrap(),
-        ["MIDI Sound Sets", "MIDI Sound Sets"]
+        *window.closed.lock().unwrap(),
+        ["sound-sets"; 2],
+        "OK and Cancel close it"
     );
     let _ = std::fs::remove_dir_all(&scratch);
 }
