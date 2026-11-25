@@ -6,6 +6,10 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **The Sound Sets dialog and the Sound section are drawn in Slint** (mateusrdp/oxiguitar#346, plugin interface 1.16): `ui/midi.slint`, packed in the plugin file, which OxiGuitar runs with its own widgets, fonts and colours. The dialog is a window of the plugin's own with OK and Cancel; closing it forgets the picks, as Cancel does. Its link to better sounds is opened by the plugin itself (`https://` only). The plugin needs OxiGuitar 0.23.0 or later (it already did, since its plugin file is an archive); the README and the manual now say so.
+
 ## [0.3.0] - 2026-11-25
 
 ### Changed

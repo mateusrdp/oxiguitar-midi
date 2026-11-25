@@ -1,5 +1,5 @@
 {
-  "interface": "1.9",
+  "interface": "1.16",
   "id": "oxiguitar.midi",
   "name": "MIDI (SoundFont, SFZ)",
   "version": "0.3.0",
@@ -11,14 +11,16 @@
     { "id": "soundfont", "name": "MIDI (SoundFont, SFZ)" }
   ],
   "replaces": ["oxiguitar.soundfont"],
-  "tabs": [
-    { "id": "sound-sets", "title": "MIDI Sound Sets", "area": "dialog" }
-  ],
   "tools": [
     { "id": "sound-sets", "name": "MIDI Sound Sets…", "description": "Picks the sound set each kind of instrument plays: kept with OK, forgotten with Cancel.", "edits": false }
   ],
   "track_sections": [
     { "id": "sound", "title": "Sound" }
   ],
-  "folders": ["soundfonts"]
+  "folders": ["soundfonts"],
+  "ui": "ui/midi.slint",
+  "views": [
+    { "id": "sound-sets", "component": "SoundSetsWindow", "place": "window" },
+    { "id": "sound", "component": "SoundSection", "place": "track", "title": "Sound" }
+  ]
 }

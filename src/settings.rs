@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 Mateus Rocha de Paula and the OxiGuitar contributors
 
-//! The plugin's Sound Sets dialog (Plugins → MIDI Sound Sets…, interface
-//! 1.9; it was the core's settings window until the core stopped owning
+//! The plugin's Sound Sets window (Plugins → MIDI Sound Sets…, drawn by
+//! `ui/midi.slint`'s `SoundSetsWindow` since interface 1.16; it was the core's settings window until the core stopped owning
 //! anything of a plugin, ADR 0012 of OxiGuitar, and #19): a set for clean,
 //! overdriven and distorted
 //! electric guitars, nylon and steel-string guitars, basses, drums and everything else,
@@ -26,9 +26,7 @@ use std::time::SystemTime;
 
 use oxiguitar_plugin::audio::PreparedTrack;
 use oxiguitar_plugin::serde_json::{Map, Value};
-use oxiguitar_plugin::{
-    Error, Host, InstrumentClass, Row, Tab, TabContent, TabEvent, Tool, Widget,
-};
+use oxiguitar_plugin::{Error, Host, InstrumentClass, Tool, Value as View};
 
 use crate::sets::{self, Found, Kind, Origin};
 
@@ -284,6 +282,9 @@ pub(crate) struct Window {
     /// While the dialog is open and something was picked: the settings as
     /// the dialog has them, which OK writes.
     draft: Mutex<Option<Map<String, Value>>>,
+    /// The track the Track tab's section Sound shows: its settings for
+    /// this plugin, as the Track tab holds them.
+    pub(crate) section: Mutex<Map<String, Value>>,
 }
 
 impl Window {
@@ -293,6 +294,7 @@ impl Window {
             checked: Mutex::new(Vec::new()),
             listed: Mutex::new(None),
             draft: Mutex::new(None),
+            section: Mutex::new(Map::new()),
         }
     }
 
@@ -369,43 +371,14 @@ impl Window {
     }
 }
 
-/// The advice on better sounds at the top of the window (Mateus, 27 Oct
-/// 2026: in the settings window (now the Sound Sets dialog) and the footer both, with the link, towards
-/// SFZ). OxiGuitar downloads nothing, so the link opens the manual's page,
-/// which says what to get, where, and what to pick here. Labels don't wrap:
-/// one short sentence a row.
-fn better_sounds(found: &[Found]) -> Vec<Row> {
-    let line = |text: &str| Row {
-        widgets: vec![Widget::Label {
-            text: text.into(),
-            muted: false,
-        }],
-    };
-    let link = |text: &str| Widget::Link {
-        text: text.into(),
-        url: crate::BETTER_SOUNDS.into(),
-    };
-    if found.iter().all(|f| f.origin == Origin::System) {
-        vec![
-            line("Only your system's basic General MIDI set plays now."),
-            line("Free recorded SFZ sets sound far better."),
-            Row {
-                widgets: vec![link(
-                    "Better sounds: the sound-set installer, and how to pick sets",
-                )],
-            },
-        ]
-    } else {
-        vec![Row {
-            widgets: vec![
-                Widget::Label {
-                    text: "The recommended free sets, and how to pick them:".into(),
-                    muted: true,
-                },
-                link("Better sounds"),
-            ],
-        }]
-    }
+/// Whether the window advises better sounds at its top in full (Mateus,
+/// 27 Oct 2026: in the settings window, now the Sound Sets window, and the
+/// footer both, with the link, towards SFZ): when only the system's sets
+/// play. Otherwise it gives the link in a line. OxiGuitar downloads
+/// nothing, so the link opens the manual's page, which says what to get,
+/// where, and what to pick here.
+fn only_system(found: &[Found]) -> bool {
+    found.iter().all(|f| f.origin == Origin::System)
 }
 
 /// Plugins → MIDI Sound Sets…: it doesn't edit the score, so it works with
@@ -420,71 +393,57 @@ impl Tool for Window {
         if let Ok(mut draft) = self.draft.lock() {
             *draft = None;
         }
-        self.host.open_dialog(DIALOG)?;
+        self.host.set_view(DIALOG, self.properties())?;
+        self.host.show_view(DIALOG)?;
         Ok(String::new())
     }
 }
 
-impl Tab for Window {
-    fn content(&self) -> TabContent {
+impl Window {
+    /// The window's properties: the advice, a choice per row, the folder.
+    pub(crate) fn properties(&self) -> Vec<(String, View)> {
         let settings = self.current();
         let found = self.listed();
         let labels: Vec<String> = found.iter().map(|f| self.label(f)).collect();
-        let mut rows = better_sounds(&found);
-        for role in Role::ALL {
-            let plays =
-                automatic(role, &found).map_or_else(|| "none found".to_owned(), |f| self.label(f));
-            let mut options = vec![format!("Automatic: {plays}")];
-            options.extend(labels.iter().cloned());
-            let picked = role
-                .pick(&settings)
-                .and_then(|p| {
-                    found
-                        .iter()
-                        .position(|f| f.path.as_os_str() == std::ffi::OsStr::new(p))
-                })
-                .map_or(0, |i| i + 1);
-            rows.push(Row {
-                widgets: vec![
-                    Widget::Label {
-                        text: role.title().into(),
-                        muted: false,
-                    },
-                    Widget::Choice {
-                        id: role.key().into(),
-                        options,
-                        selected: picked as u32,
-                        enabled: !found.is_empty(),
-                    },
-                ],
-            });
-        }
+        let rows = Role::ALL
+            .into_iter()
+            .map(|role| {
+                let plays = automatic(role, &found)
+                    .map_or_else(|| "none found".to_owned(), |f| self.label(f));
+                let mut options = vec![View::String(format!("Automatic: {plays}"))];
+                options.extend(labels.iter().cloned().map(View::String));
+                let picked = role
+                    .pick(&settings)
+                    .and_then(|p| {
+                        found
+                            .iter()
+                            .position(|f| f.path.as_os_str() == std::ffi::OsStr::new(p))
+                    })
+                    .map_or(0, |i| i + 1);
+                View::Struct(vec![
+                    ("title".into(), View::String(role.title().into())),
+                    ("options".into(), View::List(options)),
+                    ("picked".into(), View::Number(picked as f64)),
+                ])
+            })
+            .collect();
         let folder = crate::user_folder(&self.host).map_or_else(
             || "the soundfonts folder".to_owned(),
             |p| p.display().to_string(),
         );
-        // Two rows: labels don't wrap, and the folder's path can be long.
-        rows.push(Row {
-            widgets: vec![Widget::Label {
-                text: "Put .sf2, .sf3 or .dls files, or SFZ instruments' folders, in:".into(),
-                muted: true,
-            }],
-        });
-        rows.push(Row {
-            widgets: vec![Widget::Label {
-                text: folder,
-                muted: true,
-            }],
-        });
-        TabContent { rows }
+        vec![
+            ("only-basic".into(), View::Bool(only_system(&found))),
+            ("rows".into(), View::List(rows)),
+            ("can-pick".into(), View::Bool(!found.is_empty())),
+            ("folder".into(), View::String(folder)),
+        ]
     }
 
-    fn on(&self, widget: &str, event: TabEvent) -> Result<(), Error> {
-        let Some(role) = Role::ALL.into_iter().find(|r| r.key() == widget) else {
-            return Err(Error::not_found(format!("no widget {widget:?}")));
-        };
-        let TabEvent::Chosen(i) = event else {
-            return Ok(());
+    /// The user picked option `i` of the row `row` (in [`Role::ALL`]'s
+    /// order): Automatic, then each set listed.
+    pub(crate) fn choose(&self, row: usize, i: usize) -> Result<(), Error> {
+        let Some(role) = Role::ALL.get(row).copied() else {
+            return Err(Error::not_found(format!("no row {row}")));
         };
         let found = self.listed();
         let mut settings = self.current();
@@ -509,7 +468,7 @@ impl Tab for Window {
                 }
             }
         }
-        match (i as usize).checked_sub(1).and_then(|i| found.get(i)) {
+        match i.checked_sub(1).and_then(|i| found.get(i)) {
             Some(f) => {
                 settings.insert(role.key().into(), f.path.display().to_string().into());
             }
@@ -523,9 +482,9 @@ impl Tab for Window {
         Ok(())
     }
 
-    /// OK writes the picks, if any were made; Cancel (or Escape) forgets
-    /// them. Either way the dialog lets go of its list.
-    fn closed(&self, ok: bool) -> Result<(), Error> {
+    /// OK writes the picks, if any were made; Cancel (or closing the
+    /// window) forgets them. Either way the window lets go of its list.
+    pub(crate) fn finish(&self, ok: bool) -> Result<(), Error> {
         let draft = self.draft.lock().ok().and_then(|mut d| d.take());
         if let Ok(mut listed) = self.listed.lock() {
             *listed = None;
@@ -768,26 +727,13 @@ mod tests {
     }
 
     #[test]
-    fn better_sounds_are_advised_with_the_link() {
-        let links = |rows: &[Row]| -> Vec<String> {
-            rows.iter()
-                .flat_map(|r| &r.widgets)
-                .filter_map(|w| match w {
-                    Widget::Link { url, .. } => Some(url.clone()),
-                    _ => None,
-                })
-                .collect()
-        };
-        let basic = better_sounds(&[found("gm.dls", Origin::System)]);
-        assert_eq!(basic.len(), 3);
-        assert_eq!(links(&basic), [crate::BETTER_SOUNDS]);
-        assert_eq!(links(&better_sounds(&[])), [crate::BETTER_SOUNDS]);
-        let yours = better_sounds(&[
+    fn better_sounds_are_advised_in_full_while_only_the_systems_sets_play() {
+        assert!(only_system(&[found("gm.dls", Origin::System)]));
+        assert!(only_system(&[]));
+        assert!(!only_system(&[
             found("gm.dls", Origin::System),
             found("FluidR3_GM.sf2", Origin::User),
-        ]);
-        assert_eq!(yours.len(), 1);
-        assert_eq!(links(&yours), [crate::BETTER_SOUNDS]);
+        ]));
         assert!(crate::BETTER_SOUNDS.starts_with("https://"));
     }
 
