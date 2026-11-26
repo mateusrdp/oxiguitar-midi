@@ -1,0 +1,276 @@
+{
+  "scriptCompleted": true,
+  "contentDigest": "49ea86cd404bcf17d1593dc1c554f953ddbdf61537ac92565b87031d616e6027",
+  "files": [
+    {
+      "path": ".github/dependabot.yml",
+      "language": "yaml",
+      "sizeLines": 24,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "language": "markdown",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "language": "yaml",
+      "sizeLines": 174,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/listening.yml",
+      "language": "yaml",
+      "sizeLines": 325,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/publish.yml",
+      "language": "yaml",
+      "sizeLines": 28,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "language": "yaml",
+      "sizeLines": 42,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "language": "markdown",
+      "sizeLines": 62,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "sizeLines": 33,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "language": "markdown",
+      "sizeLines": 42,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "Cargo.toml",
+      "language": "toml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "build-oxp.sh",
+      "language": "shell",
+      "sizeLines": 56,
+      "fileCategory": "script"
+    },
+    {
+      "path": "clippy.toml",
+      "language": "toml",
+      "sizeLines": 5,
+      "fileCategory": "config"
+    },
+    {
+      "path": "deny.toml",
+      "language": "toml",
+      "sizeLines": 64,
+      "fileCategory": "config"
+    },
+    {
+      "path": "fixtures/sfz/README.md",
+      "language": "markdown",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "fixtures/sfz/sine-16.flac",
+      "language": "flac",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "fixtures/sfz/sine-24.flac",
+      "language": "flac",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "fixtures/sfz/sine.ogg",
+      "language": "ogg",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "manifest.json",
+      "language": "json",
+      "sizeLines": 19,
+      "fileCategory": "config"
+    },
+    {
+      "path": "rustfmt.toml",
+      "language": "toml",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "scripts/check-dco.sh",
+      "language": "shell",
+      "sizeLines": 70,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/dls.rs",
+      "language": "rust",
+      "sizeLines": 842,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/info.rs",
+      "language": "rust",
+      "sizeLines": 290,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/lib.rs",
+      "language": "rust",
+      "sizeLines": 428,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/play.rs",
+      "language": "rust",
+      "sizeLines": 1430,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/riff.rs",
+      "language": "rust",
+      "sizeLines": 115,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sets.rs",
+      "language": "rust",
+      "sizeLines": 326,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/settings.rs",
+      "language": "rust",
+      "sizeLines": 765,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sf2.rs",
+      "language": "rust",
+      "sizeLines": 393,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sf3.rs",
+      "language": "rust",
+      "sizeLines": 280,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sfz/instrument.rs",
+      "language": "rust",
+      "sizeLines": 532,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sfz/maps.rs",
+      "language": "rust",
+      "sizeLines": 247,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sfz/mod.rs",
+      "language": "rust",
+      "sizeLines": 254,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sfz/region.rs",
+      "language": "rust",
+      "sizeLines": 1537,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sfz/sample.rs",
+      "language": "rust",
+      "sizeLines": 475,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sfz/sampler.rs",
+      "language": "rust",
+      "sizeLines": 2089,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sfz/sinc.rs",
+      "language": "rust",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sfz/text.rs",
+      "language": "rust",
+      "sizeLines": 544,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/track.rs",
+      "language": "rust",
+      "sizeLines": 287,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/contract.rs",
+      "language": "rust",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/realtime.rs",
+      "language": "rust",
+      "sizeLines": 109,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 41,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "moderate",
+  "failures": [],
+  "stats": {
+    "filesScanned": 41,
+    "byCategory": {
+      "config": 6,
+      "docs": 6,
+      "infra": 4,
+      "script": 2,
+      "code": 23
+    },
+    "byLanguage": {
+      "yaml": 5,
+      "markdown": 6,
+      "toml": 4,
+      "shell": 2,
+      "flac": 2,
+      "ogg": 1,
+      "json": 1,
+      "rust": 20
+    }
+  }
+}

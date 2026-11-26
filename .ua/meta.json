@@ -1,4 +1,36 @@
 {
+<<<<<<< HEAD
+  "lastAnalyzedCommit": "adbdd9412ccf856fd0562ccf85400a0dbdd3207f",
+  "graphCommit": "adbdd9412ccf856fd0562ccf85400a0dbdd3207f",
+  "analyzedAt": "2026-11-26T22:00:00.000Z",
+  "graphVersion": "1.0.0",
+  "stats": {
+    "totalNodes": 36,
+    "totalEdges": 38,
+    "totalLayers": 6,
+    "totalTourStops": 5,
+    "filesScanned": 20,
+    "nodeTypes": {
+      "pipeline": 4,
+      "document": 5,
+      "config": 5,
+      "script": 1,
+      "file": 20,
+      "function": 1
+    },
+    "edgeTypes": {
+      "related": 2,
+      "uses": 1,
+      "validates": 1,
+      "references": 1,
+      "depends-on": 30,
+      "tests": 3
+    },
+    "layersCovered": 36,
+    "unassignedFileNodes": 0
+  }
+}
+=======
   "gitCommitHash": "304d1f3c06c6867ab45688b8cb8b4d1af30f3e23",
   "analyzedAt": "2026-11-08T00:00:00.000Z",
   "version": "1.0.0",
@@ -7,3 +39,4 @@
   "layerCount": 10,
   "tourStepCount": 12
 }
+>>>>>>> origin/develop

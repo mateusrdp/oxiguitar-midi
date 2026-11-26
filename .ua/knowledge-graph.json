@@ -2,6 +2,264 @@
   "version": "1.0.0",
   "project": {
     "name": "oxiguitar-midi",
+<<<<<<< HEAD
+    "description": "oxiguitar-midi plugin for OxiGuitar",
+    "languages": [
+      "json",
+      "rust",
+      "toml"
+    ],
+    "frameworks": [],
+    "analyzedAt": "2026-11-26T22:00:00.000Z",
+    "analyzedCommit": "adbdd9412ccf856fd0562ccf85400a0dbdd3207f"
+  },
+  "nodes": [
+    {
+      "id": "file:.github/workflows/ci.yml",
+      "type": "pipeline",
+      "name": "CI",
+      "summary": "Build and test",
+      "tags": [
+        "ci"
+      ],
+      "complexity": "simple",
+      "filePath": ".github/workflows/ci.yml"
+    },
+    {
+      "id": "file:.github/workflows/listening.yml",
+      "type": "pipeline",
+      "name": "Listening",
+      "summary": "Audio playback verification tests",
+      "tags": [
+        "ci",
+        "audio"
+      ],
+      "complexity": "moderate",
+      "filePath": ".github/workflows/listening.yml"
+    },
+    {
+      "id": "file:.github/workflows/publish.yml",
+      "type": "pipeline",
+      "name": "Publish",
+      "summary": "Publish artifacts",
+      "tags": [
+        "ci"
+      ],
+      "complexity": "simple",
+      "filePath": ".github/workflows/publish.yml"
+    },
+    {
+      "id": "file:.github/workflows/release.yml",
+      "type": "pipeline",
+      "name": "Release",
+      "summary": "Create releases",
+      "tags": [
+        "ci"
+      ],
+      "complexity": "simple",
+      "filePath": ".github/workflows/release.yml"
+    },
+    {
+      "id": "file:README.md",
+      "type": "document",
+      "name": "README",
+      "summary": "MIDI player plugin: SF2/SF3/SFZ/DLS soundfont playback",
+      "tags": [
+        "docs"
+      ],
+      "complexity": "simple",
+      "filePath": "README.md"
+    },
+    {
+      "id": "file:CHANGELOG.md",
+      "type": "document",
+      "name": "CHANGELOG",
+      "summary": "Version history",
+      "tags": [
+        "docs"
+      ],
+      "complexity": "simple",
+      "filePath": "CHANGELOG.md"
+    },
+    {
+      "id": "file:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE",
+      "summary": "Dev guidelines",
+      "tags": [
+        "docs"
+      ],
+      "complexity": "simple",
+      "filePath": "CLAUDE.md"
+    },
+    {
+      "id": "file:CONTRIBUTING.md",
+      "type": "document",
+      "name": "CONTRIBUTING",
+      "summary": "Contributor guidelines",
+      "tags": [
+        "docs"
+      ],
+      "complexity": "simple",
+      "filePath": "CONTRIBUTING.md"
+    },
+    {
+      "id": "file:Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "summary": "Dependencies",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "Cargo.toml"
+    },
+    {
+      "id": "file:clippy.toml",
+      "type": "config",
+      "name": "clippy.toml",
+      "summary": "Clippy config",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "clippy.toml"
+    },
+    {
+      "id": "file:deny.toml",
+      "type": "config",
+      "name": "deny.toml",
+      "summary": "Cargo deny",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "deny.toml"
+    },
+    {
+      "id": "file:rustfmt.toml",
+      "type": "config",
+      "name": "rustfmt.toml",
+      "summary": "Rustfmt config",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "rustfmt.toml"
+    },
+    {
+      "id": "file:manifest.json",
+      "type": "config",
+      "name": "manifest.json",
+      "summary": "Plugin manifest",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "manifest.json"
+    },
+    {
+      "id": "file:build-oxp.sh",
+      "type": "script",
+      "name": "build-oxp.sh",
+      "summary": "Build script",
+      "tags": [
+        "script"
+      ],
+      "complexity": "simple",
+      "filePath": "build-oxp.sh"
+    },
+    {
+      "id": "file:src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "summary": "Plugin entry: MIDI player with soundfont support",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/lib.rs"
+    },
+    {
+      "id": "function:src/lib.rs:plugin_init",
+      "type": "function",
+      "name": "plugin_init",
+      "summary": "Creates MIDI player plugin",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "simple",
+      "filePath": "src/lib.rs"
+    },
+    {
+      "id": "file:src/play.rs",
+      "type": "file",
+      "name": "play.rs",
+      "summary": "MIDI playback engine: note scheduling, soundfont rendering, real-time output",
+      "tags": [
+        "rust",
+        "audio"
+      ],
+      "complexity": "complex",
+      "filePath": "src/play.rs"
+    },
+    {
+      "id": "file:src/settings.rs",
+      "type": "file",
+      "name": "settings.rs",
+      "summary": "Player settings: soundfont path, volume, crossfade, loop regions",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/settings.rs"
+    },
+    {
+      "id": "file:src/track.rs",
+      "type": "file",
+      "name": "track.rs",
+      "summary": "MIDI track handling: channel mapping, volume, pan",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/track.rs"
+    },
+    {
+      "id": "file:src/info.rs",
+      "type": "file",
+      "name": "info.rs",
+      "summary": "Soundfont info: reads SF2/SF3 header, lists instruments and samples",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/info.rs"
+    },
+    {
+      "id": "file:src/sf2.rs",
+      "type": "file",
+      "name": "sf2.rs",
+      "summary": "SF2 (SoundFont 2) file parser: RIFF structure, pdta/instr/pools",
+      "tags": [
+        "rust",
+        "sf2"
+      ],
+      "complexity": "complex",
+      "filePath": "src/sf2.rs"
+    },
+    {
+      "id": "file:src/sf3.rs",
+      "type": "file",
+      "name": "sf3.rs",
+      "summary": "SF3 (SoundFont 3) wrapper: extracts embedded SF2",
+      "tags": [
+        "rust",
+        "sf3"
+      ],
+      "complexity": "simple",
+      "filePath": "src/sf3.rs"
+=======
     "languages": [
       "flac",
       "json",
@@ -1866,11 +2124,32 @@
         "cleanup"
       ],
       "complexity": "moderate"
+>>>>>>> origin/develop
     },
     {
       "id": "file:src/dls.rs",
       "type": "file",
       "name": "dls.rs",
+<<<<<<< HEAD
+      "summary": "DLS (Downloadable Sounds) file parser",
+      "tags": [
+        "rust",
+        "dls"
+      ],
+      "complexity": "complex",
+      "filePath": "src/dls.rs"
+    },
+    {
+      "id": "file:src/sets.rs",
+      "type": "file",
+      "name": "sets.rs",
+      "summary": "Instrument sets: maps MIDI program numbers to soundfont instruments",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sets.rs"
+=======
       "filePath": "src/dls.rs",
       "summary": "DLS (Downloadable Sound) format parser that converts DLS sound sets to the internal SF2 representation used by rustysynth.",
       "tags": [
@@ -2135,11 +2414,128 @@
         "plugin-interface"
       ],
       "complexity": "simple"
+>>>>>>> origin/develop
     },
     {
       "id": "file:src/riff.rs",
       "type": "file",
       "name": "riff.rs",
+<<<<<<< HEAD
+      "summary": "RIFF container parser: shared by SF2, DLS formats",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/riff.rs"
+    },
+    {
+      "id": "file:src/sfz/mod.rs",
+      "type": "file",
+      "name": "sfz/mod.rs",
+      "summary": "SFZ parser module: top-level SFZ file handling",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sfz/mod.rs"
+    },
+    {
+      "id": "file:src/sfz/region.rs",
+      "type": "file",
+      "name": "sfz/region.rs",
+      "summary": "SFZ region parsing: pitch, gain, loop, filter settings",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "complex",
+      "filePath": "src/sfz/region.rs"
+    },
+    {
+      "id": "file:src/sfz/sampler.rs",
+      "type": "file",
+      "name": "sfz/sampler.rs",
+      "summary": "SFZ sample player: resampling, looping, envelope",
+      "tags": [
+        "rust",
+        "sfz",
+        "audio"
+      ],
+      "complexity": "complex",
+      "filePath": "src/sfz/sampler.rs"
+    },
+    {
+      "id": "file:src/sfz/instrument.rs",
+      "type": "file",
+      "name": "sfz/instrument.rs",
+      "summary": "SFZ instrument: groups, regions, key ranges",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sfz/instrument.rs"
+    },
+    {
+      "id": "file:src/sfz/sinc.rs",
+      "type": "file",
+      "name": "sfz/sinc.rs",
+      "summary": "Sinc resampling for high-quality sample rate conversion",
+      "tags": [
+        "rust",
+        "audio"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sfz/sinc.rs"
+    },
+    {
+      "id": "file:src/sfz/text.rs",
+      "type": "file",
+      "name": "sfz/text.rs",
+      "summary": "SFZ text parser: comments, global settings",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "simple",
+      "filePath": "src/sfz/text.rs"
+    },
+    {
+      "id": "file:src/sfz/maps.rs",
+      "type": "file",
+      "name": "sfz/maps.rs",
+      "summary": "SFZ key map: MIDI note to sample assignment",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sfz/maps.rs"
+    },
+    {
+      "id": "file:src/sfz/sample.rs",
+      "type": "file",
+      "name": "sfz/sample.rs",
+      "summary": "SFZ sample header: start/end offsets, loop points, pitch",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "simple",
+      "filePath": "src/sfz/sample.rs"
+    },
+    {
+      "id": "file:fixtures/sfz/README.md",
+      "type": "document",
+      "name": "fixture README",
+      "summary": "Test fixture documentation",
+      "tags": [
+        "test"
+      ],
+      "complexity": "simple",
+      "filePath": "fixtures/sfz/README.md"
+=======
       "filePath": "src/riff.rs",
       "summary": "RIFF format utilities for reading chunks, lists, and binary data from RIFF-based audio formats (SF2, DLS).",
       "tags": [
@@ -3296,11 +3692,20 @@
         "ci-support"
       ],
       "complexity": "moderate"
+>>>>>>> origin/develop
     },
     {
       "id": "file:tests/contract.rs",
       "type": "file",
       "name": "contract.rs",
+<<<<<<< HEAD
+      "summary": "Contract tests: MIDI playback output validation",
+      "tags": [
+        "test"
+      ],
+      "complexity": "moderate",
+      "filePath": "tests/contract.rs"
+=======
       "filePath": "tests/contract.rs",
       "summary": "Contract test suite that validates the built .oxp plugin file against OxiGuitar plugin interface requirements.",
       "tags": [
@@ -3309,11 +3714,21 @@
         "plugin-interface"
       ],
       "complexity": "simple"
+>>>>>>> origin/develop
     },
     {
       "id": "file:tests/realtime.rs",
       "type": "file",
       "name": "realtime.rs",
+<<<<<<< HEAD
+      "summary": "Real-time tests: latency, buffer underrun checks",
+      "tags": [
+        "test",
+        "audio"
+      ],
+      "complexity": "moderate",
+      "filePath": "tests/realtime.rs"
+=======
       "filePath": "tests/realtime.rs",
       "summary": "Real-time integration tests that exercise the SFZ sampler with actual audio playback using test fixtures.",
       "tags": [
@@ -3323,10 +3738,30 @@
         "audio-testing"
       ],
       "complexity": "moderate"
+>>>>>>> origin/develop
     }
   ],
   "edges": [
     {
+<<<<<<< HEAD
+      "source": "file:.github/workflows/ci.yml",
+      "target": "file:.github/workflows/listening.yml",
+      "type": "related",
+      "direction": "bidirectional",
+      "weight": 0.5
+    },
+    {
+      "source": "file:.github/workflows/publish.yml",
+      "target": "file:.github/workflows/release.yml",
+      "type": "related",
+      "direction": "bidirectional",
+      "weight": 0.5
+    },
+    {
+      "source": "file:build-oxp.sh",
+      "target": "file:Cargo.toml",
+      "type": "uses",
+=======
       "source": "file:src/play.rs",
       "target": "file:src/sfz/maps.rs",
       "type": "imports",
@@ -3351,10 +3786,23 @@
       "source": "file:src/play.rs",
       "target": "function:src/play.rs:vibrato_of",
       "type": "exports",
+>>>>>>> origin/develop
       "direction": "forward",
       "weight": 0.8
     },
     {
+<<<<<<< HEAD
+      "source": "file:deny.toml",
+      "target": "file:Cargo.toml",
+      "type": "validates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:manifest.json",
+      "target": "file:Cargo.toml",
+      "type": "references",
+=======
       "source": "file:src/play.rs",
       "target": "function:src/play.rs:new",
       "type": "contains",
@@ -4597,18 +5045,62 @@
       "source": "file:src/lib.rs",
       "target": "file:src/info.rs",
       "type": "imports",
+>>>>>>> origin/develop
       "direction": "forward",
       "weight": 0.7
     },
     {
       "source": "file:src/lib.rs",
       "target": "file:src/play.rs",
+<<<<<<< HEAD
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/settings.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/track.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/info.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sf3.rs",
+      "type": "depends-on",
+=======
       "type": "imports",
+>>>>>>> origin/develop
       "direction": "forward",
       "weight": 0.7
     },
     {
       "source": "file:src/lib.rs",
+<<<<<<< HEAD
+      "target": "file:src/dls.rs",
+      "type": "depends-on",
+=======
       "target": "file:src/riff.rs",
       "type": "imports",
       "direction": "forward",
@@ -4639,12 +5131,51 @@
       "source": "file:src/lib.rs",
       "target": "file:src/sf3.rs",
       "type": "imports",
+>>>>>>> origin/develop
       "direction": "forward",
       "weight": 0.7
     },
     {
       "source": "file:src/lib.rs",
       "target": "file:src/sfz/mod.rs",
+<<<<<<< HEAD
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/settings.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/track.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/sfz/sampler.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+=======
       "type": "imports",
       "direction": "forward",
       "weight": 0.7
@@ -4653,10 +5184,23 @@
       "source": "file:src/lib.rs",
       "target": "file:src/track.rs",
       "type": "imports",
+>>>>>>> origin/develop
       "direction": "forward",
       "weight": 0.7
     },
     {
+<<<<<<< HEAD
+      "source": "file:src/info.rs",
+      "target": "file:src/dls.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sf2.rs",
+      "target": "file:src/riff.rs",
+      "type": "depends-on",
+=======
       "source": "file:src/lib.rs",
       "target": "function:src/lib.rs:user_folder",
       "type": "contains",
@@ -4905,10 +5449,16 @@
       "source": "file:src/sf2.rs",
       "target": "function:src/sf2.rs:write",
       "type": "exports",
+>>>>>>> origin/develop
       "direction": "forward",
       "weight": 0.8
     },
     {
+<<<<<<< HEAD
+      "source": "file:src/dls.rs",
+      "target": "file:src/riff.rs",
+      "type": "depends-on",
+=======
       "source": "file:src/sf2.rs",
       "target": "function:src/sf2.rs:test_set",
       "type": "contains",
@@ -4919,17 +5469,135 @@
       "source": "file:src/sf2.rs",
       "target": "function:src/sf2.rs:test_set",
       "type": "exports",
+>>>>>>> origin/develop
       "direction": "forward",
       "weight": 0.8
     },
     {
       "source": "file:src/sf3.rs",
+<<<<<<< HEAD
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+=======
       "target": "file:src/riff.rs",
       "type": "imports",
+>>>>>>> origin/develop
       "direction": "forward",
       "weight": 0.7
     },
     {
+<<<<<<< HEAD
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/region.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/instrument.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/sampler.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/text.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/maps.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/sample.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "file:src/sfz/sinc.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "file:src/sfz/sample.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "file:src/sfz/region.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/maps.rs",
+      "target": "file:src/sfz/region.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "file:src/dls.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "file:src/sfz/instrument.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/contract.rs",
+      "target": "file:src/lib.rs",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/contract.rs",
+      "target": "file:src/play.rs",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/realtime.rs",
+      "target": "file:src/play.rs",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+=======
       "source": "file:src/sf3.rs",
       "target": "function:src/sf3.rs:is_sf3",
       "type": "contains",
@@ -5652,10 +6320,83 @@
       "type": "triggers",
       "direction": "forward",
       "weight": 0.6
+>>>>>>> origin/develop
     }
   ],
   "layers": [
     {
+<<<<<<< HEAD
+      "name": "CI/CD Pipelines",
+      "nodes": [
+        "file:.github/workflows/ci.yml",
+        "file:.github/workflows/listening.yml",
+        "file:.github/workflows/publish.yml",
+        "file:.github/workflows/release.yml"
+      ],
+      "description": "CI/CD Pipelines layer"
+    },
+    {
+      "name": "Documentation",
+      "nodes": [
+        "file:README.md",
+        "file:CHANGELOG.md",
+        "file:CONTRIBUTING.md",
+        "file:fixtures/sfz/README.md"
+      ],
+      "description": "Documentation layer"
+    },
+    {
+      "name": "Plugin Source",
+      "nodes": [
+        "file:CLAUDE.md",
+        "file:manifest.json",
+        "file:src/lib.rs",
+        "function:src/lib.rs:plugin_init",
+        "file:src/play.rs",
+        "file:src/settings.rs",
+        "file:src/track.rs",
+        "file:src/info.rs",
+        "file:src/sf2.rs",
+        "file:src/sf3.rs",
+        "file:src/dls.rs",
+        "file:src/sets.rs",
+        "file:src/riff.rs",
+        "file:src/sfz/mod.rs",
+        "file:src/sfz/region.rs",
+        "file:src/sfz/sampler.rs",
+        "file:src/sfz/instrument.rs",
+        "file:src/sfz/sinc.rs",
+        "file:src/sfz/text.rs",
+        "file:src/sfz/maps.rs",
+        "file:src/sfz/sample.rs"
+      ],
+      "description": "Plugin Source layer"
+    },
+    {
+      "name": "Configuration",
+      "nodes": [
+        "file:Cargo.toml",
+        "file:clippy.toml",
+        "file:deny.toml",
+        "file:rustfmt.toml"
+      ],
+      "description": "Configuration layer"
+    },
+    {
+      "name": "Scripts",
+      "nodes": [
+        "file:build-oxp.sh"
+      ],
+      "description": "Scripts layer"
+    },
+    {
+      "name": "Test Infrastructure",
+      "nodes": [
+        "file:tests/contract.rs",
+        "file:tests/realtime.rs"
+      ],
+      "description": "Test Infrastructure layer"
+=======
       "id": "layer:core-library",
       "name": "Core Library",
       "description": "The OxiGuitar plugin interface — the lib.rs entry point that defines MidiPlugin, implements the plugin contract, and re-exports all public modules.",
@@ -5761,10 +6502,41 @@
         "file:tests/realtime.rs",
         "file:scripts/check-dco.sh"
       ]
+>>>>>>> origin/develop
     }
   ],
   "tour": [
     {
+<<<<<<< HEAD
+      "title": "Plugin Overview",
+      "nodeId": "file:README.md",
+      "summary": "oxiguitar-midi plugin overview",
+      "layer": "Documentation"
+    },
+    {
+      "title": "Plugin Entry",
+      "nodeId": "file:src/lib.rs",
+      "summary": "Plugin entry point",
+      "layer": "Plugin Source"
+    },
+    {
+      "title": "play.rs",
+      "nodeId": "file:src/play.rs",
+      "summary": "src/play.rs component",
+      "layer": "Plugin Source"
+    },
+    {
+      "title": "Cargo.toml",
+      "nodeId": "file:Cargo.toml",
+      "summary": "Cargo.toml component",
+      "layer": "Configuration"
+    },
+    {
+      "title": "ci.yml",
+      "nodeId": "file:.github/workflows/ci.yml",
+      "summary": ".github/workflows/ci.yml component",
+      "layer": "CI/CD Pipelines"
+=======
       "order": 1,
       "title": "Project Overview",
       "description": "Read the README to understand what this plugin does: it plays OxiGuitar guitar tablature tracks using MIDI with SoundFont, DLS, or SFZ sound sets. It ships with a custom 256-voice SFZ synthesizer and uses rustysynth for SoundFont synthesis.",
@@ -5875,6 +6647,7 @@
         "pipeline:.github/workflows/publish.yml",
         "pipeline:.github/workflows/release.yml"
       ]
+>>>>>>> origin/develop
     }
   ]
 }
