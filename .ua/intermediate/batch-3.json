@@ -1,0 +1,449 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "summary": "Plugin entry: MIDI player with soundfont support",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/lib.rs"
+    },
+    {
+      "id": "function:src/lib.rs:plugin_init",
+      "type": "function",
+      "name": "plugin_init",
+      "summary": "Creates MIDI player plugin",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "simple",
+      "filePath": "src/lib.rs"
+    },
+    {
+      "id": "file:src/play.rs",
+      "type": "file",
+      "name": "play.rs",
+      "summary": "MIDI playback engine: note scheduling, soundfont rendering, real-time output",
+      "tags": [
+        "rust",
+        "audio"
+      ],
+      "complexity": "complex",
+      "filePath": "src/play.rs"
+    },
+    {
+      "id": "file:src/settings.rs",
+      "type": "file",
+      "name": "settings.rs",
+      "summary": "Player settings: soundfont path, volume, crossfade, loop regions",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/settings.rs"
+    },
+    {
+      "id": "file:src/track.rs",
+      "type": "file",
+      "name": "track.rs",
+      "summary": "MIDI track handling: channel mapping, volume, pan",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/track.rs"
+    },
+    {
+      "id": "file:src/info.rs",
+      "type": "file",
+      "name": "info.rs",
+      "summary": "Soundfont info: reads SF2/SF3 header, lists instruments and samples",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/info.rs"
+    },
+    {
+      "id": "file:src/sf2.rs",
+      "type": "file",
+      "name": "sf2.rs",
+      "summary": "SF2 (SoundFont 2) file parser: RIFF structure, pdta/instr/pools",
+      "tags": [
+        "rust",
+        "sf2"
+      ],
+      "complexity": "complex",
+      "filePath": "src/sf2.rs"
+    },
+    {
+      "id": "file:src/sf3.rs",
+      "type": "file",
+      "name": "sf3.rs",
+      "summary": "SF3 (SoundFont 3) wrapper: extracts embedded SF2",
+      "tags": [
+        "rust",
+        "sf3"
+      ],
+      "complexity": "simple",
+      "filePath": "src/sf3.rs"
+    },
+    {
+      "id": "file:src/dls.rs",
+      "type": "file",
+      "name": "dls.rs",
+      "summary": "DLS (Downloadable Sounds) file parser",
+      "tags": [
+        "rust",
+        "dls"
+      ],
+      "complexity": "complex",
+      "filePath": "src/dls.rs"
+    },
+    {
+      "id": "file:src/sets.rs",
+      "type": "file",
+      "name": "sets.rs",
+      "summary": "Instrument sets: maps MIDI program numbers to soundfont instruments",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sets.rs"
+    },
+    {
+      "id": "file:src/riff.rs",
+      "type": "file",
+      "name": "riff.rs",
+      "summary": "RIFF container parser: shared by SF2, DLS formats",
+      "tags": [
+        "rust"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/riff.rs"
+    },
+    {
+      "id": "file:src/sfz/mod.rs",
+      "type": "file",
+      "name": "sfz/mod.rs",
+      "summary": "SFZ parser module: top-level SFZ file handling",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sfz/mod.rs"
+    },
+    {
+      "id": "file:src/sfz/region.rs",
+      "type": "file",
+      "name": "sfz/region.rs",
+      "summary": "SFZ region parsing: pitch, gain, loop, filter settings",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "complex",
+      "filePath": "src/sfz/region.rs"
+    },
+    {
+      "id": "file:src/sfz/sampler.rs",
+      "type": "file",
+      "name": "sfz/sampler.rs",
+      "summary": "SFZ sample player: resampling, looping, envelope",
+      "tags": [
+        "rust",
+        "sfz",
+        "audio"
+      ],
+      "complexity": "complex",
+      "filePath": "src/sfz/sampler.rs"
+    },
+    {
+      "id": "file:src/sfz/instrument.rs",
+      "type": "file",
+      "name": "sfz/instrument.rs",
+      "summary": "SFZ instrument: groups, regions, key ranges",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sfz/instrument.rs"
+    },
+    {
+      "id": "file:src/sfz/sinc.rs",
+      "type": "file",
+      "name": "sfz/sinc.rs",
+      "summary": "Sinc resampling for high-quality sample rate conversion",
+      "tags": [
+        "rust",
+        "audio"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sfz/sinc.rs"
+    },
+    {
+      "id": "file:src/sfz/text.rs",
+      "type": "file",
+      "name": "sfz/text.rs",
+      "summary": "SFZ text parser: comments, global settings",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "simple",
+      "filePath": "src/sfz/text.rs"
+    },
+    {
+      "id": "file:src/sfz/maps.rs",
+      "type": "file",
+      "name": "sfz/maps.rs",
+      "summary": "SFZ key map: MIDI note to sample assignment",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/sfz/maps.rs"
+    },
+    {
+      "id": "file:src/sfz/sample.rs",
+      "type": "file",
+      "name": "sfz/sample.rs",
+      "summary": "SFZ sample header: start/end offsets, loop points, pitch",
+      "tags": [
+        "rust",
+        "sfz"
+      ],
+      "complexity": "simple",
+      "filePath": "src/sfz/sample.rs"
+    },
+    {
+      "id": "file:fixtures/sfz/README.md",
+      "type": "document",
+      "name": "fixture README",
+      "summary": "Test fixture documentation",
+      "tags": [
+        "test"
+      ],
+      "complexity": "simple",
+      "filePath": "fixtures/sfz/README.md"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/play.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/settings.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/track.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/info.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sf3.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/dls.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib.rs",
+      "target": "file:src/sfz/mod.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/settings.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/track.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/play.rs",
+      "target": "file:src/sfz/sampler.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/info.rs",
+      "target": "file:src/dls.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sf2.rs",
+      "target": "file:src/riff.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dls.rs",
+      "target": "file:src/riff.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sf3.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/region.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/instrument.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/sampler.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/text.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/maps.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/mod.rs",
+      "target": "file:src/sfz/sample.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/sampler.rs",
+      "target": "file:src/sfz/sinc.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/region.rs",
+      "target": "file:src/sfz/sample.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sfz/instrument.rs",
+      "target": "file:src/sfz/region.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/sfz/maps.rs",
+      "target": "file:src/sfz/region.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "file:src/sf2.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "file:src/dls.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sets.rs",
+      "target": "file:src/sfz/instrument.rs",
+      "type": "depends-on",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

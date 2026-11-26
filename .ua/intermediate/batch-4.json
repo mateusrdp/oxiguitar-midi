@@ -1,0 +1,50 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/contract.rs",
+      "type": "file",
+      "name": "contract.rs",
+      "summary": "Contract tests: MIDI playback output validation",
+      "tags": [
+        "test"
+      ],
+      "complexity": "moderate",
+      "filePath": "tests/contract.rs"
+    },
+    {
+      "id": "file:tests/realtime.rs",
+      "type": "file",
+      "name": "realtime.rs",
+      "summary": "Real-time tests: latency, buffer underrun checks",
+      "tags": [
+        "test",
+        "audio"
+      ],
+      "complexity": "moderate",
+      "filePath": "tests/realtime.rs"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/contract.rs",
+      "target": "file:src/lib.rs",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/contract.rs",
+      "target": "file:src/play.rs",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/realtime.rs",
+      "target": "file:src/play.rs",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

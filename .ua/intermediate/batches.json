@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 41,
+  "totalBatches": 4,
+  "exportsByPath": {
+    "fixtures/sfz/sine-16.flac": [],
+    "fixtures/sfz/sine-24.flac": [],
+    "fixtures/sfz/sine.ogg": [],
+    "src/dls.rs": [
+      "to_sf2"
+    ],
+    "src/info.rs": [
+      "Info",
+      "parse",
+      "plays_unpicked",
+      "short_label",
+      "of"
+    ],
+    "src/lib.rs": [
+      "MidiPlugin",
+      "user_folder",
+      "playable"
+    ],
+    "src/play.rs": [
+      "vibrato_of",
+      "run",
+      "Sound",
+      "Player",
+      "new"
+    ],
+    "src/riff.rs": [
+      "Chunk",
+      "list",
+      "u16_at",
+      "u32_at",
+      "i32_at",
+      "invalid",
+      "chunks",
+      "form",
+      "find",
+      "find_list",
+      "show"
+    ],
+    "src/sets.rs": [
+      "Origin",
+      "Kind",
+      "of",
+      "Found",
+      "installed_places",
+      "system_places",
+      "find"
+    ],
+    "src/settings.rs": [
+      "Role",
+      "key",
+      "from_key",
+      "of_key",
+      "title",
+      "of",
+      "chosen",
+      "automatic",
+      "Window",
+      "new",
+      "found",
+      "label",
+      "only_basic"
+    ],
+    "src/sf2.rs": [
+      "Sample",
+      "Zone",
+      "Instrument",
+      "Preset",
+      "Sf2",
+      "write",
+      "test_set"
+    ],
+    "src/sf3.rs": [
+      "is_sf3",
+      "to_sf2"
+    ],
+    "src/sfz/instrument.rs": [
+      "Curves",
+      "at",
+      "Instrument",
+      "build",
+      "read"
+    ],
+    "src/sfz/maps.rs": [
+      "Articulation",
+      "Map",
+      "for_instrument",
+      "key"
+    ],
+    "src/sfz/mod.rs": [
+      "Loaded",
+      "bytes",
+      "Samples",
+      "trim",
+      "load"
+    ],
+    "src/sfz/region.rs": [
+      "Trigger",
+      "LoopMode",
+      "OffMode",
+      "Crossfade",
+      "FilterKind",
+      "Wave",
+      "EgKind",
+      "EgParam",
+      "LfoParam",
+      "OldLfo",
+      "Target",
+      "Mod",
+      "CcFade",
+      "Eg",
+      "Lfo",
+      "SimpleLfo",
+      "Source",
+      "KeyCenter",
+      "Region",
+      "Applied",
+      "Context",
+      "normal",
+      "key",
+      "number",
+      "shape",
+      "apply"
+    ],
+    "src/sfz/sample.rs": [
+      "Pcm",
+      "Sample",
+      "at",
+      "bytes",
+      "read",
+      "decode"
+    ],
+    "src/sfz/sampler.rs": [
+      "Sampler",
+      "new",
+      "set_switch",
+      "set_controller",
+      "carry",
+      "hold",
+      "end_pending",
+      "note_on",
+      "note_off",
+      "end_string",
+      "stop",
+      "update",
+      "render",
+      "sounding"
+    ],
+    "src/sfz/sinc.rs": [
+      "Kernel",
+      "kernel",
+      "weights"
+    ],
+    "src/sfz/text.rs": [
+      "Item",
+      "Text",
+      "read",
+      "read_with",
+      "includes"
+    ],
+    "src/track.rs": [
+      "Pick",
+      "of",
+      "of_text",
+      "set_for"
+    ],
+    "tests/contract.rs": [],
+    "tests/realtime.rs": []
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "language": "yaml",
+          "sizeLines": 174,
+          "fileCategory": "infra"
+        },
+        {
+          "path": ".github/workflows/listening.yml",
+          "language": "yaml",
+          "sizeLines": 325,
+          "fileCategory": "infra"
+        },
+        {
+          "path": ".github/workflows/publish.yml",
+          "language": "yaml",
+          "sizeLines": 28,
+          "fileCategory": "infra"
+        },
+        {
+          "path": ".github/workflows/release.yml",
+          "language": "yaml",
+          "sizeLines": 42,
+          "fileCategory": "infra"
+        }
+      ],
+      "batchImportData": {
+        ".github/workflows/ci.yml": [],
+        ".github/workflows/listening.yml": [],
+        ".github/workflows/publish.yml": [],
+        ".github/workflows/release.yml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "CHANGELOG.md",
+          "language": "markdown",
+          "sizeLines": 62,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "CLAUDE.md",
+          "language": "markdown",
+          "sizeLines": 33,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "language": "markdown",
+          "sizeLines": 42,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "Cargo.toml",
+          "language": "toml",
+          "sizeLines": 63,
+          "fileCategory": "config"
+        },
+        {
+          "path": "README.md",
+          "language": "markdown",
+          "sizeLines": 34,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "build-oxp.sh",
+          "language": "shell",
+          "sizeLines": 56,
+          "fileCategory": "script"
+        },
+        {
+          "path": "clippy.toml",
+          "language": "toml",
+          "sizeLines": 5,
+          "fileCategory": "config"
+        },
+        {
+          "path": "deny.toml",
+          "language": "toml",
+          "sizeLines": 64,
+          "fileCategory": "config"
+        },
+        {
+          "path": "manifest.json",
+          "language": "json",
+          "sizeLines": 19,
+          "fileCategory": "config"
+        },
+        {
+          "path": "rustfmt.toml",
+          "language": "toml",
+          "sizeLines": 3,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "CHANGELOG.md": [],
+        "CLAUDE.md": [],
+        "CONTRIBUTING.md": [],
+        "Cargo.toml": [],
+        "README.md": [],
+        "build-oxp.sh": [],
+        "clippy.toml": [],
+        "deny.toml": [],
+        "manifest.json": [],
+        "rustfmt.toml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": ".github/dependabot.yml",
+          "language": "yaml",
+          "sizeLines": 24,
+          "fileCategory": "config"
+        },
+        {
+          "path": ".github/pull_request_template.md",
+          "language": "markdown",
+          "sizeLines": 15,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "fixtures/sfz/README.md",
+          "language": "markdown",
+          "sizeLines": 11,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "fixtures/sfz/sine-16.flac",
+          "language": "flac",
+          "sizeLines": 2,
+          "fileCategory": "code"
+        },
+        {
+          "path": "fixtures/sfz/sine-24.flac",
+          "language": "flac",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "fixtures/sfz/sine.ogg",
+          "language": "ogg",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "scripts/check-dco.sh",
+          "language": "shell",
+          "sizeLines": 70,
+          "fileCategory": "script"
+        },
+        {
+          "path": "src/dls.rs",
+          "language": "rust",
+          "sizeLines": 842,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/info.rs",
+          "language": "rust",
+          "sizeLines": 290,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/lib.rs",
+          "language": "rust",
+          "sizeLines": 428,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/play.rs",
+          "language": "rust",
+          "sizeLines": 1430,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/riff.rs",
+          "language": "rust",
+          "sizeLines": 115,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sets.rs",
+          "language": "rust",
+          "sizeLines": 326,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/settings.rs",
+          "language": "rust",
+          "sizeLines": 765,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sf2.rs",
+          "language": "rust",
+          "sizeLines": 393,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sf3.rs",
+          "language": "rust",
+          "sizeLines": 280,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sfz/instrument.rs",
+          "language": "rust",
+          "sizeLines": 532,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sfz/maps.rs",
+          "language": "rust",
+          "sizeLines": 247,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sfz/mod.rs",
+          "language": "rust",
+          "sizeLines": 254,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sfz/region.rs",
+          "language": "rust",
+          "sizeLines": 1537,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sfz/sample.rs",
+          "language": "rust",
+          "sizeLines": 475,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sfz/sampler.rs",
+          "language": "rust",
+          "sizeLines": 2089,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sfz/sinc.rs",
+          "language": "rust",
+          "sizeLines": 185,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/sfz/text.rs",
+          "language": "rust",
+          "sizeLines": 544,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/track.rs",
+          "language": "rust",
+          "sizeLines": 287,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        ".github/dependabot.yml": [],
+        ".github/pull_request_template.md": [],
+        "fixtures/sfz/README.md": [],
+        "fixtures/sfz/sine-16.flac": [],
+        "fixtures/sfz/sine-24.flac": [],
+        "fixtures/sfz/sine.ogg": [],
+        "scripts/check-dco.sh": [],
+        "src/dls.rs": [],
+        "src/info.rs": [],
+        "src/lib.rs": [],
+        "src/play.rs": [],
+        "src/riff.rs": [],
+        "src/sets.rs": [],
+        "src/settings.rs": [],
+        "src/sf2.rs": [],
+        "src/sf3.rs": [],
+        "src/sfz/instrument.rs": [],
+        "src/sfz/maps.rs": [],
+        "src/sfz/mod.rs": [],
+        "src/sfz/region.rs": [],
+        "src/sfz/sample.rs": [],
+        "src/sfz/sampler.rs": [],
+        "src/sfz/sinc.rs": [],
+        "src/sfz/text.rs": [],
+        "src/track.rs": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "tests/contract.rs",
+          "language": "rust",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "tests/realtime.rs",
+          "language": "rust",
+          "sizeLines": 109,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "tests/contract.rs": [],
+        "tests/realtime.rs": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}
